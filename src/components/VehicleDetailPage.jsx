@@ -90,7 +90,7 @@ export default function VehicleDetailPage({ vehicle, onBack, onBookNow }) {
     { icon: Wind,        label: 'Climate',       value: vehicle.specs.climate },
     { icon: ShieldCheck, label: 'Ride Comfort',  value: vehicle.specs.comfort },
     { icon: Compass,     label: 'Best For',      value: vehicle.specs.range },
-    { icon: MapPin,      label: 'Registration',  value: vehicle.registrationNumber },
+    { icon: MapPin,      label: 'Permit & Transit', value: 'All India Tourist Permit' },
   ];
 
   /* ── WhatsApp ── */
@@ -185,11 +185,7 @@ export default function VehicleDetailPage({ vehicle, onBack, onBookNow }) {
                 <Users className="w-3.5 h-3.5 text-[#8B1E1E]" />
                 <span>{vehicle.seats} Seats</span>
               </span>
-              {vehicle.registrationNumber && (
-                <span className="px-3 py-1 rounded-full bg-white/20 backdrop-blur-md text-white text-[10px] font-mono font-bold tracking-wider border border-white/30">
-                  {vehicle.registrationNumber}
-                </span>
-              )}
+
               <span className="px-2.5 py-1 rounded-full bg-amber-400 text-slate-950 text-[10px] font-bold uppercase tracking-wider">
                 100% Owned Fleet
               </span>
@@ -262,8 +258,8 @@ export default function VehicleDetailPage({ vehicle, onBack, onBookNow }) {
                       Official Showroom Cutout
                     </span>
                   </div>
-                  <span className="px-2.5 py-0.5 rounded-full bg-slate-100 text-slate-700 text-[10px] font-mono font-bold border border-slate-200">
-                    {vehicle.registrationNumber || 'TN 59 REGISTERED'}
+                  <span className="px-2.5 py-0.5 rounded-full bg-slate-100 text-slate-700 text-[10px] font-bold border border-slate-200">
+                    Verified Commercial Fleet
                   </span>
                 </div>
 
