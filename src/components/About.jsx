@@ -42,7 +42,7 @@ export default function About() {
             {/* Primary Large Card: Real Mariya 21-Seat Luxury Coach */}
             <div className="relative rounded-3xl overflow-hidden border-2 border-stone-200/80 shadow-xl bg-slate-950 group">
               <img
-                src="/vehicles/coach-21-ac.jpg"
+                src="/vehicles/gallery/coach-3-front-angle.jpg"
                 alt="Mariya Travels 21 Seat AC Luxury Coach"
                 className="w-full h-[290px] sm:h-[340px] lg:h-[370px] object-cover transition-transform duration-700 group-hover:scale-105"
               />
@@ -72,7 +72,7 @@ export default function About() {
             <div className="hidden sm:block absolute -bottom-5 -right-4 lg:-bottom-6 lg:-right-5 z-20 w-56 sm:w-60 rounded-2xl overflow-hidden border-2 border-white shadow-2xl bg-white group hover:-translate-y-1 transition-transform">
               <div className="relative h-24 overflow-hidden bg-slate-900">
                 <img
-                  src="/vehicles/coach-21-ac-interior.jpg"
+                  src="/vehicles/gallery/coach-4-cabin-interior.jpg"
                   alt="Mariya Coach Pushback Interior"
                   className="w-full h-full object-cover group-hover:scale-108 transition-transform duration-500"
                 />
