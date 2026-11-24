@@ -145,11 +145,6 @@ export default function Hero({
             />
           </div>
 
-          <div className="inline-flex items-center space-x-1.5 px-3 py-1 rounded-full bg-black/40 backdrop-blur-md border border-white/20 text-[#F5B800] text-[10px] sm:text-[11px] font-black uppercase tracking-widest shadow-md">
-            <Sparkles className="w-3 h-3 fill-current" />
-            <span>Madurai's Premier Fleet & Tour Partner</span>
-          </div>
-
           <h1 className="font-serif text-2xl sm:text-4xl md:text-[2.75rem] text-white font-bold leading-tight tracking-tight drop-shadow-[0_3px_14px_rgba(0,0,0,0.95)]">
             Every Journey Deserves a Better Ride with{' '}
             <span className="text-[#F5B800] not-italic font-black drop-shadow-[0_2px_12px_rgba(245,184,0,0.5)]">
