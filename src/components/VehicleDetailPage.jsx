@@ -450,14 +450,17 @@ export default function VehicleDetailPage({ vehicle, onBack, onBookNow }) {
 
             {/* RIGHT: Amenities + WhatsApp booking card */}
             <div className="lg:col-span-5 space-y-5">
-              <div className="bg-[#FAF8F5] p-6 sm:p-7 rounded-3xl border border-slate-200 shadow-sm">
+              <div className="bg-[#FAF8F5] p-4 sm:p-7 rounded-3xl border border-slate-200 shadow-sm">
 
-                <div className="flex items-center justify-between border-b border-slate-200 pb-3 mb-4">
-                  <span className="text-[11px] font-black uppercase tracking-widest text-[#8B1E1E] flex items-center space-x-1.5">
-                    <Sparkles className="w-4 h-4 text-[#8B1E1E]" />
-                    <span>Included Passenger Amenities</span>
-                  </span>
-                  <span className="px-2.5 py-0.5 rounded-full bg-[#8B1E1E] text-white text-[10px] font-black uppercase tracking-wider">
+                <div className="flex items-center justify-between gap-2 border-b border-slate-200 pb-3 mb-4">
+                  <div className="flex items-center space-x-1.5 min-w-0">
+                    <Sparkles className="w-4 h-4 text-[#8B1E1E] shrink-0" />
+                    <span className="text-[11px] font-black uppercase tracking-wider sm:tracking-widest text-[#8B1E1E] truncate">
+                      <span className="hidden sm:inline">Included Passenger Amenities</span>
+                      <span className="sm:hidden">Passenger Amenities</span>
+                    </span>
+                  </div>
+                  <span className="px-2.5 py-0.5 rounded-full bg-[#8B1E1E] text-white text-[10px] font-black uppercase tracking-wider whitespace-nowrap shrink-0">
                     {vehicle.highlights.length} Features
                   </span>
                 </div>
