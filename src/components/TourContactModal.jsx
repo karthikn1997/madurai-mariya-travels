@@ -11,7 +11,7 @@ export default function TourContactModal({
   isOpen, 
   onClose, 
   packageName = 'South India Tour Circuit',
-  durationSeconds = 20 
+  durationSeconds = 30 
 }) {
   const [timeLeft, setTimeLeft] = useState(durationSeconds);
   const [isInteracting, setIsInteracting] = useState(false);

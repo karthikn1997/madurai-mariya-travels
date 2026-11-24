@@ -21,32 +21,21 @@ export default function App() {
   const [showTourPopup, setShowTourPopup]         = useState(false);
   const [popupDismissed, setPopupDismissed]       = useState(false);
 
-  // Automatically trigger contact popup when user reaches Tour Packages section
+  // Show enquiry popup ONLY ONCE when website is first opened (runs for 30s)
   useEffect(() => {
-    if (popupDismissed) return;
+    const hasShown = sessionStorage.getItem('mariya_initial_popup_shown');
+    if (hasShown) {
+      setPopupDismissed(true);
+      return;
+    }
 
-    let timer;
-    const packagesEl = document.getElementById('packages');
-    if (!packagesEl) return;
+    const timer = setTimeout(() => {
+      setShowTourPopup(true);
+      sessionStorage.setItem('mariya_initial_popup_shown', 'true');
+    }, 1500);
 
-    const observer = new IntersectionObserver(
-      (entries) => {
-        const entry = entries[0];
-        if (entry.isIntersecting && !popupDismissed) {
-          timer = setTimeout(() => {
-            setShowTourPopup(true);
-          }, 1200);
-        }
-      },
-      { threshold: 0.25 }
-    );
-
-    observer.observe(packagesEl);
-    return () => {
-      observer.disconnect();
-      if (timer) clearTimeout(timer);
-    };
-  }, [popupDismissed]);
+    return () => clearTimeout(timer);
+  }, []);
 
   /* ── Scroll to booking form with optional prefilled values ── */
   const handleScrollToBooking = (vehicleName = null, estimateAmount = null, destinationName = null) => {
@@ -95,12 +84,6 @@ export default function App() {
       const packagesSection = document.getElementById('packages');
       if (packagesSection) {
         packagesSection.scrollIntoView({ behavior: 'smooth' });
-      }
-
-      if (!popupDismissed) {
-        setTimeout(() => {
-          setShowTourPopup(true);
-        }, 1000);
       }
     }, 60);
   };
@@ -199,15 +182,15 @@ export default function App() {
       {/* Luxury Footer */}
       <Footer onSelectVehicleName={(vehicleName) => handleScrollToBooking(vehicleName)} />
 
-      {/* 20-Second Auto Contact Enquiry Popup for Tour Packages */}
+      {/* 30-Second Auto Contact Enquiry Popup - Shows ONLY ONCE on site open */}
       <TourContactModal
         isOpen={showTourPopup}
         onClose={() => {
           setShowTourPopup(false);
           setPopupDismissed(true);
         }}
-        packageName="South India Curated Tour Packages"
-        durationSeconds={20}
+        packageName="Quick Reservation & Instant Itinerary Quote"
+        durationSeconds={30}
       />
     </div>
   );
