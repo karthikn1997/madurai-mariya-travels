@@ -285,23 +285,24 @@ export default function VehicleDetailPage({ vehicle, onBack, onBookNow }) {
 
             {/* RIGHT COLUMN: Auto-Swiping Multi-Angle & Cabin Interior Carousel */}
             <div 
-              className="lg:col-span-6 flex flex-col justify-between bg-white rounded-3xl border border-slate-200/90 p-6 sm:p-8 shadow-sm"
+              className="lg:col-span-6 flex flex-col justify-between bg-white rounded-3xl border border-slate-200/90 p-4 sm:p-8 shadow-sm"
               onMouseEnter={() => setIsCarouselHovered(true)}
               onMouseLeave={() => setIsCarouselHovered(false)}
             >
               <div>
-                <div className="flex items-center justify-between mb-4">
-                  <div className="flex items-center space-x-2">
-                    <span className="w-2.5 h-2.5 rounded-full bg-emerald-500 animate-pulse" />
-                    <span className="text-xs font-black uppercase tracking-widest text-slate-900 flex items-center space-x-1.5">
-                      <span>Multi-Angle & Cabin Showcase</span>
-                      <span className="text-[10px] text-emerald-600 font-bold bg-emerald-50 px-2 py-0.5 rounded-full border border-emerald-200">
-                        Auto-Swipe
-                      </span>
+                <div className="flex items-center justify-between gap-2 mb-3.5">
+                  <div className="flex items-center space-x-2 min-w-0">
+                    <span className="w-2.5 h-2.5 rounded-full bg-emerald-500 animate-pulse shrink-0" />
+                    <span className="text-xs font-black uppercase tracking-wider text-slate-900 truncate">
+                      <span className="hidden sm:inline">Multi-Angle & Cabin Showcase</span>
+                      <span className="sm:hidden">Cabin Showcase</span>
+                    </span>
+                    <span className="shrink-0 text-[10px] text-emerald-600 font-bold bg-emerald-50 px-2 py-0.5 rounded-full border border-emerald-200 whitespace-nowrap">
+                      Auto-Swipe
                     </span>
                   </div>
 
-                  <span className="text-xs font-bold text-slate-500">
+                  <span className="shrink-0 text-xs font-bold text-slate-500 whitespace-nowrap tabular-nums">
                     {activePhotoIdx + 1} of {photos.length}
                   </span>
                 </div>
