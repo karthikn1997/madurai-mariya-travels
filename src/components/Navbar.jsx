@@ -80,10 +80,33 @@ export default function Navbar({ onBookClick }) {
         </div>
 
         {/* ============================================================== */}
-        {/* 2. MAIN NAVBAR (WITHOUT LOGO, CLEAN & SPACIOUS)                */}
+        {/* 2. MAIN NAVBAR (WITH CRISP HD BRAND LOGO)                      */}
         {/* ============================================================== */}
-        <div className="bg-white/95 backdrop-blur-xl border-b border-slate-200 py-2.5 sm:py-3">
-          <div className="max-w-7xl mx-auto px-3.5 sm:px-6 lg:px-8 flex items-center justify-between gap-3">
+        <div className="bg-white/95 backdrop-blur-xl border-b border-slate-200 py-2 sm:py-2.5">
+          <div className="max-w-7xl mx-auto px-3.5 sm:px-6 lg:px-8 flex items-center justify-between gap-3 sm:gap-6">
+            
+            {/* Brand Logo on Navbar Left */}
+            <a href="#home" className="flex items-center space-x-2 shrink-0 group py-0.5" title="Mariya Travels Home">
+              {/* Desktop / Tablet View: Full Official Logo with Speed Wings */}
+              <img 
+                src="/logo.png" 
+                alt="Madurai Mariya Travels Logo" 
+                className="hidden sm:block h-9 md:h-11 w-auto object-contain transition-transform duration-300 group-hover:scale-105" 
+              />
+
+              {/* Mobile View: Circular Emblem + "Mariya Travels" Bold Text */}
+              <div className="flex sm:hidden items-center space-x-2">
+                <img 
+                  src="/emblem.png" 
+                  alt="Mariya Travels Emblem" 
+                  className="h-8 w-8 object-contain transition-transform duration-300 group-hover:scale-105 drop-shadow-2xs" 
+                />
+                <span className="font-serif font-black text-sm tracking-wide text-slate-950 uppercase">
+                  Mariya <span className="text-[#8B1E1E]">Travels</span>
+                </span>
+              </div>
+            </a>
+
             {/* Desktop Navigation Links */}
             <nav className="hidden lg:flex items-center space-x-6 xl:space-x-8">
               {navLinks.map((link) => (
@@ -96,11 +119,6 @@ export default function Navbar({ onBookClick }) {
                 </a>
               ))}
             </nav>
-
-            {/* Mobile Title (Since logo is removed) */}
-            <span className="lg:hidden font-serif font-black text-sm sm:text-base tracking-wider text-[#8B1E1E] uppercase">
-              Mariya Travels
-            </span>
 
             {/* Action CTA & Mobile Toggle */}
             <div className="flex items-center space-x-2 sm:space-x-3 shrink-0">
@@ -142,7 +160,12 @@ export default function Navbar({ onBookClick }) {
       >
         <div className="flex flex-col space-y-6">
           <div className="flex items-center justify-between border-b border-brand-yellow/30 pb-4">
-            <img src="/logo.png" alt="Mariya Travels" className="h-10 w-auto object-contain" />
+            <div className="flex items-center space-x-2.5">
+              <img src="/emblem.png" alt="Mariya Travels Emblem" className="h-9 w-9 object-contain drop-shadow-2xs" />
+              <span className="font-serif font-black text-base tracking-wide text-slate-950 uppercase">
+                Mariya <span className="text-[#8B1E1E]">Travels</span>
+              </span>
+            </div>
             <span className="text-[11px] tracking-[0.3em] uppercase text-brand-maroon font-bold">
               Menu
             </span>

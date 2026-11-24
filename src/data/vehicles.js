@@ -22,7 +22,6 @@ export const VEHICLES = [
     description: 'Engineered for executive group transit with individual AC vents, wide reclining push-back seating, panoramic tinted windows, illuminated butterfly ceiling, and expansive luggage bays.',
     image: '/vehicles/gallery/coach-3-front-angle.jpg',
     interiorImage: '/vehicles/gallery/coach-4-cabin-interior.jpg',
-    registrationNumber: 'TN 59 DB 9010',
     badge: 'Executive Flagship',
     highlights: ['Individual AC Louvers', '2x1 Luxury Pushback Seats', 'Illuminated Butterfly Ceiling', 'Hi-Fi Audio System', 'Massive Luggage Space'],
     specs: {
@@ -57,7 +56,6 @@ export const VEHICLES = [
     description: 'Perfect for pilgrimage trips, local group excursions, and budget-conscious long journeys with maximum ventilation and comfortable high-back seating.',
     image: '/vehicles/gallery/coach-1-side-profile.jpg',
     interiorImage: '/vehicles/gallery/coach-4-cabin-interior.jpg',
-    registrationNumber: 'TN 59 DB 9010',
     badge: 'Popular Group Saver',
     highlights: ['Airy Panoramic Windows', 'Comfortable High-Back Seats', 'Spacious Legroom', 'Heavy Duty Suspension', 'Ample Boot Storage'],
     specs: {
@@ -92,7 +90,6 @@ export const VEHICLES = [
     description: 'The preferred choice for family vacations and hill excursions to Ooty, Kodaikanal, and Munnar. High ground clearance, plush RGB mood-lit interiors, and smooth ride quality.',
     image: '/vehicles/gallery/traveller18-1-front-view.jpg',
     interiorImage: '/vehicles/gallery/traveller18-5-cabin-lighting.jpg',
-    registrationNumber: 'TN 59 DF 1249',
     badge: 'Hill Station Favorite',
     highlights: ['RGB Mood Lighting Ceiling', 'Mariya Badge Illumination', 'Reclining Pushback Seats', 'Hi-Fi Audio System', 'Dual AC Vents'],
     specs: {
@@ -129,7 +126,6 @@ export const VEHICLES = [
     description: 'Agile navigation through city traffic and narrow mountain hairpins while maintaining supreme cabin comfort with geometric backlit ceiling and rear sleeper deck option.',
     image: '/vehicles/gallery/traveller14-1-front-view.jpg',
     interiorImage: '/vehicles/gallery/traveller14-6-ceiling-lighting.jpg',
-    registrationNumber: 'TN 59 DK 8670',
     badge: 'Family Tour Prime',
     highlights: ['Geometric Backlit Ceiling', 'Rear Sleeper Deck Option', 'Quilted Captain Leatherette', 'Pioneer Audio Setup', 'Chilled AC Vents'],
     specs: {
@@ -167,7 +163,6 @@ export const VEHICLES = [
     description: 'Renowned world-over for bulletproof dependability and couch-like highway comfort. Ideal for business trips, small families, and seamless interstate journeys.',
     image: '/vehicles/gallery/innova-1-front-angle.jpg',
     interiorImage: '/vehicles/gallery/innova-4-interior-seats.jpg',
-    registrationNumber: 'TN 63 AT 1234',
     badge: 'Reliability Icon',
     highlights: ['Diamond-Stitched Tan Leather', 'Dual AC with Rear Blowers', 'Deep Boot Space', 'Ergonomic Captain Seats', 'Quiet Cabin Noise Isolation'],
     specs: {
@@ -185,7 +180,7 @@ export const VEHICLES = [
       limitKm: 300
     },
     gallery: [
-      { id: 1, label: 'Front 3/4 Angle (TN 63 AT 1234)', src: '/vehicles/gallery/innova-1-front-angle.jpg', angle: 'Front 3/4' },
+      { id: 1, label: 'Front 3/4 Exterior Angle', src: '/vehicles/gallery/innova-1-front-angle.jpg', angle: 'Front 3/4' },
       { id: 2, label: 'Left Side Exterior Profile', src: '/vehicles/gallery/innova-2-side-left.jpg', angle: 'Left Side' },
       { id: 3, label: 'Right Side Exterior Profile', src: '/vehicles/gallery/innova-3-side-right.jpg', angle: 'Right Side' },
       { id: 4, label: 'Tan Diamond-Stitched Leather Interior', src: '/vehicles/gallery/innova-4-interior-seats.jpg', angle: 'Leather Seats' },
@@ -203,7 +198,6 @@ export const VEHICLES = [
     description: 'The pinnacle of premium MUV travel. Rich ambient styling, acoustic glass, superior ride refinement, and plush white bucket leatherette seating for elite travellers.',
     image: '/vehicles/gallery/crysta-2-front-angle-left.jpg',
     interiorImage: '/vehicles/gallery/crysta-7-interior-seats.jpg',
-    registrationNumber: 'TN 59 CS 8383',
     badge: 'First-Class SUV',
     highlights: ['Pristine White Bucket Seats', 'Rear Automatic Climate Control', 'Touchscreen Infotainment', 'One-Touch Tumble Seats', 'Executive Chauffeur Service'],
     specs: {
@@ -221,7 +215,7 @@ export const VEHICLES = [
       limitKm: 300
     },
     gallery: [
-      { id: 1, label: 'Front Direct Grille View (TN 59 CS 8383)', src: '/vehicles/gallery/crysta-1-front-direct.jpg', angle: 'Front Direct' },
+      { id: 1, label: 'Front Direct Grille View', src: '/vehicles/gallery/crysta-1-front-direct.jpg', angle: 'Front Direct' },
       { id: 2, label: 'Front 3/4 Left Angle Profile', src: '/vehicles/gallery/crysta-2-front-angle-left.jpg', angle: 'Front 3/4 Left' },
       { id: 3, label: 'Front 3/4 Right Angle Profile', src: '/vehicles/gallery/crysta-3-front-angle-right.jpg', angle: 'Front 3/4 Right' },
       { id: 4, label: 'Rear 3/4 Left View & Footstep', src: '/vehicles/gallery/crysta-4-rear-angle-left.jpg', angle: 'Rear 3/4 Left' },

@@ -141,13 +141,8 @@ export default function Hero({
             <img
               src="/logo.png"
               alt="Madurai Mariya Travels Logo"
-              className="h-11 sm:h-14 md:h-16 w-auto object-contain [filter:drop-shadow(0_0_2px_rgba(255,255,255,0.7))_drop-shadow(0_4px_14px_rgba(0,0,0,0.9))] hover:scale-105 transition-transform duration-300"
+              className="h-12 sm:h-16 md:h-20 w-auto object-contain [filter:drop-shadow(0_0_8px_rgba(255,255,255,0.5))_drop-shadow(0_4px_12px_rgba(0,0,0,0.7))] hover:scale-105 transition-transform duration-300"
             />
-          </div>
-
-          <div className="inline-flex items-center space-x-1.5 px-3 py-1 rounded-full bg-black/40 backdrop-blur-md border border-white/20 text-[#F5B800] text-[10px] sm:text-[11px] font-black uppercase tracking-widest shadow-md">
-            <Sparkles className="w-3 h-3 fill-current" />
-            <span>Madurai's Premier Fleet & Tour Partner</span>
           </div>
 
           <h1 className="font-serif text-2xl sm:text-4xl md:text-[2.75rem] text-white font-bold leading-tight tracking-tight drop-shadow-[0_3px_14px_rgba(0,0,0,0.95)]">
@@ -175,7 +170,7 @@ export default function Hero({
             
             {/* The Search Form (Compact & Clean) */}
             <form onSubmit={handleSearch} className="space-y-2.5">
-              <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-2 sm:gap-2.5">
+              <div className="grid grid-cols-2 lg:grid-cols-4 gap-2 sm:gap-2.5">
                 
                 {/* 1. PICKUP POINT */}
                 <div className="relative bg-stone-50 hover:bg-stone-100 rounded-xl p-2 sm:p-2.5 border border-stone-200 focus-within:border-amber-400 focus-within:ring-1 focus-within:ring-amber-400/30 transition-all">
@@ -186,7 +181,7 @@ export default function Hero({
                   <select
                     value={pickup}
                     onChange={(e) => setPickup(e.target.value)}
-                    className="w-full bg-transparent font-bold text-xs text-slate-950 focus:outline-none cursor-pointer"
+                    className="w-full bg-transparent font-bold text-[11px] sm:text-xs text-slate-950 focus:outline-none cursor-pointer truncate"
                   >
                     {PICKUP_POINTS.map(pt => (
                       <option key={pt} value={pt}>{pt}</option>
@@ -205,7 +200,7 @@ export default function Hero({
                     value={destination}
                     onChange={(e) => setDestination(e.target.value)}
                     placeholder="e.g. Kodaikanal, Munnar..."
-                    className="w-full bg-transparent font-bold text-xs text-slate-950 placeholder-slate-400 focus:outline-none"
+                    className="w-full bg-transparent font-bold text-[11px] sm:text-xs text-slate-950 placeholder-slate-400 focus:outline-none truncate"
                     list="destinations-list"
                   />
                   <datalist id="destinations-list">
@@ -226,7 +221,7 @@ export default function Hero({
                     min={getToday()}
                     value={travelDate}
                     onChange={(e) => setTravelDate(e.target.value)}
-                    className="w-full bg-transparent font-bold text-xs text-slate-950 focus:outline-none cursor-pointer"
+                    className="w-full bg-transparent font-bold text-[11px] sm:text-xs text-slate-950 focus:outline-none cursor-pointer truncate"
                   />
                 </div>
 
@@ -239,7 +234,7 @@ export default function Hero({
                   <select
                     value={paxRange}
                     onChange={(e) => setPaxRange(e.target.value)}
-                    className="w-full bg-transparent font-bold text-xs text-slate-950 focus:outline-none cursor-pointer"
+                    className="w-full bg-transparent font-bold text-[11px] sm:text-xs text-slate-950 focus:outline-none cursor-pointer truncate"
                   >
                     <option value="all">Any (All 8 Fleet)</option>
                     <option value="1-4">1 - 4 Pax (Sedan)</option>

@@ -277,7 +277,7 @@ export default function BookingForm({ initialVehicle, initialEstimate }) {
                       className="w-full py-3.5 rounded-full bg-[#25D366] hover:bg-[#20bd5a] text-white font-black tracking-widest text-xs uppercase flex items-center justify-center space-x-2.5 shadow-lg shadow-green-500/25 hover:scale-[1.01] transition-all duration-300 cursor-pointer"
                     >
                       <MessageSquare className="w-4 h-4 fill-current" />
-                      <span>Send Message to WhatsApp (99436 55680)</span>
+                      <span>Send Message</span>
                       <Send className="w-3.5 h-3.5" />
                     </button>
                     <p className="text-[11px] text-center text-slate-600 font-bold mt-2">
