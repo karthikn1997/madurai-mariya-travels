@@ -87,11 +87,24 @@ export default function Navbar({ onBookClick }) {
             
             {/* Brand Logo on Navbar Left */}
             <a href="#home" className="flex items-center space-x-2 shrink-0 group py-0.5" title="Mariya Travels Home">
+              {/* Desktop / Tablet View: Full Official Logo with Speed Wings */}
               <img 
                 src="/logo.png" 
                 alt="Madurai Mariya Travels Logo" 
-                className="h-8 sm:h-10 md:h-11 w-auto object-contain transition-transform duration-300 group-hover:scale-105" 
+                className="hidden sm:block h-9 md:h-11 w-auto object-contain transition-transform duration-300 group-hover:scale-105" 
               />
+
+              {/* Mobile View: Circular Emblem + "Mariya Travels" Bold Text */}
+              <div className="flex sm:hidden items-center space-x-2">
+                <img 
+                  src="/emblem.png" 
+                  alt="Mariya Travels Emblem" 
+                  className="h-8 w-8 object-contain transition-transform duration-300 group-hover:scale-105 drop-shadow-2xs" 
+                />
+                <span className="font-serif font-black text-sm tracking-wide text-slate-950 uppercase">
+                  Mariya <span className="text-[#8B1E1E]">Travels</span>
+                </span>
+              </div>
             </a>
 
             {/* Desktop Navigation Links */}
@@ -147,7 +160,12 @@ export default function Navbar({ onBookClick }) {
       >
         <div className="flex flex-col space-y-6">
           <div className="flex items-center justify-between border-b border-brand-yellow/30 pb-4">
-            <img src="/logo.png" alt="Mariya Travels" className="h-10 w-auto object-contain" />
+            <div className="flex items-center space-x-2.5">
+              <img src="/emblem.png" alt="Mariya Travels Emblem" className="h-9 w-9 object-contain drop-shadow-2xs" />
+              <span className="font-serif font-black text-base tracking-wide text-slate-950 uppercase">
+                Mariya <span className="text-[#8B1E1E]">Travels</span>
+              </span>
+            </div>
             <span className="text-[11px] tracking-[0.3em] uppercase text-brand-maroon font-bold">
               Menu
             </span>
