@@ -58,8 +58,28 @@ export default function VehicleDetailPage({ vehicle, onBack, onBookNow }) {
 
   if (!vehicle) return null;
 
-  const openLightbox  = (idx) => { setLightboxIdx(idx); setLightboxOpen(true); };
-  const closeLightbox = ()    => setLightboxOpen(false);
+  const openLightbox  = (idx) => { 
+    setLightboxIdx(idx); 
+    setLightboxOpen(true); 
+    window.history.pushState({ modal: 'vehicle-lightbox' }, '');
+  };
+  const closeLightbox = () => {
+    if (window.history.state?.modal === 'vehicle-lightbox') {
+      window.history.back();
+    } else {
+      setLightboxOpen(false);
+    }
+  };
+
+  useEffect(() => {
+    const handlePop = (e) => {
+      if (lightboxOpen && (!e.state || e.state.modal !== 'vehicle-lightbox')) {
+        setLightboxOpen(false);
+      }
+    };
+    window.addEventListener('popstate', handlePop);
+    return () => window.removeEventListener('popstate', handlePop);
+  }, [lightboxOpen]);
 
   const currentPhoto = photos[activePhotoIdx] || photos[0];
 

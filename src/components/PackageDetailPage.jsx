@@ -29,8 +29,25 @@ export default function PackageDetailPage({ packageData, onBack, onBookVehicle }
 
   const openLightbox = (index) => {
     setSelectedImageIndex(index);
+    window.history.pushState({ modal: 'package-lightbox' }, '');
   };
-  const closeLightbox = () => setSelectedImageIndex(null);
+  const closeLightbox = () => {
+    if (window.history.state?.modal === 'package-lightbox') {
+      window.history.back();
+    } else {
+      setSelectedImageIndex(null);
+    }
+  };
+
+  useEffect(() => {
+    const handlePop = (e) => {
+      if (selectedImageIndex !== null && (!e.state || e.state.modal !== 'package-lightbox')) {
+        setSelectedImageIndex(null);
+      }
+    };
+    window.addEventListener('popstate', handlePop);
+    return () => window.removeEventListener('popstate', handlePop);
+  }, [selectedImageIndex]);
 
   const prevImage = () => {
     if (selectedImageIndex !== null) {
