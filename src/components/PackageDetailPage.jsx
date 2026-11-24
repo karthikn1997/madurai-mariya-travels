@@ -7,20 +7,14 @@ import {
 } from 'lucide-react';
 import { CLIENT_WHATSAPP_NUMBER, CONTACT_PERSON } from './BookingForm';
 import { VEHICLES } from '../data/vehicles';
-import TourContactModal from './TourContactModal';
 
 export default function PackageDetailPage({ packageData, onBack, onBookVehicle }) {
   const [selectedImageIndex, setSelectedImageIndex] = useState(null);
   const [showAllPhotosModal, setShowAllPhotosModal] = useState(false);
-  const [showContactPopup, setShowContactPopup] = useState(false);
 
-  // Scroll to top whenever page opens & trigger auto contact popup for 20 seconds
+  // Scroll to top whenever page opens
   useEffect(() => {
     window.scrollTo({ top: 0, behavior: 'smooth' });
-    const timer = setTimeout(() => {
-      setShowContactPopup(true);
-    }, 1200);
-    return () => clearTimeout(timer);
   }, [packageData]);
 
   if (!packageData) return null;
@@ -873,13 +867,7 @@ export default function PackageDetailPage({ packageData, onBack, onBookVehicle }
         )}
       </AnimatePresence>
 
-      {/* 20-Second Auto Contact Enquiry Popup */}
-      <TourContactModal
-        isOpen={showContactPopup}
-        onClose={() => setShowContactPopup(false)}
-        packageName={packageData.name}
-        durationSeconds={20}
-      />
+
 
     </div>
   );
