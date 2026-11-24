@@ -1,0 +1,60 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  * {
+    border-color: rgba(245, 184, 0, 0.2);
+  }
+  
+  html {
+    color-scheme: light;
+  }
+}
+
+/* Light theme smooth luxury scrollbar */
+::-webkit-scrollbar {
+  width: 9px;
+}
+::-webkit-scrollbar-track {
+  background: #F4EFE6;
+}
+::-webkit-scrollbar-thumb {
+  background: #D8CEBD;
+  border-radius: 5px;
+}
+::-webkit-scrollbar-thumb:hover {
+  background: #F5B800;
+}
+
+/* Warm ivory luxury pattern */
+.bg-luxury-pattern {
+  background-image: radial-gradient(rgba(245, 184, 0, 0.08) 1px, transparent 0);
+  background-size: 32px 32px;
+}
+
+/* Light theme card borders & shadows */
+.card-light {
+  background: #FFFFFF;
+  border: 1px solid rgba(245, 184, 0, 0.25);
+  box-shadow: 0 4px 20px -2px rgba(15, 18, 22, 0.05);
+}
+
+.card-light:hover {
+  border-color: rgba(245, 184, 0, 0.6);
+  box-shadow: 0 12px 30px -4px rgba(245, 184, 0, 0.15), 0 4px 12px -2px rgba(15, 18, 22, 0.06);
+}
+
+.glass-light {
+  background: rgba(255, 255, 255, 0.88);
+  backdrop-filter: blur(16px);
+  -webkit-backdrop-filter: blur(16px);
+  border: 1px solid rgba(245, 184, 0, 0.25);
+}
+
+/* Smooth dark-to-gold text gradient for titles */
+.text-gold-gradient {
+  background: linear-gradient(135deg, #181E25 20%, #B8860B 80%, #F5B800 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
