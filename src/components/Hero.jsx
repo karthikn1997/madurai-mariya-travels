@@ -175,7 +175,7 @@ export default function Hero({
             
             {/* The Search Form (Compact & Clean) */}
             <form onSubmit={handleSearch} className="space-y-2.5">
-              <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-2 sm:gap-2.5">
+              <div className="grid grid-cols-2 lg:grid-cols-4 gap-2 sm:gap-2.5">
                 
                 {/* 1. PICKUP POINT */}
                 <div className="relative bg-stone-50 hover:bg-stone-100 rounded-xl p-2 sm:p-2.5 border border-stone-200 focus-within:border-amber-400 focus-within:ring-1 focus-within:ring-amber-400/30 transition-all">
@@ -186,7 +186,7 @@ export default function Hero({
                   <select
                     value={pickup}
                     onChange={(e) => setPickup(e.target.value)}
-                    className="w-full bg-transparent font-bold text-xs text-slate-950 focus:outline-none cursor-pointer"
+                    className="w-full bg-transparent font-bold text-[11px] sm:text-xs text-slate-950 focus:outline-none cursor-pointer truncate"
                   >
                     {PICKUP_POINTS.map(pt => (
                       <option key={pt} value={pt}>{pt}</option>
@@ -205,7 +205,7 @@ export default function Hero({
                     value={destination}
                     onChange={(e) => setDestination(e.target.value)}
                     placeholder="e.g. Kodaikanal, Munnar..."
-                    className="w-full bg-transparent font-bold text-xs text-slate-950 placeholder-slate-400 focus:outline-none"
+                    className="w-full bg-transparent font-bold text-[11px] sm:text-xs text-slate-950 placeholder-slate-400 focus:outline-none truncate"
                     list="destinations-list"
                   />
                   <datalist id="destinations-list">
@@ -226,7 +226,7 @@ export default function Hero({
                     min={getToday()}
                     value={travelDate}
                     onChange={(e) => setTravelDate(e.target.value)}
-                    className="w-full bg-transparent font-bold text-xs text-slate-950 focus:outline-none cursor-pointer"
+                    className="w-full bg-transparent font-bold text-[11px] sm:text-xs text-slate-950 focus:outline-none cursor-pointer truncate"
                   />
                 </div>
 
@@ -239,7 +239,7 @@ export default function Hero({
                   <select
                     value={paxRange}
                     onChange={(e) => setPaxRange(e.target.value)}
-                    className="w-full bg-transparent font-bold text-xs text-slate-950 focus:outline-none cursor-pointer"
+                    className="w-full bg-transparent font-bold text-[11px] sm:text-xs text-slate-950 focus:outline-none cursor-pointer truncate"
                   >
                     <option value="all">Any (All 8 Fleet)</option>
                     <option value="1-4">1 - 4 Pax (Sedan)</option>
