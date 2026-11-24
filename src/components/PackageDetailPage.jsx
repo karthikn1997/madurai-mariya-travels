@@ -33,15 +33,30 @@ export default function PackageDetailPage({ packageData, onBack, onBookVehicle }
     }
   };
 
+  const openAllPhotos = () => {
+    setShowAllPhotosModal(true);
+    window.history.pushState({ modal: 'all-photos' }, '');
+  };
+  const closeAllPhotos = () => {
+    if (window.history.state?.modal === 'all-photos') {
+      window.history.back();
+    } else {
+      setShowAllPhotosModal(false);
+    }
+  };
+
   useEffect(() => {
     const handlePop = (e) => {
       if (selectedImageIndex !== null && (!e.state || e.state.modal !== 'package-lightbox')) {
         setSelectedImageIndex(null);
       }
+      if (showAllPhotosModal && (!e.state || e.state.modal !== 'all-photos')) {
+        setShowAllPhotosModal(false);
+      }
     };
     window.addEventListener('popstate', handlePop);
     return () => window.removeEventListener('popstate', handlePop);
-  }, [selectedImageIndex]);
+  }, [selectedImageIndex, showAllPhotosModal]);
 
   const prevImage = () => {
     if (selectedImageIndex !== null) {
@@ -560,7 +575,7 @@ export default function PackageDetailPage({ packageData, onBack, onBookVehicle }
 
             {/* AIRBNB-STYLE "SHOW ALL PHOTOS" BUTTON FLOATING BOTTOM RIGHT */}
             <button
-              onClick={() => setShowAllPhotosModal(true)}
+              onClick={openAllPhotos}
               className="absolute bottom-3.5 right-3.5 sm:bottom-6 sm:right-6 px-3 py-2 sm:px-4 sm:py-2.5 rounded-xl bg-white/95 hover:bg-white text-slate-950 font-black text-[11px] sm:text-xs uppercase tracking-wider flex items-center space-x-1.5 sm:space-x-2 shadow-2xl backdrop-blur-md transition-all duration-300 hover:scale-105 border border-slate-200 cursor-pointer"
             >
               <Grid className="w-3.5 h-3.5 sm:w-4 sm:h-4 text-[#8B1E1E]" />
@@ -725,47 +740,64 @@ export default function PackageDetailPage({ packageData, onBack, onBookVehicle }
             className="fixed inset-0 z-50 bg-[#FAF8F5] overflow-y-auto"
           >
             {/* Modal Header */}
-            <div className="sticky top-0 z-10 bg-white/95 backdrop-blur-md border-b border-slate-200 py-4 px-4 sm:px-8 flex items-center justify-between">
+            <div className="sticky top-0 z-10 bg-white/95 backdrop-blur-md border-b border-slate-200 py-3 px-3.5 sm:px-8 flex items-center justify-between gap-2">
               <button
-                onClick={() => setShowAllPhotosModal(false)}
-                className="inline-flex items-center space-x-2 text-slate-900 font-extrabold text-xs uppercase tracking-wider hover:text-[#8B1E1E] transition-colors"
+                onClick={closeAllPhotos}
+                className="inline-flex items-center space-x-1.5 text-slate-900 font-extrabold text-xs uppercase tracking-wider hover:text-[#8B1E1E] transition-colors shrink-0 cursor-pointer"
               >
                 <ArrowLeft className="w-4 h-4" />
-                <span>Back to Tour</span>
+                <span className="hidden sm:inline">Back to Tour</span>
+                <span className="sm:hidden">Back</span>
               </button>
-              <span className="font-serif text-lg font-bold text-slate-950">
-                All {places.length} Sightseeing Photos • {packageData.name}
-              </span>
+
+              <div className="text-center min-w-0 flex-1 px-1">
+                <span className="font-serif text-xs sm:text-base font-bold text-slate-950 block truncate">
+                  All {places.length} Sightseeing Photos
+                </span>
+                <span className="text-[10px] sm:text-xs text-slate-500 font-medium block truncate">
+                  {packageData.name}
+                </span>
+              </div>
+
               <button
-                onClick={() => setShowAllPhotosModal(false)}
-                className="p-2 rounded-full hover:bg-slate-100 transition-colors"
+                onClick={closeAllPhotos}
+                className="p-1.5 sm:p-2 rounded-full hover:bg-slate-100 transition-colors shrink-0 cursor-pointer"
+                aria-label="Close"
               >
-                <X className="w-5 h-5" />
+                <X className="w-5 h-5 text-slate-700" />
               </button>
             </div>
 
             {/* All Photos Column Feed */}
-            <div className="max-w-4xl mx-auto py-10 px-4 space-y-12">
+            <div className="max-w-4xl mx-auto py-6 sm:py-10 px-3.5 sm:px-6 space-y-8 sm:space-y-12">
               {places.map((p, idx) => (
-                <div key={idx} className="space-y-3">
-                  <div className="rounded-2xl overflow-hidden shadow-lg border border-slate-200 bg-black">
-                    <img src={p.image} alt={p.title} className="w-full max-h-[70vh] object-cover" />
+                <div key={idx} className="space-y-3 bg-white p-3.5 sm:p-5 rounded-3xl border border-slate-200/90 shadow-sm">
+                  <div 
+                    onClick={() => openLightbox(idx)}
+                    className="rounded-2xl overflow-hidden shadow border border-slate-200 bg-black cursor-pointer group relative"
+                  >
+                    <img src={p.image} alt={p.title} className="w-full max-h-[70vh] object-cover transition-transform duration-500 group-hover:scale-102" />
+                    <div className="absolute top-3 right-3 p-2 rounded-full bg-black/50 text-white opacity-0 group-hover:opacity-100 transition-opacity">
+                      <Maximize2 className="w-4 h-4 text-[#F5B800]" />
+                    </div>
                   </div>
-                  <div className="flex items-center justify-between pt-1">
-                    <div>
+
+                  <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-3 pt-1">
+                    <div className="min-w-0 flex-1">
                       <span className="text-[10px] font-black uppercase text-[#8B1E1E] tracking-wider block">
                         {p.category}
                       </span>
-                      <h4 className="font-serif text-xl font-bold text-slate-950 mt-0.5">
+                      <h4 className="font-serif text-lg sm:text-xl font-bold text-slate-950 mt-0.5 leading-snug">
                         {p.title}
                       </h4>
-                      <p className="text-xs text-slate-600 mt-0.5">
+                      <p className="text-xs text-slate-600 mt-1 leading-relaxed">
                         {p.caption}
                       </p>
                     </div>
+
                     <button
-                      onClick={() => handleWhatsAppInquiry(`Inquiry about ${p.title} in ${packageData.name}`)}
-                      className="px-4 py-2 rounded-full bg-[#25D366] text-white text-xs font-black uppercase tracking-wider flex items-center space-x-1.5 shrink-0 shadow"
+                      onClick={() => handleWhatsAppInquiry(`Inquiry about visiting ${p.title} in ${packageData.name}`)}
+                      className="inline-flex items-center justify-center space-x-1.5 px-4 py-2.5 rounded-full bg-[#25D366] hover:bg-[#20bd5a] text-white text-xs font-black uppercase tracking-wider shrink-0 shadow-md transition-all self-start sm:self-center cursor-pointer"
                     >
                       <MessageSquare className="w-3.5 h-3.5 fill-current" />
                       <span>Inquire</span>
