@@ -394,42 +394,42 @@ export default function PackageDetailPage({ packageData, onBack, onBookVehicle }
             </p>
           </div>
 
-          {/* THE MASTER PHOTO MOSAIC (1 Hero Left + 4 Snug Mosaic Right) */}
-          <div className="relative rounded-3xl overflow-hidden shadow-2xl border-2 border-slate-300/80 bg-slate-950 h-[420px] sm:h-[520px] lg:h-[600px]">
+          {/* THE MASTER PHOTO MOSAIC (Full Hero on Mobile, 1 Hero Left + 4 Snug Mosaic Right on Desktop) */}
+          <div className="relative rounded-3xl overflow-hidden shadow-2xl border-2 border-slate-300/80 bg-slate-950 h-[360px] sm:h-[500px] lg:h-[600px]">
             
-            <div className="grid grid-cols-1 md:grid-cols-4 grid-rows-2 gap-1.5 sm:gap-2 h-full w-full p-1.5 sm:p-2 bg-slate-950">
+            <div className="grid grid-cols-1 md:grid-cols-4 md:grid-rows-2 gap-1.5 sm:gap-2 h-full w-full p-1.5 sm:p-2 bg-slate-950">
               
-              {/* 1. HERO PHOTO (Left Half - 2 Cols x 2 Rows) */}
+              {/* 1. HERO PHOTO (Full height on mobile, Left Half on desktop) */}
               {places[0] && (
                 <div
                   onClick={() => openLightbox(0)}
-                  className="group relative md:col-span-2 md:row-span-2 rounded-2xl overflow-hidden cursor-pointer bg-slate-900"
+                  className="group relative h-full w-full md:col-span-2 md:row-span-2 rounded-2xl overflow-hidden cursor-pointer bg-slate-900"
                 >
                   <img
                     src={places[0].image}
                     alt={places[0].title}
                     className="w-full h-full object-cover transition-transform duration-700 ease-out group-hover:scale-106"
                   />
-                  <div className="absolute inset-0 bg-gradient-to-t from-black/85 via-black/20 to-black/10 opacity-90 group-hover:opacity-75 transition-opacity" />
+                  <div className="absolute inset-0 bg-gradient-to-t from-black/90 via-black/25 to-black/15 opacity-90 group-hover:opacity-75 transition-opacity" />
 
                   {/* Top Badge */}
-                  <div className="absolute top-4 left-4">
-                    <span className="px-3.5 py-1 rounded-full bg-white/95 backdrop-blur-sm text-slate-950 text-[11px] font-black uppercase tracking-wider shadow-md">
-                      Featured Attraction • {places[0].category}
+                  <div className="absolute top-3.5 left-3.5 sm:top-4 sm:left-4">
+                    <span className="px-3 py-1 rounded-full bg-white/95 backdrop-blur-sm text-slate-950 text-[10px] sm:text-[11px] font-black uppercase tracking-wider shadow-md whitespace-nowrap">
+                      <span className="hidden sm:inline">Featured Attraction • </span>{places[0].category}
                     </span>
                   </div>
 
                   {/* Zoom Hint */}
-                  <div className="absolute top-4 right-4 p-2.5 rounded-full bg-black/40 backdrop-blur-sm text-white opacity-0 group-hover:opacity-100 transition-all shadow">
-                    <Maximize2 className="w-4 h-4 text-[#F5B800]" />
+                  <div className="absolute top-3.5 right-3.5 sm:top-4 sm:right-4 p-2 sm:p-2.5 rounded-full bg-black/40 backdrop-blur-sm text-white opacity-0 group-hover:opacity-100 transition-all shadow">
+                    <Maximize2 className="w-3.5 h-3.5 sm:w-4 sm:h-4 text-[#F5B800]" />
                   </div>
 
                   {/* Bottom Text Overlay */}
-                  <div className="absolute bottom-6 left-6 right-6 text-white">
-                    <h3 className="font-serif text-2xl sm:text-3xl font-bold leading-tight drop-shadow-md">
+                  <div className="absolute bottom-4 left-4 sm:bottom-6 sm:left-6 right-4 sm:right-6 text-white max-w-[68%] sm:max-w-lg">
+                    <h3 className="font-serif text-lg sm:text-2xl md:text-3xl font-bold leading-tight drop-shadow-md">
                       {places[0].title}
                     </h3>
-                    <p className="text-xs sm:text-sm text-slate-200 mt-1 line-clamp-2 drop-shadow font-medium max-w-lg">
+                    <p className="text-[11px] sm:text-xs md:text-sm text-slate-200 mt-0.5 sm:mt-1 line-clamp-2 drop-shadow font-medium">
                       {places[0].caption}
                     </p>
                   </div>
@@ -561,9 +561,9 @@ export default function PackageDetailPage({ packageData, onBack, onBookVehicle }
             {/* AIRBNB-STYLE "SHOW ALL PHOTOS" BUTTON FLOATING BOTTOM RIGHT */}
             <button
               onClick={() => setShowAllPhotosModal(true)}
-              className="absolute bottom-5 right-5 sm:bottom-6 sm:right-6 px-4 py-2.5 rounded-xl bg-white/95 hover:bg-white text-slate-950 font-black text-xs uppercase tracking-wider flex items-center space-x-2 shadow-2xl backdrop-blur-md transition-all duration-300 hover:scale-105 border border-slate-200"
+              className="absolute bottom-3.5 right-3.5 sm:bottom-6 sm:right-6 px-3 py-2 sm:px-4 sm:py-2.5 rounded-xl bg-white/95 hover:bg-white text-slate-950 font-black text-[11px] sm:text-xs uppercase tracking-wider flex items-center space-x-1.5 sm:space-x-2 shadow-2xl backdrop-blur-md transition-all duration-300 hover:scale-105 border border-slate-200 cursor-pointer"
             >
-              <Grid className="w-4 h-4 text-[#8B1E1E]" />
+              <Grid className="w-3.5 h-3.5 sm:w-4 sm:h-4 text-[#8B1E1E]" />
               <span>Show all {places.length} photos</span>
             </button>
 
