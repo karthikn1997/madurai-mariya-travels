@@ -90,7 +90,7 @@ export default function VehicleDetailPage({ vehicle, onBack, onBookNow }) {
   };
 
   return (
-    <div className="min-h-screen bg-[#FAF8F5] text-slate-900 font-sans selection:bg-[#F5B800] selection:text-black">
+    <div className="min-h-screen bg-[#FAF8F5] text-slate-900 font-sans selection:bg-[#F5B800] selection:text-black overflow-x-hidden">
 
       {/* ══════════════════════════════════════════════════════════
           1. STICKY HEADER
@@ -100,10 +100,11 @@ export default function VehicleDetailPage({ vehicle, onBack, onBookNow }) {
 
           <button
             onClick={onBack}
-            className="inline-flex items-center space-x-2 px-3.5 py-2 rounded-full bg-slate-100 hover:bg-[#8B1E1E] text-slate-800 hover:text-white font-extrabold text-xs tracking-wider uppercase transition-all duration-300 shadow-xs group shrink-0 cursor-pointer"
+            className="inline-flex items-center space-x-1.5 sm:space-x-2 px-3 sm:px-3.5 py-1.5 sm:py-2 rounded-full bg-slate-100 hover:bg-[#8B1E1E] text-slate-800 hover:text-white font-extrabold text-[11px] sm:text-xs tracking-wider uppercase transition-all duration-300 shadow-xs group shrink-0 cursor-pointer"
           >
-            <ArrowLeft className="w-4 h-4 group-hover:-translate-x-1 transition-transform" />
-            <span>Back to Fleet</span>
+            <ArrowLeft className="w-3.5 h-3.5 sm:w-4 sm:h-4 group-hover:-translate-x-1 transition-transform" />
+            <span className="hidden sm:inline">Back to Fleet</span>
+            <span className="sm:hidden">Back</span>
           </button>
 
           <div className="hidden md:flex items-center space-x-2.5">
