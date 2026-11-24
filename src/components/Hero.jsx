@@ -141,7 +141,7 @@ export default function Hero({
             <img
               src="/logo.png"
               alt="Madurai Mariya Travels Logo"
-              className="h-11 sm:h-14 md:h-16 w-auto object-contain [filter:drop-shadow(0_0_2px_rgba(255,255,255,0.7))_drop-shadow(0_4px_14px_rgba(0,0,0,0.9))] hover:scale-105 transition-transform duration-300"
+              className="h-12 sm:h-16 md:h-20 w-auto object-contain drop-shadow-[0_4px_12px_rgba(0,0,0,0.6)] hover:scale-105 transition-transform duration-300"
             />
           </div>
 
