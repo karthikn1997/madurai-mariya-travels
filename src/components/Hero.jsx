@@ -32,10 +32,10 @@ const PICKUP_POINTS = [
 ];
 
 const HERO_BG_IMAGES = [
+  '/hero/hero-1-rameshwaram.jpg',
   '/hero/hero-2-kanyakumari.jpg',
   '/hero/hero-3-thanjavur.jpg',
-  '/hero/hero-4-ooty.jpg',
-  '/hero/hero-5-dhanushkodi.jpg',
+  '/hero/hero-4-dhanushkodi.jpg',
 ];
 
 export default function Hero({ 
@@ -93,7 +93,7 @@ export default function Hero({
   };
 
   return (
-    <section id="home" className="relative w-full flex flex-col items-center justify-between overflow-hidden bg-slate-950 py-12 sm:py-16 md:py-20 text-slate-950 min-h-[580px] sm:min-h-[640px] lg:min-h-[680px]">
+    <section id="home" className="relative w-full flex flex-col items-center justify-between overflow-hidden bg-slate-950 py-10 sm:py-14 text-slate-950 min-h-[500px] sm:min-h-[560px]">
       
       {/* 1. Cinematic 2-Second Rotating Scenic Background Slideshow (100% Crisp & Clear - Zero Fog) */}
       <div className="absolute inset-0 z-0 overflow-hidden bg-slate-950">
@@ -106,7 +106,7 @@ export default function Hero({
             animate={{ opacity: 1 }}
             exit={{ opacity: 0 }}
             transition={{ duration: 0.7, ease: "easeInOut" }}
-            className="absolute inset-0 w-full h-full object-cover object-[center_35%]"
+            className="absolute inset-0 w-full h-full object-cover object-center"
           />
         </AnimatePresence>
 
