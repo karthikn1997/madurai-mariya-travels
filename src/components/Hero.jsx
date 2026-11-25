@@ -11,15 +11,15 @@ import { TOUR_PACKAGES } from '../data/packages';
 import { CLIENT_WHATSAPP_NUMBER, CONTACT_PERSON } from './BookingForm';
 
 const POPULAR_DESTINATIONS = [
+  'Rameshwaram',
+  'Thanjavur',
+  'Kanyakumari',
+  'Ooty',
   'Kodaikanal',
   'Munnar',
-  'Rameshwaram',
-  'Ooty',
-  'Kanyakumari',
   'Thekkady',
   'Palani',
-  'Trivandrum',
-  'Thanjavur'
+  'Trivandrum'
 ];
 
 const PICKUP_POINTS = [
@@ -271,12 +271,13 @@ export default function Hero({
               {/* Bottom Row: Quick Destinations & Search Button */}
               <div className="flex flex-col sm:flex-row items-center justify-between gap-2 pt-1">
                 
-                {/* Popular pills */}
-                <div className="flex items-center space-x-1.5 overflow-x-auto w-full sm:w-auto pb-0.5 scrollbar-none text-left">
-                  <span className="text-[9px] font-black uppercase text-slate-500 shrink-0 mr-0.5">
-                    Popular:
+                {/* Popular pills with smooth horizontal swipe and zero ugly scrollbars */}
+                <div className="flex items-center space-x-1.5 overflow-x-auto w-full sm:w-auto py-1 no-scrollbar text-left scroll-smooth">
+                  <span className="text-[9.5px] font-black uppercase tracking-wider text-slate-500 shrink-0 mr-1 flex items-center space-x-1">
+                    <span className="w-1.5 h-1.5 rounded-full bg-[#8B1E1E]" />
+                    <span>Popular:</span>
                   </span>
-                  {POPULAR_DESTINATIONS.slice(0, 5).map(city => (
+                  {POPULAR_DESTINATIONS.slice(0, 6).map(city => (
                     <button
                       key={city}
                       type="button"
@@ -284,10 +285,10 @@ export default function Hero({
                         setDestination(city);
                         handleSearch();
                       }}
-                      className={`px-2 py-0.5 rounded-full text-[9.5px] font-black transition-all shrink-0 cursor-pointer ${
+                      className={`px-2.5 py-1 rounded-full text-[10px] font-black transition-all shrink-0 cursor-pointer border ${
                         destination === city
-                          ? 'bg-[#8B1E1E] text-white shadow-2xs'
-                          : 'bg-stone-100 hover:bg-amber-100 text-slate-700'
+                          ? 'bg-[#8B1E1E] text-white border-[#8B1E1E] shadow-sm'
+                          : 'bg-stone-50 hover:bg-amber-50 hover:border-amber-300 text-slate-800 border-stone-200'
                       }`}
                     >
                       {city}
