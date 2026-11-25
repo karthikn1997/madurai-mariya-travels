@@ -32,11 +32,31 @@ const PICKUP_POINTS = [
 ];
 
 const HERO_BG_IMAGES = [
-  '/hero/hero-1-rameshwaram.jpg',
-  '/hero/hero-2-kanyakumari.jpg',
-  '/hero/hero-3-thanjavur.jpg',
-  '/hero/hero-4-dhanushkodi.jpg',
-  '/hero/hero-5-hills.jpg',
+  {
+    src: '/hero/hero-1-rameshwaram.jpg',
+    alt: 'Rameshwaram Pamban Sea Bridge',
+    mobilePosition: 'object-[58%_center]'
+  },
+  {
+    src: '/hero/hero-2-kanyakumari.jpg',
+    alt: 'Kanyakumari Vivekananda Rock & Thiruvalluvar Statue',
+    mobilePosition: 'object-[75%_center]'
+  },
+  {
+    src: '/hero/hero-3-thanjavur.jpg',
+    alt: 'Thanjavur Brihadeeswarar Temple Vimana',
+    mobilePosition: 'object-[78%_center]'
+  },
+  {
+    src: '/hero/hero-4-dhanushkodi.jpg',
+    alt: 'Dhanushkodi Ocean Road',
+    mobilePosition: 'object-[50%_center]'
+  },
+  {
+    src: '/hero/hero-5-hills.jpg',
+    alt: 'Misty Western Ghats Hills',
+    mobilePosition: 'object-[50%_center]'
+  },
 ];
 
 export default function Hero({ 
@@ -100,14 +120,14 @@ export default function Hero({
       <div className="absolute inset-0 z-0 overflow-hidden bg-slate-950">
         <AnimatePresence initial={false}>
           <motion.img
-            key={HERO_BG_IMAGES[bgIndex]}
-            src={HERO_BG_IMAGES[bgIndex]}
-            alt="Mariya Travels Scenic Destination"
+            key={HERO_BG_IMAGES[bgIndex].src}
+            src={HERO_BG_IMAGES[bgIndex].src}
+            alt={HERO_BG_IMAGES[bgIndex].alt}
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
             exit={{ opacity: 0 }}
             transition={{ duration: 0.7, ease: "easeInOut" }}
-            className="absolute inset-0 w-full h-full object-cover object-center"
+            className={`absolute inset-0 w-full h-full object-cover ${HERO_BG_IMAGES[bgIndex].mobilePosition} sm:object-center`}
           />
         </AnimatePresence>
 
