@@ -152,9 +152,9 @@ export default function Navbar({ onBookClick }) {
         </div>
       </header>
 
-      {/* Mobile Drawer Menu */}
+      {/* Mobile Drawer Menu - Pure solid white background with zero transparent glass wash */}
       <div
-        className={`fixed inset-0 z-40 bg-white/98 backdrop-blur-2xl transition-all duration-400 lg:hidden flex flex-col justify-between p-6 pt-24 ${
+        className={`fixed inset-0 z-40 bg-white transition-all duration-300 lg:hidden flex flex-col justify-between p-6 pt-24 ${
           mobileMenuOpen ? 'opacity-100 pointer-events-auto' : 'opacity-0 pointer-events-none'
         }`}
       >

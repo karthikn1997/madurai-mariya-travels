@@ -99,7 +99,7 @@ export default function WhyChooseUs({ onBookClick }) {
         {/* ============================================================== */}
         {/* BORDERLESS EDITORIAL FEATURE SHOWCASE                         */}
         {/* ============================================================== */}
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-x-10 gap-y-7 sm:gap-y-12">
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-y-7 sm:gap-y-12 md:gap-x-10">
           {TRUST_PILLARS.map((pillar, idx) => {
             const Icon = pillar.icon;
             const num = String(idx + 1).padStart(2, '0');
@@ -107,25 +107,25 @@ export default function WhyChooseUs({ onBookClick }) {
             return (
               <div 
                 key={pillar.id}
-                className="group relative flex items-start space-x-4 sm:space-x-5 text-left transition-all duration-300"
+                className="group relative flex items-start space-x-3.5 sm:space-x-5 text-left transition-all duration-300 bg-white/[0.03] sm:bg-transparent p-3.5 sm:p-0 rounded-2xl sm:rounded-none border border-white/5 sm:border-transparent"
               >
-                {/* 1. Large Luxury Serif Numeral Watermark + Soft Circular Icon */}
+                {/* 1. Clear Luxury Serif Numeral + Soft Circular Icon */}
                 <div className="relative shrink-0 pt-0.5">
-                  <span className="font-serif text-3xl sm:text-4xl font-black text-white/10 group-hover:text-[#F5B800]/25 transition-colors absolute -top-4 -left-2 pointer-events-none select-none">
+                  <span className="font-serif text-2xl sm:text-3xl font-black text-white/20 group-hover:text-[#F5B800]/40 transition-colors absolute -top-3.5 -left-1 sm:-top-4 sm:-left-2 pointer-events-none select-none">
                     {num}
                   </span>
-                  <div className="relative z-10 w-12 h-12 sm:w-13 sm:h-13 rounded-full bg-white/10 backdrop-blur-md border border-white/20 shadow-md flex items-center justify-center text-[#F5B800] group-hover:bg-[#F5B800] group-hover:text-slate-950 group-hover:scale-108 group-hover:shadow-lg transition-all duration-300">
+                  <div className="relative z-10 w-11 h-11 sm:w-13 sm:h-13 rounded-full bg-white/10 backdrop-blur-md border border-white/20 shadow-md flex items-center justify-center text-[#F5B800] group-hover:bg-[#F5B800] group-hover:text-slate-950 group-hover:scale-105 transition-all duration-300">
                     <Icon className="w-5 h-5 sm:w-6 sm:h-6 stroke-[2.2]" />
                   </div>
                 </div>
 
                 {/* 2. Content & Micro Tag */}
-                <div className="space-y-2 min-w-0 flex-1">
-                  <div className="flex flex-wrap items-center gap-2">
-                    <h3 className="font-serif text-lg sm:text-xl font-bold text-white group-hover:text-[#F5B800] transition-colors leading-snug">
+                <div className="space-y-1.5 sm:space-y-2 min-w-0 flex-1">
+                  <div className="flex flex-col sm:flex-row sm:flex-wrap sm:items-center gap-1 sm:gap-2">
+                    <h3 className="font-serif text-base sm:text-xl font-bold text-white group-hover:text-[#F5B800] transition-colors leading-snug">
                       {pillar.title}
                     </h3>
-                    <span className="px-2.5 py-0.5 rounded-full bg-[#F5B800] text-slate-950 text-[10px] font-black tracking-wider uppercase shadow-xs">
+                    <span className="self-start px-2 py-0.5 rounded-full bg-[#F5B800] text-slate-950 text-[9px] sm:text-[10px] font-black tracking-wider uppercase shadow-xs">
                       {pillar.tag}
                     </span>
                   </div>
