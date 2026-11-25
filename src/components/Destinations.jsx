@@ -107,14 +107,15 @@ export default function Destinations({ onSelectDestination, onViewAll }) {
     <section id="destinations-showcase" className="relative py-16 sm:py-24 overflow-hidden text-slate-900 border-b border-stone-200">
       
       {/* Scenic Mountain & Sky Background Image */}
+      {/* High-clarity scenic background with minimal subtle overlay */}
       <div className="absolute inset-0 z-0">
         <img
           src="/destinations-bg.jpg"
           alt="Scenic Mountain Peaks & Clear Sky"
           className="w-full h-full object-cover object-center"
         />
-        {/* Soft luxury frosted overlay to ensure text & card contrast */}
-        <div className="absolute inset-0 bg-gradient-to-r from-white/95 via-white/85 to-white/70 backdrop-blur-[1px]" />
+        {/* Lighter, clearer overlay without heavy wash or fog so scenic background stays visible and crisp */}
+        <div className="absolute inset-0 bg-gradient-to-r from-white/80 via-white/50 to-white/30" />
       </div>
 
       {/* Expanded Container Width to remove large left void on wide screens */}
