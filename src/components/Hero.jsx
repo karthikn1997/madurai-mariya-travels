@@ -32,7 +32,6 @@ const PICKUP_POINTS = [
 ];
 
 const HERO_BG_IMAGES = [
-  '/hero/hero-1-rameshwaram.jpg',
   '/hero/hero-2-kanyakumari.jpg',
   '/hero/hero-3-thanjavur.jpg',
   '/hero/hero-4-ooty.jpg',
