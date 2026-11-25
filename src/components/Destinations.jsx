@@ -9,6 +9,41 @@ import { CLIENT_WHATSAPP_NUMBER, CONTACT_PERSON } from './BookingForm';
 
 export const FEATURED_DESTINATIONS = [
   {
+    id: 'kanyakumari',
+    name: 'Kanyakumari',
+    state: 'Tamil Nadu',
+    image: '/destinations/kanyakumari-card.jpg',
+    packageId: 'madurai-rameswaram-kanyakumari-trivandrum'
+  },
+  {
+    id: 'rameshwaram',
+    name: 'Rameshwaram',
+    state: 'Tamil Nadu',
+    image: 'https://images.unsplash.com/photo-1706932642959-97cdde19ef0b?auto=format&fit=crop&w=800&q=80',
+    packageId: 'madurai-rameshwaram'
+  },
+  {
+    id: 'thanjavur',
+    name: 'Thanjavur & Srirangam',
+    state: 'Tamil Nadu',
+    image: '/gallery/thanjavur-temple.jpg',
+    packageId: 'madurai-pillayarpatti-srirangam-thanjavur'
+  },
+  {
+    id: 'ooty',
+    name: 'Ooty (Nilgiris)',
+    state: 'Tamil Nadu',
+    image: '/destinations/ooty-nilgiris-card.jpg',
+    packageId: 'madurai-kodai-palani-ooty-cbe'
+  },
+  {
+    id: 'thekkady',
+    name: 'Thekkady',
+    state: 'Kerala',
+    image: 'https://images.unsplash.com/photo-1512343879784-a960bf40e7f2?auto=format&fit=crop&w=800&q=80',
+    packageId: 'madurai-thekkady-munnar'
+  },
+  {
     id: 'kodaikanal',
     name: 'Kodaikanal',
     state: 'Tamil Nadu',
@@ -21,41 +56,6 @@ export const FEATURED_DESTINATIONS = [
     state: 'Kerala',
     image: 'https://images.unsplash.com/photo-1596176530529-78163a4f7af2?auto=format&fit=crop&w=800&q=80',
     packageId: 'madurai-thekkady-munnar'
-  },
-  {
-    id: 'rameshwaram',
-    name: 'Rameshwaram',
-    state: 'Tamil Nadu',
-    image: 'https://images.unsplash.com/photo-1706932642959-97cdde19ef0b?auto=format&fit=crop&w=800&q=80',
-    packageId: 'madurai-rameshwaram'
-  },
-  {
-    id: 'ooty',
-    name: 'Ooty (Nilgiris)',
-    state: 'Tamil Nadu',
-    image: '/ooty-slopes.jpg',
-    packageId: 'madurai-kodai-palani-ooty-cbe'
-  },
-  {
-    id: 'kanyakumari',
-    name: 'Kanyakumari',
-    state: 'Tamil Nadu',
-    image: 'https://images.unsplash.com/photo-1582510003544-4d00b7f74220?auto=format&fit=crop&w=800&q=80',
-    packageId: 'madurai-rameswaram-kanyakumari-trivandrum'
-  },
-  {
-    id: 'thekkady',
-    name: 'Thekkady',
-    state: 'Kerala',
-    image: 'https://images.unsplash.com/photo-1512343879784-a960bf40e7f2?auto=format&fit=crop&w=800&q=80',
-    packageId: 'madurai-thekkady-munnar'
-  },
-  {
-    id: 'thanjavur',
-    name: 'Thanjavur & Srirangam',
-    state: 'Tamil Nadu',
-    image: '/gallery/thanjavur-temple.jpg',
-    packageId: 'madurai-pillayarpatti-srirangam-thanjavur'
   },
   {
     id: 'palani',
