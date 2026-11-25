@@ -102,11 +102,11 @@ export default function Hero({
             key={HERO_BG_IMAGES[bgIndex]}
             src={HERO_BG_IMAGES[bgIndex]}
             alt="Mariya Travels Scenic Destination"
-            initial={{ opacity: 0, scale: 1.03 }}
-            animate={{ opacity: 1, scale: 1 }}
+            initial={{ opacity: 0 }}
+            animate={{ opacity: 1 }}
             exit={{ opacity: 0 }}
             transition={{ duration: 0.7, ease: "easeInOut" }}
-            className="absolute inset-0 w-full h-full object-cover"
+            className="absolute inset-0 w-full h-full object-cover object-center"
           />
         </AnimatePresence>
 
