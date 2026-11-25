@@ -32,10 +32,11 @@ const PICKUP_POINTS = [
 ];
 
 const HERO_BG_IMAGES = [
-  '/hero/hero-bg-1.jpg',
-  '/hero/hero-bg-2.jpg',
-  '/hero/hero-bg-3.jpg',
-  '/hero/hero-bg-4.jpg',
+  '/hero/hero-1-rameshwaram.jpg',
+  '/hero/hero-2-kanyakumari.jpg',
+  '/hero/hero-3-thanjavur.jpg',
+  '/hero/hero-4-ooty.jpg',
+  '/hero/hero-5-dhanushkodi.jpg',
 ];
 
 export default function Hero({ 
