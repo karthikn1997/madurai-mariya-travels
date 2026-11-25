@@ -104,19 +104,11 @@ export default function Destinations({ onSelectDestination, onViewAll }) {
   };
 
   return (
-    <section id="destinations-showcase" className="relative py-16 sm:py-24 overflow-hidden text-slate-900 border-b border-stone-200">
+    <section id="destinations-showcase" className="relative py-16 sm:py-24 overflow-hidden text-slate-900 bg-[#FAF8F5] border-b border-stone-200">
       
-      {/* Scenic Mountain & Sky Background Image */}
-      {/* High-clarity scenic background with minimal subtle overlay */}
-      <div className="absolute inset-0 z-0">
-        <img
-          src="/destinations-bg.jpg"
-          alt="Scenic Mountain Peaks & Clear Sky"
-          className="w-full h-full object-cover object-center"
-        />
-        {/* Lighter, clearer overlay without heavy wash or fog so scenic background stays visible and crisp */}
-        <div className="absolute inset-0 bg-gradient-to-r from-white/80 via-white/50 to-white/30" />
-      </div>
+      {/* Luxury ambient light orbs matching Mariya brand aesthetic (no harsh blue tint) */}
+      <div className="absolute top-1/4 -right-40 w-96 h-96 bg-amber-100/35 rounded-full blur-3xl pointer-events-none" />
+      <div className="absolute bottom-1/4 -left-40 w-96 h-96 bg-red-100/25 rounded-full blur-3xl pointer-events-none" />
 
       {/* Expanded Container Width to remove large left void on wide screens */}
       <div className="relative z-10 w-full max-w-[1780px] mx-auto px-4 sm:px-8 lg:px-12 xl:px-16">
