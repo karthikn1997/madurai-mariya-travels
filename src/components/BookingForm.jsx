@@ -77,7 +77,7 @@ export default function BookingForm({ initialVehicle, initialEstimate }) {
       <div className="absolute top-10 left-10 w-[24rem] h-[24rem] bg-amber-200/15 rounded-full blur-3xl pointer-events-none" />
       <div className="absolute bottom-10 right-10 w-[24rem] h-[24rem] bg-red-200/10 rounded-full blur-3xl pointer-events-none" />
 
-      <div className="relative max-w-5xl mx-auto px-4 sm:px-6">
+      <div className="relative max-w-7xl mx-auto px-6 sm:px-8">
         
         {/* Compact Section Header */}
         <div className="flex flex-col sm:flex-row sm:items-end justify-between mb-8 pb-6 border-b-2 border-slate-200 gap-4">
@@ -108,11 +108,11 @@ export default function BookingForm({ initialVehicle, initialEstimate }) {
           </div>
         </div>
 
-        {/* Master Reservation Pavilion - Two Sleek Balanced Cards */}
-        <div className="grid grid-cols-1 lg:grid-cols-12 gap-6 lg:gap-8 items-start">
+        {/* Master Reservation Pavilion - Two Equal-Height Balanced Cards */}
+        <div className="grid grid-cols-1 lg:grid-cols-12 gap-6 lg:gap-8 items-stretch">
           
           {/* LEFT: Compact Booking Console (7 Cols) */}
-          <div className="lg:col-span-7 p-4 sm:p-7 bg-white rounded-2xl border border-slate-200/90 shadow-lg flex flex-col justify-between">
+          <div className="lg:col-span-7 h-full p-4 sm:p-7 bg-white rounded-2xl border border-slate-200/90 shadow-lg flex flex-col justify-between">
             <div>
               <div className="flex items-center space-x-2 text-[#8B1E1E] text-[11px] font-black uppercase tracking-widest mb-4">
                 <Sparkles className="w-3.5 h-3.5 text-[#F5B800] fill-current" />
@@ -140,13 +140,13 @@ export default function BookingForm({ initialVehicle, initialEstimate }) {
                   </button>
                 </motion.div>
               ) : (
-                <form onSubmit={handleSubmit} className="space-y-4">
+                <form onSubmit={handleSubmit} className="space-y-3 sm:space-y-4">
                   
                   {/* Row 1: Name & Phone */}
-                  <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
+                  <div className="grid grid-cols-2 gap-2.5 sm:gap-4">
                     <div>
-                      <label className="block text-[11px] font-extrabold uppercase tracking-wider text-slate-800 mb-1.5">
-                        Your Full Name *
+                      <label className="block text-[10px] sm:text-[11px] font-extrabold uppercase tracking-wider text-slate-800 mb-1 sm:mb-1.5 truncate">
+                        Full Name *
                       </label>
                       <input
                         type="text"
@@ -155,12 +155,12 @@ export default function BookingForm({ initialVehicle, initialEstimate }) {
                         value={formData.name}
                         onChange={handleChange}
                         placeholder="e.g. Ramesh Kumar"
-                        className="w-full px-3.5 py-2.5 rounded-lg bg-slate-50 border border-slate-200 focus:border-[#F5B800] focus:bg-white text-slate-950 text-xs sm:text-sm font-bold transition-all outline-none"
+                        className="w-full px-2.5 sm:px-3.5 py-2 sm:py-2.5 rounded-lg bg-slate-50 border border-slate-200 focus:border-[#F5B800] focus:bg-white text-slate-950 text-[11px] sm:text-sm font-bold transition-all outline-none"
                       />
                     </div>
 
                     <div>
-                      <label className="block text-[11px] font-extrabold uppercase tracking-wider text-slate-800 mb-1.5">
+                      <label className="block text-[10px] sm:text-[11px] font-extrabold uppercase tracking-wider text-slate-800 mb-1 sm:mb-1.5 truncate">
                         Contact Phone *
                       </label>
                       <input
@@ -170,15 +170,15 @@ export default function BookingForm({ initialVehicle, initialEstimate }) {
                         value={formData.phone}
                         onChange={handleChange}
                         placeholder="e.g. 98400 12345"
-                        className="w-full px-3.5 py-2.5 rounded-lg bg-slate-50 border border-slate-200 focus:border-[#F5B800] focus:bg-white text-slate-950 text-xs sm:text-sm font-bold transition-all outline-none"
+                        className="w-full px-2.5 sm:px-3.5 py-2 sm:py-2.5 rounded-lg bg-slate-50 border border-slate-200 focus:border-[#F5B800] focus:bg-white text-slate-950 text-[11px] sm:text-sm font-bold transition-all outline-none"
                       />
                     </div>
                   </div>
 
                   {/* Row 2: Pickup & Destination */}
-                  <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
+                  <div className="grid grid-cols-2 gap-2.5 sm:gap-4">
                     <div>
-                      <label className="block text-[11px] font-extrabold uppercase tracking-wider text-slate-800 mb-1.5">
+                      <label className="block text-[10px] sm:text-[11px] font-extrabold uppercase tracking-wider text-slate-800 mb-1 sm:mb-1.5 truncate">
                         Pickup Location *
                       </label>
                       <div className="relative">
@@ -188,15 +188,15 @@ export default function BookingForm({ initialVehicle, initialEstimate }) {
                           required
                           value={formData.pickup}
                           onChange={handleChange}
-                          placeholder="e.g. Madurai / K. Pudur"
-                          className="w-full pl-9 pr-3.5 py-2.5 rounded-lg bg-slate-50 border border-slate-200 focus:border-[#F5B800] focus:bg-white text-slate-950 text-xs sm:text-sm font-bold transition-all outline-none"
+                          placeholder="e.g. Madurai"
+                          className="w-full pl-7 sm:pl-9 pr-2.5 sm:pr-3.5 py-2 sm:py-2.5 rounded-lg bg-slate-50 border border-slate-200 focus:border-[#F5B800] focus:bg-white text-slate-950 text-[11px] sm:text-sm font-bold transition-all outline-none"
                         />
-                        <MapPin className="w-3.5 h-3.5 text-[#8B1E1E] absolute left-3 top-3" />
+                        <MapPin className="w-3.5 h-3.5 text-[#8B1E1E] absolute left-2.5 sm:left-3 top-2.5 sm:top-3" />
                       </div>
                     </div>
 
                     <div>
-                      <label className="block text-[11px] font-extrabold uppercase tracking-wider text-slate-800 mb-1.5">
+                      <label className="block text-[10px] sm:text-[11px] font-extrabold uppercase tracking-wider text-slate-800 mb-1 sm:mb-1.5 truncate">
                         Destination *
                       </label>
                       <div className="relative">
@@ -206,18 +206,18 @@ export default function BookingForm({ initialVehicle, initialEstimate }) {
                           required
                           value={formData.destination}
                           onChange={handleChange}
-                          placeholder="e.g. Kodaikanal / Munnar"
-                          className="w-full pl-9 pr-3.5 py-2.5 rounded-lg bg-slate-50 border border-slate-200 focus:border-[#F5B800] focus:bg-white text-slate-950 text-xs sm:text-sm font-bold transition-all outline-none"
+                          placeholder="e.g. Kodaikanal"
+                          className="w-full pl-7 sm:pl-9 pr-2.5 sm:pr-3.5 py-2 sm:py-2.5 rounded-lg bg-slate-50 border border-slate-200 focus:border-[#F5B800] focus:bg-white text-slate-950 text-[11px] sm:text-sm font-bold transition-all outline-none"
                         />
-                        <MapPin className="w-3.5 h-3.5 text-[#729227] absolute left-3 top-3" />
+                        <MapPin className="w-3.5 h-3.5 text-[#729227] absolute left-2.5 sm:left-3 top-2.5 sm:top-3" />
                       </div>
                     </div>
                   </div>
 
                   {/* Row 3: Travel Date & Vehicle Selector */}
-                  <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
+                  <div className="grid grid-cols-2 gap-2.5 sm:gap-4">
                     <div>
-                      <label className="block text-[11px] font-extrabold uppercase tracking-wider text-slate-800 mb-1.5">
+                      <label className="block text-[10px] sm:text-[11px] font-extrabold uppercase tracking-wider text-slate-800 mb-1 sm:mb-1.5 truncate">
                         Travel Date *
                       </label>
                       <div className="relative">
@@ -227,14 +227,14 @@ export default function BookingForm({ initialVehicle, initialEstimate }) {
                           required
                           value={formData.travelDate}
                           onChange={handleChange}
-                          className="w-full pl-9 pr-3.5 py-2.5 rounded-lg bg-slate-50 border border-slate-200 focus:border-[#F5B800] focus:bg-white text-slate-950 text-xs sm:text-sm font-bold transition-all outline-none cursor-pointer"
+                          className="w-full pl-7 sm:pl-9 pr-2 sm:pr-3.5 py-2 sm:py-2.5 rounded-lg bg-slate-50 border border-slate-200 focus:border-[#F5B800] focus:bg-white text-slate-950 text-[11px] sm:text-sm font-bold transition-all outline-none cursor-pointer"
                         />
-                        <Calendar className="w-3.5 h-3.5 text-[#8B1E1E] absolute left-3 top-3" />
+                        <Calendar className="w-3.5 h-3.5 text-[#8B1E1E] absolute left-2.5 sm:left-3 top-2.5 sm:top-3 pointer-events-none" />
                       </div>
                     </div>
 
                     <div>
-                      <label className="block text-[11px] font-extrabold uppercase tracking-wider text-slate-800 mb-1.5">
+                      <label className="block text-[10px] sm:text-[11px] font-extrabold uppercase tracking-wider text-slate-800 mb-1 sm:mb-1.5 truncate">
                         Choose Vehicle *
                       </label>
                       <div className="relative">
@@ -242,7 +242,7 @@ export default function BookingForm({ initialVehicle, initialEstimate }) {
                           name="vehicle"
                           value={formData.vehicle}
                           onChange={handleChange}
-                          className="w-full pl-9 pr-3.5 py-2.5 rounded-lg bg-slate-50 border border-slate-200 focus:border-[#F5B800] focus:bg-white text-slate-950 text-xs sm:text-sm font-bold transition-all outline-none cursor-pointer appearance-none"
+                          className="w-full pl-7 sm:pl-9 pr-2.5 sm:pr-3.5 py-2 sm:py-2.5 rounded-lg bg-slate-50 border border-slate-200 focus:border-[#F5B800] focus:bg-white text-slate-950 text-[11px] sm:text-sm font-bold transition-all outline-none cursor-pointer appearance-none truncate"
                         >
                           {VEHICLES.map((v) => (
                             <option key={v.id} value={v.name} className="bg-white text-slate-950">
@@ -250,7 +250,7 @@ export default function BookingForm({ initialVehicle, initialEstimate }) {
                             </option>
                           ))}
                         </select>
-                        <Car className="w-3.5 h-3.5 text-[#8B1E1E] absolute left-3 top-3 pointer-events-none" />
+                        <Car className="w-3.5 h-3.5 text-[#8B1E1E] absolute left-2.5 sm:left-3 top-2.5 sm:top-3 pointer-events-none" />
                       </div>
                     </div>
                   </div>
@@ -290,73 +290,73 @@ export default function BookingForm({ initialVehicle, initialEstimate }) {
             </div>
           </div>
 
-          {/* RIGHT: The Executive Chauffeur Desk (5 Cols) - Royal Maroon Concierge Card */}
-          <div className="lg:col-span-5 bg-gradient-to-br from-[#450A0A] via-[#5C0D0D] to-[#2B0505] text-white p-6 sm:p-7 rounded-2xl border border-red-950/60 shadow-xl flex flex-col justify-between relative overflow-hidden">
-            {/* Subtle Ambient Glow */}
-            <div className="absolute -top-20 -right-20 w-56 h-56 bg-[#F5B800]/10 rounded-full blur-3xl pointer-events-none" />
+          {/* RIGHT: The Executive Chauffeur Desk (5 Cols) - Light Warm Ivory Concierge Card (Hidden on Mobile) */}
+          <div className="hidden lg:flex lg:col-span-5 h-full bg-[#FAF7F0] text-slate-900 p-5 sm:p-6 rounded-2xl border border-amber-200/80 shadow-lg flex-col justify-between relative overflow-hidden">
+            {/* Subtle Warm Glow */}
+            <div className="absolute -top-20 -right-20 w-56 h-56 bg-[#F5B800]/15 rounded-full blur-3xl pointer-events-none" />
 
-            <div className="relative space-y-5">
+            <div className="relative space-y-3.5">
               {/* Header Badge */}
-              <div className="flex items-center justify-between border-b border-white/15 pb-3.5">
+              <div className="flex items-center justify-between border-b border-stone-200/90 pb-3">
                 <div className="flex items-center space-x-2">
-                  <div className="h-8 w-auto flex items-center justify-center bg-white/95 px-2.5 py-1 rounded-lg shadow-xs">
+                  <div className="h-7 w-auto flex items-center justify-center">
                     <img src="/logo.png" alt="Madurai Mariya Travels" className="h-full w-auto object-contain" />
                   </div>
                 </div>
-                <span className="text-[10px] font-black uppercase tracking-wider px-2.5 py-1 rounded-full bg-[#F5B800] text-slate-950 shadow-sm">
+                <span className="text-[10px] font-black uppercase tracking-wider px-2.5 py-0.5 rounded-full bg-[#F5B800] text-slate-950 shadow-2xs">
                   Est. 2018
                 </span>
               </div>
 
               {/* Title & Proprietor */}
               <div>
-                <span className="text-[10px] font-bold uppercase tracking-[0.25em] text-[#F5B800]">
+                <span className="text-[10px] font-bold uppercase tracking-[0.25em] text-[#8B1E1E]">
                   Head Office & Concierge
                 </span>
-                <h3 className="font-sans text-xl sm:text-2xl font-extrabold text-white mt-0.5 tracking-tight">
+                <h3 className="font-sans text-xl sm:text-2xl font-extrabold text-slate-950 mt-0.5 tracking-tight">
                   Madurai Mariya Travels
                 </h3>
-                <p className="text-xs text-stone-300 mt-0.5 font-medium">
-                  Proprietor: <strong className="text-white font-bold">{CONTACT_PERSON}</strong>
+                <p className="text-xs text-slate-600 mt-0.5 font-medium">
+                  Proprietor: <strong className="text-slate-950 font-bold">{CONTACT_PERSON}</strong>
                 </p>
               </div>
 
               {/* Clean Borderless Divided Contact Rows (Zero Boxes) */}
-              <div className="divide-y divide-white/10 border-t border-b border-white/10">
+              <div className="divide-y divide-stone-200/80 border-t border-b border-stone-200/80">
                 {/* Phone 1 */}
-                <div className="flex items-center space-x-3.5 py-3">
-                  <div className="w-8 h-8 rounded-full bg-[#F5B800]/15 text-[#F5B800] flex items-center justify-center shrink-0">
+                <div className="flex items-center space-x-3 py-2.5">
+                  <div className="w-8 h-8 rounded-full bg-amber-100 text-[#8B1E1E] flex items-center justify-center shrink-0">
                     <Phone className="w-3.5 h-3.5" />
                   </div>
                   <div>
-                    <span className="text-[9.5px] uppercase tracking-wider text-stone-300/80 font-bold block">Primary & WhatsApp</span>
-                    <a href="tel:+919943655680" className="block text-sm font-numeric font-bold text-white hover:text-[#F5B800] transition-colors">
+                    <span className="text-[9px] uppercase tracking-wider text-slate-500 font-bold block">Primary & WhatsApp</span>
+                    <a href="tel:+919943655680" className="block text-sm font-numeric font-bold text-slate-950 hover:text-[#8B1E1E] transition-colors">
                       +91 99436 55680
                     </a>
                   </div>
                 </div>
 
                 {/* Phone 2 */}
-                <div className="flex items-center space-x-3.5 py-3">
-                  <div className="w-8 h-8 rounded-full bg-white/10 text-stone-200 flex items-center justify-center shrink-0">
+                <div className="flex items-center space-x-3 py-2.5">
+                  <div className="w-8 h-8 rounded-full bg-stone-200/70 text-slate-700 flex items-center justify-center shrink-0">
                     <Phone className="w-3.5 h-3.5" />
                   </div>
                   <div>
-                    <span className="text-[9.5px] uppercase tracking-wider text-stone-300/80 font-bold block">Secondary Hotline</span>
-                    <a href="tel:+919486875680" className="block text-sm font-numeric font-bold text-white hover:text-[#F5B800] transition-colors">
+                    <span className="text-[9px] uppercase tracking-wider text-slate-500 font-bold block">Secondary Hotline</span>
+                    <a href="tel:+919486875680" className="block text-sm font-numeric font-bold text-slate-950 hover:text-[#8B1E1E] transition-colors">
                       +91 94868 75680
                     </a>
                   </div>
                 </div>
 
                 {/* Address */}
-                <div className="flex items-start space-x-3.5 py-3">
-                  <div className="w-8 h-8 rounded-full bg-white/10 text-[#F5B800] flex items-center justify-center shrink-0 mt-0.5">
+                <div className="flex items-start space-x-3 py-2.5">
+                  <div className="w-8 h-8 rounded-full bg-red-100/80 text-[#8B1E1E] flex items-center justify-center shrink-0 mt-0.5">
                     <MapPin className="w-3.5 h-3.5" />
                   </div>
                   <div>
-                    <span className="text-[9.5px] uppercase tracking-wider text-stone-300/80 font-bold block">Registered Head Office</span>
-                    <address className="not-italic text-xs text-stone-100 font-medium leading-relaxed mt-0.5">
+                    <span className="text-[9px] uppercase tracking-wider text-slate-500 font-bold block">Registered Head Office</span>
+                    <address className="not-italic text-xs text-slate-800 font-medium leading-snug mt-0.5">
                       45, Madha Kovil 3rd Street, <br />
                       K. Pudur, Madurai - 625007.
                     </address>
@@ -364,13 +364,13 @@ export default function BookingForm({ initialVehicle, initialEstimate }) {
                 </div>
 
                 {/* Email */}
-                <div className="flex items-center space-x-3.5 py-3">
-                  <div className="w-8 h-8 rounded-full bg-white/10 text-emerald-400 flex items-center justify-center shrink-0">
+                <div className="flex items-center space-x-3 py-2.5">
+                  <div className="w-8 h-8 rounded-full bg-emerald-100/80 text-[#729227] flex items-center justify-center shrink-0">
                     <MessageSquare className="w-3.5 h-3.5" />
                   </div>
                   <div>
-                    <span className="text-[9.5px] uppercase tracking-wider text-stone-300/80 font-bold block">Official Email</span>
-                    <a href="mailto:maduraimariya@gmail.com" className="block text-xs font-bold text-white hover:text-[#F5B800] transition-colors">
+                    <span className="text-[9px] uppercase tracking-wider text-slate-500 font-bold block">Official Email</span>
+                    <a href="mailto:maduraimariya@gmail.com" className="block text-xs font-bold text-slate-950 hover:text-[#8B1E1E] transition-colors">
                       maduraimariya@gmail.com
                     </a>
                   </div>
@@ -378,21 +378,21 @@ export default function BookingForm({ initialVehicle, initialEstimate }) {
               </div>
 
               {/* Instagram Follow Strip */}
-              <div className="p-3 rounded-xl bg-white/[0.08] border border-white/15 backdrop-blur-sm flex items-center justify-between">
+              <div className="p-2.5 rounded-xl bg-white border border-stone-200/90 shadow-2xs flex items-center justify-between">
                 <div className="flex items-center space-x-2.5">
                   <div className="w-8 h-8 rounded-lg bg-gradient-to-tr from-purple-600 via-pink-600 to-amber-500 flex items-center justify-center text-white shadow-sm">
                     <Instagram className="w-4 h-4" />
                   </div>
                   <div>
-                    <p className="text-xs font-bold text-white">@maduraimariyatravels</p>
-                    <p className="text-[10px] text-stone-300 font-medium">Tour reels & photos</p>
+                    <p className="text-xs font-bold text-slate-950">@maduraimariyatravels</p>
+                    <p className="text-[10px] text-slate-500 font-medium">Tour reels & photos</p>
                   </div>
                 </div>
                 <a
                   href={INSTAGRAM_URL}
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="px-3.5 py-1.5 rounded-full bg-white hover:bg-[#F5B800] text-slate-950 font-black text-[10px] tracking-wider uppercase transition-colors"
+                  className="px-3.5 py-1.5 rounded-full bg-slate-950 hover:bg-[#8B1E1E] text-white font-black text-[10px] tracking-wider uppercase transition-colors"
                 >
                   Follow
                 </a>
@@ -400,8 +400,8 @@ export default function BookingForm({ initialVehicle, initialEstimate }) {
             </div>
 
             {/* Bottom Service Assurance */}
-            <div className="relative pt-4 border-t border-white/15 mt-5 flex items-center space-x-2 text-[11px] text-stone-200 font-semibold">
-              <ShieldCheck className="w-4 h-4 text-[#F5B800] shrink-0" />
+            <div className="relative pt-3 border-t border-stone-200/80 mt-3.5 flex items-center space-x-2 text-[11px] text-slate-700 font-semibold">
+              <ShieldCheck className="w-4 h-4 text-[#729227] shrink-0" />
               <span>Certified Mountain Drivers & GPS Equipped Fleet</span>
             </div>
 

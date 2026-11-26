@@ -133,50 +133,50 @@ export default function About() {
               Founded in 2018 in Madurai by <strong className="text-slate-950 font-black">S. David</strong>, <strong className="text-slate-950 font-black">Mariya Travels</strong> operates a 100% company-owned luxury fleet for comfortable tour yatras, ghat road mountain circuits, and corporate group travel across South India with absolute safety.
             </p>
 
-            {/* 4 Compact Mini Feature Pills */}
-            <div className="grid grid-cols-1 sm:grid-cols-2 gap-2.5 sm:gap-3 pt-1">
+            {/* 4 Compact Mini Feature Pills (2x2 Compact Grid on Mobile) */}
+            <div className="grid grid-cols-2 gap-2 sm:gap-3 pt-1">
               
               {/* Feature 1 */}
-              <div className="p-3 rounded-xl bg-white border border-stone-200/90 shadow-2xs flex items-center space-x-3 hover:border-[#8B1E1E]/50 transition-colors">
-                <div className="w-8 h-8 rounded-lg bg-red-50 flex items-center justify-center shrink-0">
-                  <Car className="w-4 h-4 text-[#8B1E1E]" />
+              <div className="p-2.5 sm:p-3 rounded-xl bg-white border border-stone-200/90 shadow-2xs flex items-center space-x-2 sm:space-x-3 hover:border-[#8B1E1E]/50 transition-colors">
+                <div className="w-7 h-7 sm:w-8 sm:h-8 rounded-lg bg-red-50 flex items-center justify-center shrink-0">
+                  <Car className="w-3.5 h-3.5 sm:w-4 sm:h-4 text-[#8B1E1E]" />
                 </div>
                 <div className="text-left min-w-0">
-                  <p className="text-xs sm:text-[13px] font-black text-slate-950 leading-snug">100% Owned Fleet</p>
-                  <p className="text-[11px] sm:text-[10px] text-slate-500 font-medium mt-0.5 leading-snug">Zero brokers or aggregators</p>
+                  <p className="text-[11px] sm:text-[13px] font-black text-slate-950 leading-tight">100% Owned Fleet</p>
+                  <p className="hidden sm:block text-[10px] text-slate-500 font-medium mt-0.5 leading-snug">Zero brokers or aggregators</p>
                 </div>
               </div>
 
               {/* Feature 2 */}
-              <div className="p-3 rounded-xl bg-white border border-stone-200/90 shadow-2xs flex items-center space-x-3 hover:border-[#8B1E1E]/50 transition-colors">
-                <div className="w-8 h-8 rounded-lg bg-red-50 flex items-center justify-center shrink-0">
-                  <Navigation className="w-4 h-4 text-[#8B1E1E]" />
+              <div className="p-2.5 sm:p-3 rounded-xl bg-white border border-stone-200/90 shadow-2xs flex items-center space-x-2 sm:space-x-3 hover:border-[#8B1E1E]/50 transition-colors">
+                <div className="w-7 h-7 sm:w-8 sm:h-8 rounded-lg bg-red-50 flex items-center justify-center shrink-0">
+                  <Navigation className="w-3.5 h-3.5 sm:w-4 sm:h-4 text-[#8B1E1E]" />
                 </div>
                 <div className="text-left min-w-0">
-                  <p className="text-xs sm:text-[13px] font-black text-slate-950 leading-snug">Ghat Road Experts</p>
-                  <p className="text-[11px] sm:text-[10px] text-slate-500 font-medium mt-0.5 leading-snug">Seasoned mountain drivers</p>
+                  <p className="text-[11px] sm:text-[13px] font-black text-slate-950 leading-tight">Ghat Road Experts</p>
+                  <p className="hidden sm:block text-[10px] text-slate-500 font-medium mt-0.5 leading-snug">Seasoned mountain drivers</p>
                 </div>
               </div>
 
               {/* Feature 3 */}
-              <div className="p-3 rounded-xl bg-white border border-stone-200/90 shadow-2xs flex items-center space-x-3 hover:border-[#8B1E1E]/50 transition-colors">
-                <div className="w-8 h-8 rounded-lg bg-red-50 flex items-center justify-center shrink-0">
-                  <ShieldCheck className="w-4 h-4 text-[#8B1E1E]" />
+              <div className="p-2.5 sm:p-3 rounded-xl bg-white border border-stone-200/90 shadow-2xs flex items-center space-x-2 sm:space-x-3 hover:border-[#8B1E1E]/50 transition-colors">
+                <div className="w-7 h-7 sm:w-8 sm:h-8 rounded-lg bg-red-50 flex items-center justify-center shrink-0">
+                  <ShieldCheck className="w-3.5 h-3.5 sm:w-4 sm:h-4 text-[#8B1E1E]" />
                 </div>
                 <div className="text-left min-w-0">
-                  <p className="text-xs sm:text-[13px] font-black text-slate-950 leading-snug">Honest Kilometrage</p>
-                  <p className="text-[11px] sm:text-[10px] text-slate-500 font-medium mt-0.5 leading-snug">Clear transparent rates</p>
+                  <p className="text-[11px] sm:text-[13px] font-black text-slate-950 leading-tight">Honest Kilometrage</p>
+                  <p className="hidden sm:block text-[10px] text-slate-500 font-medium mt-0.5 leading-snug">Clear transparent rates</p>
                 </div>
               </div>
 
               {/* Feature 4 */}
-              <div className="p-3 rounded-xl bg-white border border-stone-200/90 shadow-2xs flex items-center space-x-3 hover:border-[#8B1E1E]/50 transition-colors">
-                <div className="w-8 h-8 rounded-lg bg-red-50 flex items-center justify-center shrink-0">
-                  <Users className="w-4 h-4 text-[#8B1E1E]" />
+              <div className="p-2.5 sm:p-3 rounded-xl bg-white border border-stone-200/90 shadow-2xs flex items-center space-x-2 sm:space-x-3 hover:border-[#8B1E1E]/50 transition-colors">
+                <div className="w-7 h-7 sm:w-8 sm:h-8 rounded-lg bg-red-50 flex items-center justify-center shrink-0">
+                  <Users className="w-3.5 h-3.5 sm:w-4 sm:h-4 text-[#8B1E1E]" />
                 </div>
                 <div className="text-left min-w-0">
-                  <p className="text-xs sm:text-[13px] font-black text-slate-950 leading-snug">Direct Founder Access</p>
-                  <p className="text-[11px] sm:text-[10px] text-slate-500 font-medium mt-0.5 leading-snug">S. David custom support</p>
+                  <p className="text-[11px] sm:text-[13px] font-black text-slate-950 leading-tight">Direct Founder Access</p>
+                  <p className="hidden sm:block text-[10px] text-slate-500 font-medium mt-0.5 leading-snug">S. David custom support</p>
                 </div>
               </div>
 
