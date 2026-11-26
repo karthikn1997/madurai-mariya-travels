@@ -126,7 +126,7 @@ export default function Hero({
   };
 
   return (
-    <section id="home" className="relative w-full flex flex-col items-center justify-center overflow-hidden bg-[#FAF8F5] md:bg-slate-950 pt-5 pb-6 sm:pt-8 sm:pb-8 md:pt-8 md:pb-5 text-slate-950 md:aspect-[3/1]">
+    <section id="home" className="relative w-full flex flex-col items-center justify-center overflow-hidden bg-[#FAF8F5] md:bg-slate-950 pt-5 pb-6 sm:pt-8 sm:pb-8 md:py-6 text-slate-950 md:h-[430px] lg:h-[460px]">
       
       {/* 1. Cinematic Rotating Scenic Background Slideshow (GPU Hardware Accelerated - Zero Glitch) */}
       <div className="absolute top-0 left-0 right-0 aspect-[4/5] md:aspect-auto md:inset-0 md:h-full z-0 overflow-hidden bg-slate-950">
@@ -202,7 +202,7 @@ export default function Hero({
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.6, delay: 0.15 }}
-          className="w-full max-w-4xl mt-40 sm:mt-48 md:mt-16 lg:mt-20"
+          className="w-full max-w-4xl mt-40 sm:mt-48 md:mt-8 lg:mt-10"
         >
           <div className="bg-white/95 backdrop-blur-xl rounded-2xl p-3 sm:p-4 shadow-2xl shadow-black/60 border border-amber-400/50 text-left transition-all">
             

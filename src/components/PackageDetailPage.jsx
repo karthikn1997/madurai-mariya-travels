@@ -310,7 +310,7 @@ export default function PackageDetailPage({ packageData, onBack, onBookVehicle }
       {/* ========================================================================= */}
       {packageData.itinerary && packageData.itinerary.length > 0 && (
         <section className="py-12 sm:py-20 bg-[#FAF8F5] border-b border-slate-200">
-          <div className="w-full sm:max-w-[96%] xl:max-w-[1600px] 2xl:max-w-[1800px] mx-auto px-2.5 sm:px-8">
+          <div className="w-full max-w-6xl mx-auto px-2.5 sm:px-8">
 
             {/* Header */}
             <div className="flex flex-col sm:flex-row sm:items-end justify-between mb-8 sm:mb-10 gap-4">

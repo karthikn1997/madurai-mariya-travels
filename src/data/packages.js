@@ -16,7 +16,7 @@ export const TOUR_PACKAGES = [
     duration: '2 Nights / 3 Days',
     region: 'Tamil Nadu – Kerala Hills',
     image: '/packages/madurai-kodai-palani-ooty-cbe.jpg',
-    heroBanner: 'https://images.unsplash.com/photo-1544735716-392fe2489ffa?auto=format&fit=crop&w=2000&q=85',
+    heroBanner: '/packages/kodai-ooty-banner.jpg',
     aspectRatio: '1024/571',
     description:
       'Experience a refreshing blend of hill station serenity, spiritual bliss, and vibrant city life. From the misty heights of Kodaikanal and Ooty to the sacred Palani Murugan Temple and the lively city of Coimbatore — perfect for a short but fulfilling escape.',
@@ -130,13 +130,13 @@ export const TOUR_PACKAGES = [
   // ─────────────────────────────────────────────────────────────────────────────
   {
     id: 'madurai-thekkady-munnar',
-    coverImage: 'https://images.unsplash.com/photo-1596176530529-78163a4f7af2?auto=format&fit=crop&w=1200&q=80',
+    coverImage: '/packages/munnar-banner.jpg',
     name: 'Madurai – Thekkady – Munnar',
     tagline: 'Wildlife, Tea Gardens & Kerala Hill Bliss',
     duration: '4 Nights / 5 Days',
     region: 'Tamil Nadu & Kerala',
-    image: '/packages/madurai-thekkady-munnar.jpg',
-    heroBanner: 'https://images.unsplash.com/photo-1596176530529-78163a4f7af2?auto=format&fit=crop&w=2000&q=85',
+    image: '/packages/munnar-banner.jpg',
+    heroBanner: '/packages/munnar-banner.jpg',
     aspectRatio: '1024/571',
     description:
       'Explore the breathtaking landscapes of Kerala — from the vibrant city of Madurai to the wildlife-rich forests of Thekkady and the sprawling tea gardens of Munnar, offering the perfect blend of nature, adventure, and tranquility.',
@@ -273,7 +273,7 @@ export const TOUR_PACKAGES = [
     duration: '4 Nights / 5 Days',
     region: 'South India Coastal Circuit',
     image: '/packages/madurai-rameswaram-kanyakumari-trivandrum.jpg',
-    heroBanner: 'https://images.unsplash.com/photo-1706932642959-97cdde19ef0b?auto=format&fit=crop&w=2000&q=85',
+    heroBanner: '/packages/kanyakumari-trivandrum-banner.jpg',
     aspectRatio: '1024/571',
     description:
       "Embark on a spiritual and scenic journey through South India's most cherished destinations — from the temples of Madurai, the sacred shores of Rameshwaram, the scenic beauty of Kanyakumari, to the cultural richness of Trivandrum.",
@@ -410,7 +410,7 @@ export const TOUR_PACKAGES = [
     duration: '2 Days / 1 Night',
     region: 'Tamil Nadu Temples Circuit',
     image: '/packages/madurai-pillayarpatti-srirangam-thanjavur.jpg',
-    heroBanner: '/hero/thanjavur-temple-hero.jpg',
+    heroBanner: '/packages/thanjavur-banner.jpg',
     aspectRatio: '1024/571',
     description:
       "Discover the spiritual and cultural essence of Tamil Nadu — covering Pillayarpatti's rock-cut Ganesha temple, the grandeur of Srirangam (India's largest temple), Swamimalai's sacred Murugan shrine, and the UNESCO-listed Brihadeeswarar Temple in Thanjavur.",
@@ -517,7 +517,7 @@ export const TOUR_PACKAGES = [
     duration: '2 Nights / 3 Days',
     region: 'Dindigul & Palani Hills',
     image: '/packages/kodaikanal-palani-madurai.jpg',
-    heroBanner: 'https://images.unsplash.com/photo-1619020933389-e96f49742bce?auto=format&fit=crop&w=2000&q=85',
+    heroBanner: '/packages/palani-banner.jpg',
     aspectRatio: '1024/571',
     description:
       "Discover the ultimate blend of natural beauty and spiritual peace — immerse yourself in the misty hills of Kodaikanal and seek blessings at the famous Palani Murugan Temple. Perfect for nature lovers and pilgrims alike.",
@@ -631,13 +631,13 @@ export const TOUR_PACKAGES = [
   // ─────────────────────────────────────────────────────────────────────────────
   {
     id: 'madurai-rameshwaram',
-    coverImage: 'https://images.unsplash.com/photo-1706932642959-97cdde19ef0b?auto=format&fit=crop&w=1200&q=80',
+    coverImage: '/packages/rameshwaram-banner.jpg',
     name: 'Madurai – Rameshwaram Tour',
     tagline: 'Spiritual Heritage & Iconic Sea Bridge',
     duration: '2 Nights / 3 Days',
     region: 'Madurai & Ramanathapuram',
     image: '/packages/madurai-rameshwaram.jpg',
-    heroBanner: 'https://images.unsplash.com/photo-1706932642959-97cdde19ef0b?auto=format&fit=crop&w=2000&q=85',
+    heroBanner: '/packages/rameshwaram-banner.jpg',
     aspectRatio: '1024/571',
     description:
       "Experience South India's rich culture and heritage — immerse yourself in the spiritual and historical wonders of Madurai and Rameshwaram with comfortable, reliable travel from Mariya Travels.",
