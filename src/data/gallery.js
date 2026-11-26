@@ -67,5 +67,13 @@ export const GALLERY_ITEMS = [
     image: 'https://images.unsplash.com/photo-1657265284292-ac60361140a5?auto=format&fit=crop&w=1200&q=80',
     aspect: 'wide',
     caption: 'Sacred island monument where the Bay of Bengal, Arabian Sea, and Indian Ocean meet.'
+  },
+  {
+    id: 9,
+    title: 'Dhanushkodi Ocean Tip & Coastal Road',
+    category: 'Land’s End • Ramanathapuram',
+    image: '/gallery/dhanushkodi-beach.jpg',
+    aspect: 'square',
+    caption: 'Scenic ocean-kissed road stretching toward Arichal Munai where the Indian Ocean meets the Bay of Bengal.'
   }
 ];

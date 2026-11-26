@@ -125,7 +125,7 @@ export default function Destinations({ onSelectDestination, onViewAll }) {
             </p>
 
             {/* Main Heading with Deep Royal Dark Red Font (#8B1E1E) */}
-            <h2 className="font-serif text-3xl sm:text-4xl md:text-5xl xl:text-6xl font-black text-[#0F172A] leading-[1.12] tracking-tight">
+            <h2 className="font-serif text-4xl sm:text-4xl md:text-5xl xl:text-6xl font-black text-[#0F172A] leading-[1.12] tracking-tight">
               Tamil Nadu <br />
               <span className="text-[#8B1E1E]">Destinations</span>
             </h2>
@@ -136,38 +136,38 @@ export default function Destinations({ onSelectDestination, onViewAll }) {
             </p>
 
             {/* 3 Stats Columns with Dark Red Accents (#8B1E1E) */}
-            <div className="pt-2 flex items-center justify-between sm:justify-start sm:space-x-7 border-t border-stone-200/80 w-full">
+            <div className="mt-2 pt-5 pb-1 flex items-center justify-between gap-2 sm:justify-start sm:space-x-7 border-t border-stone-200/80 w-full">
               
               {/* Stat 1 */}
-              <div className="flex items-center space-x-1.5 sm:space-x-2">
-                <div className="w-6 h-6 sm:w-7 sm:h-7 rounded-lg bg-red-100/70 border border-red-200/50 flex items-center justify-center text-[#8B1E1E] shrink-0">
-                  <BookOpen className="w-3.5 h-3.5 sm:w-4 sm:h-4" />
+              <div className="flex items-center space-x-1.5 sm:space-x-2.5">
+                <div className="w-7 h-7 sm:w-9 sm:h-9 rounded-lg bg-red-100/70 border border-red-200/50 flex items-center justify-center text-[#8B1E1E] shrink-0">
+                  <BookOpen className="w-3.5 h-3.5 sm:w-4.5 sm:h-4.5" />
                 </div>
                 <div>
-                  <div className="font-black text-xs sm:text-base text-slate-950 leading-none">38</div>
-                  <div className="text-[9px] sm:text-[10px] text-slate-500 font-bold mt-0.5">Districts</div>
+                  <div className="font-black text-lg sm:text-xl md:text-2xl text-slate-950 leading-none">38</div>
+                  <div className="text-[11px] sm:text-xs text-slate-500 font-bold mt-0.5">Districts</div>
                 </div>
               </div>
 
               {/* Stat 2 */}
-              <div className="flex items-center space-x-1.5 sm:space-x-2">
-                <div className="w-6 h-6 sm:w-7 sm:h-7 rounded-lg bg-red-100/70 border border-red-200/50 flex items-center justify-center text-[#8B1E1E] shrink-0">
-                  <Luggage className="w-3.5 h-3.5 sm:w-4 sm:h-4" />
+              <div className="flex items-center space-x-1.5 sm:space-x-2.5">
+                <div className="w-7 h-7 sm:w-9 sm:h-9 rounded-lg bg-red-100/70 border border-red-200/50 flex items-center justify-center text-[#8B1E1E] shrink-0">
+                  <Luggage className="w-3.5 h-3.5 sm:w-4.5 sm:h-4.5" />
                 </div>
                 <div>
-                  <div className="font-black text-xs sm:text-base text-slate-950 leading-none">70+</div>
-                  <div className="text-[9px] sm:text-[10px] text-slate-500 font-bold mt-0.5">Packages</div>
+                  <div className="font-black text-lg sm:text-xl md:text-2xl text-slate-950 leading-none">20+</div>
+                  <div className="text-[11px] sm:text-xs text-slate-500 font-bold mt-0.5">Packages</div>
                 </div>
               </div>
 
               {/* Stat 3 */}
-              <div className="flex items-center space-x-1.5 sm:space-x-2">
-                <div className="w-6 h-6 sm:w-7 sm:h-7 rounded-lg bg-red-100/70 border border-red-200/50 flex items-center justify-center text-[#8B1E1E] shrink-0">
-                  <Sparkles className="w-3.5 h-3.5 sm:w-4 sm:h-4 fill-current" />
+              <div className="flex items-center space-x-1.5 sm:space-x-2.5">
+                <div className="w-7 h-7 sm:w-9 sm:h-9 rounded-lg bg-red-100/70 border border-red-200/50 flex items-center justify-center text-[#8B1E1E] shrink-0">
+                  <Sparkles className="w-3.5 h-3.5 sm:w-4.5 sm:h-4.5 fill-current" />
                 </div>
                 <div>
-                  <div className="font-black text-xs sm:text-base text-slate-950 leading-none">Unique</div>
-                  <div className="text-[9px] sm:text-[10px] text-slate-500 font-bold mt-0.5">Tours</div>
+                  <div className="font-black text-lg sm:text-xl md:text-2xl text-slate-950 leading-none">Unique</div>
+                  <div className="text-[11px] sm:text-xs text-slate-500 font-bold mt-0.5">Tours</div>
                 </div>
               </div>
 
@@ -231,7 +231,7 @@ export default function Destinations({ onSelectDestination, onViewAll }) {
                 <div
                   key={dest.id}
                   onClick={() => handleDestinationClick(dest)}
-                  className="group relative w-[170px] sm:w-[200px] md:w-[220px] h-[280px] sm:h-[320px] md:h-[345px] rounded-3xl overflow-hidden shadow-md hover:shadow-2xl transition-all duration-300 shrink-0 cursor-pointer snap-start bg-slate-900 border border-stone-200/80 hover:border-[#8B1E1E]"
+                  className="group relative w-[170px] sm:w-[200px] md:w-[220px] h-[215px] sm:h-[260px] md:h-[290px] rounded-3xl overflow-hidden shadow-md hover:shadow-2xl transition-all duration-300 shrink-0 cursor-pointer snap-start bg-slate-900 border border-stone-200/80 hover:border-[#8B1E1E]"
                 >
                   {/* High Res Scenic Photo */}
                   <img

@@ -98,7 +98,7 @@ export const TOUR_PACKAGES = [
         id: 5,
         title: 'Palani Murugan Temple',
         category: 'Sacred Pilgrimage',
-        image: 'https://images.unsplash.com/photo-1582510003544-4d00b7f74220?auto=format&fit=crop&w=1200&q=80',
+        image: '/gallery/palani-murugan-temple.jpg',
         caption: 'One of the six sacred abodes of Lord Murugan, perched atop a holy hill with panoramic views.',
       },
       {

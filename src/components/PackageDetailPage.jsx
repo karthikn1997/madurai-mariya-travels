@@ -309,11 +309,11 @@ export default function PackageDetailPage({ packageData, onBack, onBookVehicle }
       {/* 4. DAY-WISE ITINERARY SECTION */}
       {/* ========================================================================= */}
       {packageData.itinerary && packageData.itinerary.length > 0 && (
-        <section className="py-14 sm:py-20 bg-[#FAF8F5] border-b border-slate-200">
-          <div className="w-full max-w-[96%] xl:max-w-[1600px] 2xl:max-w-[1800px] mx-auto px-4 sm:px-8">
+        <section className="py-12 sm:py-20 bg-[#FAF8F5] border-b border-slate-200">
+          <div className="w-full sm:max-w-[96%] xl:max-w-[1600px] 2xl:max-w-[1800px] mx-auto px-2.5 sm:px-8">
 
             {/* Header */}
-            <div className="flex flex-col sm:flex-row sm:items-end justify-between mb-10 gap-4">
+            <div className="flex flex-col sm:flex-row sm:items-end justify-between mb-8 sm:mb-10 gap-4">
               <div>
                 <div className="flex items-center space-x-2.5 mb-2">
                   <span className="w-6 h-[2.5px] bg-[#F5B800]" />
@@ -330,51 +330,109 @@ export default function PackageDetailPage({ packageData, onBack, onBookVehicle }
               </span>
             </div>
 
-            {/* Vertical timeline of days */}
+            {/* Vertical timeline of days (Editorial Side-by-Side Layout on Mobile & Desktop) */}
             <div className="relative">
-              {/* Vertical line */}
-              <div className="absolute left-5 sm:left-8 top-0 bottom-0 w-[2px] bg-gradient-to-b from-[#F5B800] via-[#8B1E1E]/30 to-transparent pointer-events-none" />
+              {/* Vertical timeline line */}
+              <div className="absolute left-3.5 sm:left-7 top-3 bottom-3 w-[2px] bg-gradient-to-b from-[#F5B800] via-[#8B1E1E]/40 to-transparent pointer-events-none" />
 
-              <div className="space-y-6">
-                {packageData.itinerary.map((day, idx) => (
-                  <div key={idx} className="relative flex items-start gap-6 sm:gap-10">
-                    {/* Day circle on timeline */}
-                    <div className="shrink-0 w-10 h-10 sm:w-16 sm:h-16 rounded-full bg-[#8B1E1E] border-4 border-[#FAF8F5] flex flex-col items-center justify-center text-white z-10 shadow-lg">
-                      <span className="text-[8px] sm:text-[9px] font-black uppercase tracking-wider leading-none opacity-80">Day</span>
-                      <span className="text-base sm:text-xl font-black leading-none">{day.day}</span>
-                    </div>
+              <div className="space-y-8 sm:space-y-12">
+                {packageData.itinerary.map((day, idx) => {
+                  const isOffset = idx % 2 === 1;
+                  const getDayImage = () => {
+                    if (!places.length) return packageData.image;
+                    for (const p of day.places || []) {
+                      const firstWord = p.name.toLowerCase().split(' ')[0];
+                      const match = places.find(g =>
+                        g.title?.toLowerCase().includes(firstWord) ||
+                        p.name.toLowerCase().includes(g.title?.toLowerCase().split(' ')[0] || '')
+                      );
+                      if (match?.image) return match.image;
+                    }
+                    return places[idx % places.length]?.image || packageData.image;
+                  };
+                  const dayImage = getDayImage();
 
-                    {/* Day card */}
-                    <div className="flex-1 bg-white rounded-3xl border border-slate-200 shadow-md overflow-hidden mb-2">
-                      {/* Day header */}
-                      <div className="px-5 sm:px-7 py-4 bg-gradient-to-r from-[#8B1E1E]/5 to-transparent border-b border-slate-100 flex flex-col sm:flex-row sm:items-center justify-between gap-2">
-                        <h3 className="font-serif text-base sm:text-xl font-bold text-slate-950 leading-snug">
-                          {day.title}
-                        </h3>
-                        {day.stay && (
-                          <span className="inline-flex items-center px-3 py-1 rounded-full bg-amber-50 border border-amber-200 text-amber-900 text-[10px] font-black uppercase tracking-wider shrink-0">
-                            🏨 {day.stay.length > 40 ? day.stay.slice(0, 38) + '…' : day.stay}
-                          </span>
-                        )}
+                  return (
+                    <div key={idx} className="relative flex items-start">
+                      {/* Day circle on timeline */}
+                      <div className="shrink-0 w-7 h-7 sm:w-14 sm:h-14 rounded-full bg-[#8B1E1E] border-2 sm:border-4 border-[#FAF8F5] flex flex-col items-center justify-center text-white z-10 shadow-lg mt-0.5">
+                        <span className="text-[6px] sm:text-[8px] font-black uppercase tracking-wider leading-none opacity-85">Day</span>
+                        <span className="text-[11px] sm:text-lg font-black leading-none">{day.day}</span>
                       </div>
 
-                      {/* Places list */}
-                      <div className="px-5 sm:px-7 py-4 space-y-3">
-                        {day.places.map((place, pidx) => (
-                          <div key={pidx} className="flex items-start gap-3">
-                            <div className="mt-1 w-5 h-5 rounded-full bg-[#F5B800]/20 border border-[#F5B800]/50 flex items-center justify-center shrink-0">
-                              <span className="text-[9px] font-black text-[#8B1E1E]">{pidx + 1}</span>
+                      {/* Horizontal connector line (staggered zig-zag like reference design) */}
+                      <div
+                        className={`hidden md:block shrink-0 h-[2px] bg-gradient-to-r from-[#8B1E1E]/45 to-[#F5B800]/70 mt-7 transition-all ${
+                          isOffset ? 'w-24 lg:w-44 xl:w-64' : 'w-6 lg:w-8'
+                        }`}
+                      />
+
+                      {/* Content + Side Image Group (Side-by-side, zero right-edge overflow) */}
+                      <div className="flex-1 min-w-0 ml-2 sm:ml-6 md:ml-0 md:flex-none md:max-w-4xl lg:max-w-5xl flex flex-col lg:flex-row items-stretch lg:items-center gap-3 sm:gap-5 lg:gap-8">
+                        
+                        {/* Mobile: Full-width Title & Stay above, then Places + Image alternating side-by-side; Desktop: Title + Places on Left, Image on Right */}
+                        <div className="flex-1 min-w-0 py-0.5 sm:py-2 space-y-2.5 sm:space-y-3">
+                          <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-1.5 sm:gap-2 pb-1.5 sm:pb-2 border-b border-stone-200/80">
+                            <h3 className="font-serif text-sm sm:text-lg font-bold text-slate-950 leading-snug">
+                              {day.title}
+                            </h3>
+                            {day.stay && (
+                              <span className="inline-flex items-center px-2 sm:px-2.5 py-0.5 rounded-full bg-amber-50 border border-amber-200 text-amber-900 text-[8.5px] sm:text-[9.5px] font-black uppercase tracking-wider shrink-0 w-fit max-w-full">
+                                🏨 {day.stay.length > 36 ? day.stay.slice(0, 34) + '…' : day.stay}
+                              </span>
+                            )}
+                          </div>
+
+                          {/* On mobile: Alternating Zig-Zag (Image Right on Day 1, Image Left on Day 2...); On desktop: Places only */}
+                          <div className={`flex items-center gap-3 sm:gap-5 lg:block ${isOffset ? 'flex-row-reverse' : 'flex-row'}`}>
+                            <div className="flex-1 min-w-0 space-y-1.5 sm:space-y-2">
+                              {day.places.map((place, pidx) => (
+                                <div key={pidx} className="flex items-start gap-1.5 sm:gap-2.5">
+                                  <div className="mt-0.5 w-4 h-4 sm:w-5 sm:h-5 rounded-full bg-[#F5B800]/20 border border-[#F5B800]/50 flex items-center justify-center shrink-0">
+                                    <span className="text-[8px] sm:text-[9px] font-black text-[#8B1E1E]">{pidx + 1}</span>
+                                  </div>
+                                  <div className="min-w-0">
+                                    <span className="text-[11px] sm:text-[13px] font-black text-slate-900 block leading-snug">{place.name}</span>
+                                    <span className="hidden sm:block text-[11px] text-slate-500 font-medium leading-relaxed">{place.desc}</span>
+                                  </div>
+                                </div>
+                              ))}
                             </div>
-                            <div>
-                              <span className="text-xs sm:text-sm font-black text-slate-900 block">{place.name}</span>
-                              <span className="text-[11px] text-slate-500 font-medium leading-relaxed">{place.desc}</span>
+
+                            {/* Mobile-only larger side photo (alternates right/left per day!) */}
+                            {dayImage && (
+                              <div className="lg:hidden w-[148px] sm:w-[220px] shrink-0">
+                                <div className="aspect-[4/3] w-full rounded-xl sm:rounded-2xl overflow-hidden shadow-md border-2 border-white ring-1 ring-stone-200/80 bg-slate-100">
+                                  <img
+                                    src={dayImage}
+                                    alt={day.title}
+                                    loading="lazy"
+                                    className="w-full h-full object-cover object-center"
+                                  />
+                                </div>
+                              </div>
+                            )}
+                          </div>
+                        </div>
+
+                        {/* Desktop Right Side: Large Destination Photo Card (zig-zags left/right per day) */}
+                        {dayImage && (
+                          <div className="hidden lg:block lg:w-[360px] xl:w-[440px] shrink-0">
+                            <div className="aspect-[16/10] w-full rounded-2xl overflow-hidden shadow-lg border-2 border-white ring-1 ring-stone-200/80 bg-slate-100 group">
+                              <img
+                                src={dayImage}
+                                alt={day.title}
+                                loading="lazy"
+                                className="w-full h-full object-cover object-center group-hover:scale-105 transition-transform duration-500"
+                              />
                             </div>
                           </div>
-                        ))}
+                        )}
+
                       </div>
                     </div>
-                  </div>
-                ))}
+                  );
+                })}
               </div>
             </div>
 
@@ -584,23 +642,39 @@ export default function PackageDetailPage({ packageData, onBack, onBookVehicle }
 
           </div>
 
-          {/* SIGHTSEEING ATTRACTIONS HORIZONTAL PILL TRAIL */}
-          <div className="mt-5 p-4 rounded-2xl bg-white border border-slate-200/90 shadow-sm flex flex-col md:flex-row md:items-center justify-between gap-3">
-            <div className="flex items-center space-x-2">
-              <Sparkles className="w-4 h-4 text-[#F5B800] fill-current shrink-0" />
-              <span className="text-xs font-black uppercase tracking-wider text-slate-950">
-                Key Sightseeing Spots Included:
+          {/* SIGHTSEEING ATTRACTIONS COMPACT THUMBNAIL GRID */}
+          <div className="mt-5 p-4 sm:p-5 rounded-3xl bg-white border border-stone-200/90 shadow-sm space-y-3.5">
+            <div className="flex items-center justify-between gap-2 pb-2.5 border-b border-stone-100">
+              <div className="flex items-center space-x-2">
+                <Sparkles className="w-4 h-4 text-[#F5B800] fill-current shrink-0" />
+                <span className="text-[11px] sm:text-xs font-black uppercase tracking-wider text-slate-950">
+                  Key Sightseeing Spots Included
+                </span>
+              </div>
+              <span className="px-2.5 py-0.5 rounded-full bg-red-50 border border-red-200/60 text-[#8B1E1E] text-[10px] font-black uppercase tracking-wider shrink-0">
+                {places.length} Spots
               </span>
             </div>
 
-            <div className="flex flex-wrap items-center gap-2">
+            <div className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-4 gap-2.5">
               {places.map((p, idx) => (
                 <button
                   key={idx}
+                  type="button"
                   onClick={() => openLightbox(idx)}
-                  className="px-3 py-1 rounded-full bg-[#FAF8F5] hover:bg-[#F5B800] border border-slate-200 text-slate-800 hover:text-slate-950 text-xs font-bold transition-all"
+                  className="group flex items-center gap-2.5 p-2 rounded-xl bg-[#FAF8F5] hover:bg-amber-50/70 border border-stone-200/80 hover:border-[#8B1E1E]/40 text-left transition-all cursor-pointer"
                 >
-                  {p.title}
+                  <img
+                    src={p.image}
+                    alt={p.title}
+                    loading="lazy"
+                    className="w-9 h-9 rounded-lg object-cover shrink-0 border border-white shadow-2xs group-hover:scale-105 transition-transform"
+                  />
+                  <div className="min-w-0 flex-1">
+                    <span className="text-[11px] sm:text-xs font-bold text-slate-900 group-hover:text-[#8B1E1E] line-clamp-2 leading-tight block transition-colors">
+                      {p.title}
+                    </span>
+                  </div>
                 </button>
               ))}
             </div>
@@ -686,10 +760,10 @@ export default function PackageDetailPage({ packageData, onBack, onBookVehicle }
       {/* ========================================================================= */}
       {/* 6. BOTTOM RESERVATION & RETURN BANNER */}
       {/* ========================================================================= */}
-      <section className="py-14 bg-[#1E293B] text-white">
-        <div className="max-w-5xl mx-auto px-4 sm:px-6 text-center space-y-5">
-          <div className="inline-flex items-center space-x-2 px-3.5 py-1 rounded-full bg-white/10 border border-white/20 text-[#F5B800] text-[11px] font-black uppercase tracking-widest">
-            <Sparkles className="w-3.5 h-3.5" />
+      <section className="py-12 sm:py-14 bg-[#1E293B] text-white">
+        <div className="max-w-5xl mx-auto px-4 sm:px-6 text-center space-y-4 sm:space-y-5">
+          <div className="inline-flex items-center justify-center space-x-1.5 px-3.5 py-1.5 rounded-2xl sm:rounded-full bg-white/10 border border-white/20 text-[#F5B800] text-[10px] sm:text-[11px] font-black uppercase tracking-wider sm:tracking-widest max-w-full leading-snug">
+            <Sparkles className="w-3.5 h-3.5 shrink-0" />
             <span>Ready for {packageData.name}?</span>
           </div>
 
@@ -697,33 +771,35 @@ export default function PackageDetailPage({ packageData, onBack, onBookVehicle }
             Reserve Your Tour Package with Madurai Mariya Travels
           </h3>
 
-          <p className="text-xs sm:text-sm text-slate-300 max-w-xl mx-auto font-medium">
+          <p className="text-xs sm:text-sm text-slate-300 max-w-xl mx-auto font-medium leading-relaxed">
             Contact <strong>{CONTACT_PERSON}</strong> directly on WhatsApp or Phone for customized schedules, multi-day hotel drops, and complete hill station tours.
           </p>
 
-          <div className="flex flex-wrap items-center justify-center gap-3 pt-2">
+          <div className="pt-2 max-w-md sm:max-w-none mx-auto flex flex-col sm:flex-row sm:flex-wrap items-stretch sm:items-center justify-center gap-2.5 sm:gap-3">
             <button
               onClick={() => handleWhatsAppInquiry()}
-              className="px-6 py-3 rounded-full bg-[#25D366] hover:bg-[#20bd5a] text-white font-black text-xs uppercase tracking-wider flex items-center space-x-2 shadow-lg hover:scale-105 transition-all"
+              className="w-full sm:w-auto justify-center px-6 py-3.5 sm:py-3 rounded-xl sm:rounded-full bg-[#25D366] hover:bg-[#20bd5a] text-white font-black text-xs uppercase tracking-wider flex items-center space-x-2 shadow-lg hover:scale-105 transition-all cursor-pointer"
             >
-              <MessageSquare className="w-4 h-4 fill-current" />
+              <MessageSquare className="w-4 h-4 fill-current shrink-0" />
               <span>Book via WhatsApp (+91 99436 55680)</span>
             </button>
 
-            <a
-              href="tel:+919486875680"
-              className="px-5 py-3 rounded-full bg-white text-slate-950 hover:bg-amber-50 font-black text-xs uppercase tracking-wider flex items-center space-x-2 shadow-md transition-colors"
-            >
-              <Phone className="w-4 h-4 text-[#8B1E1E]" />
-              <span>Call: 94868 75680</span>
-            </a>
+            <div className="grid grid-cols-2 sm:flex items-center gap-2.5 sm:gap-3">
+              <a
+                href="tel:+919486875680"
+                className="justify-center px-3 sm:px-5 py-3 rounded-xl sm:rounded-full bg-white text-slate-950 hover:bg-amber-50 font-black text-[11px] sm:text-xs uppercase tracking-wider flex items-center space-x-1.5 shadow-md transition-colors whitespace-nowrap"
+              >
+                <Phone className="w-3.5 h-3.5 text-[#8B1E1E] shrink-0" />
+                <span>Call Now</span>
+              </a>
 
-            <button
-              onClick={onBack}
-              className="px-5 py-3 rounded-full border-2 border-white/30 hover:border-white text-white font-bold text-xs uppercase tracking-wider transition-colors"
-            >
-              ← Back to All Packages
-            </button>
+              <button
+                onClick={onBack}
+                className="justify-center px-3 sm:px-5 py-3 rounded-xl sm:rounded-full border border-white/30 hover:border-white bg-white/5 text-white font-bold text-[11px] sm:text-xs uppercase tracking-wider transition-colors whitespace-nowrap cursor-pointer"
+              >
+                ← All Packages
+              </button>
+            </div>
           </div>
         </div>
       </section>

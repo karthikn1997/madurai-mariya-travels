@@ -290,71 +290,73 @@ export default function BookingForm({ initialVehicle, initialEstimate }) {
             </div>
           </div>
 
-          {/* RIGHT: The Executive Chauffeur Desk (5 Cols) - Separate Luxury Ivory Card */}
-          <div className="lg:col-span-5 bg-[#FAF7F0] text-slate-900 p-6 sm:p-7 rounded-2xl border border-amber-200/70 shadow-lg flex flex-col justify-between">
-            
-            <div className="space-y-4">
+          {/* RIGHT: The Executive Chauffeur Desk (5 Cols) - Royal Maroon Concierge Card */}
+          <div className="lg:col-span-5 bg-gradient-to-br from-[#450A0A] via-[#5C0D0D] to-[#2B0505] text-white p-6 sm:p-7 rounded-2xl border border-red-950/60 shadow-xl flex flex-col justify-between relative overflow-hidden">
+            {/* Subtle Ambient Glow */}
+            <div className="absolute -top-20 -right-20 w-56 h-56 bg-[#F5B800]/10 rounded-full blur-3xl pointer-events-none" />
+
+            <div className="relative space-y-5">
               {/* Header Badge */}
-              <div className="flex items-center justify-between border-b border-slate-200/90 pb-3">
+              <div className="flex items-center justify-between border-b border-white/15 pb-3.5">
                 <div className="flex items-center space-x-2">
-                  <div className="h-8 w-auto flex items-center justify-center">
+                  <div className="h-8 w-auto flex items-center justify-center bg-white/95 px-2.5 py-1 rounded-lg shadow-xs">
                     <img src="/logo.png" alt="Madurai Mariya Travels" className="h-full w-auto object-contain" />
                   </div>
                 </div>
-                <span className="text-[10px] font-black uppercase tracking-wider px-2.5 py-0.5 rounded-full bg-[#F5B800] text-slate-950 shadow-sm">
+                <span className="text-[10px] font-black uppercase tracking-wider px-2.5 py-1 rounded-full bg-[#F5B800] text-slate-950 shadow-sm">
                   Est. 2018
                 </span>
               </div>
 
               {/* Title & Proprietor */}
               <div>
-                <span className="text-[10px] font-black uppercase tracking-[0.25em] text-[#8B1E1E]">
+                <span className="text-[10px] font-bold uppercase tracking-[0.25em] text-[#F5B800]">
                   Head Office & Concierge
                 </span>
-                <h3 className="font-serif text-xl sm:text-2xl font-bold text-slate-950 mt-0.5">
+                <h3 className="font-sans text-xl sm:text-2xl font-extrabold text-white mt-0.5 tracking-tight">
                   Madurai Mariya Travels
                 </h3>
-                <p className="text-xs text-slate-700 mt-0.5 font-semibold">
-                  Proprietor: <strong className="text-slate-950 font-black">{CONTACT_PERSON}</strong>
+                <p className="text-xs text-stone-300 mt-0.5 font-medium">
+                  Proprietor: <strong className="text-white font-bold">{CONTACT_PERSON}</strong>
                 </p>
               </div>
 
-              {/* Direct Info Cards - Compact */}
-              <div className="space-y-2.5">
+              {/* Clean Borderless Divided Contact Rows (Zero Boxes) */}
+              <div className="divide-y divide-white/10 border-t border-b border-white/10">
                 {/* Phone 1 */}
-                <div className="flex items-start space-x-3 p-2.5 rounded-xl bg-white border border-slate-200/80 shadow-sm">
-                  <div className="w-8 h-8 rounded-lg bg-amber-50 text-[#8B1E1E] flex items-center justify-center shrink-0 border border-amber-200">
+                <div className="flex items-center space-x-3.5 py-3">
+                  <div className="w-8 h-8 rounded-full bg-[#F5B800]/15 text-[#F5B800] flex items-center justify-center shrink-0">
                     <Phone className="w-3.5 h-3.5" />
                   </div>
                   <div>
-                    <span className="text-[9px] uppercase tracking-wider text-slate-500 font-extrabold">Primary & WhatsApp</span>
-                    <a href="tel:+919943655680" className="block text-sm font-black text-slate-950 hover:text-[#8B1E1E] transition-colors">
+                    <span className="text-[9.5px] uppercase tracking-wider text-stone-300/80 font-bold block">Primary & WhatsApp</span>
+                    <a href="tel:+919943655680" className="block text-sm font-numeric font-bold text-white hover:text-[#F5B800] transition-colors">
                       +91 99436 55680
                     </a>
                   </div>
                 </div>
 
                 {/* Phone 2 */}
-                <div className="flex items-start space-x-3 p-2.5 rounded-xl bg-white border border-slate-200/80 shadow-sm">
-                  <div className="w-8 h-8 rounded-lg bg-slate-100 text-slate-700 flex items-center justify-center shrink-0 border border-slate-200">
+                <div className="flex items-center space-x-3.5 py-3">
+                  <div className="w-8 h-8 rounded-full bg-white/10 text-stone-200 flex items-center justify-center shrink-0">
                     <Phone className="w-3.5 h-3.5" />
                   </div>
                   <div>
-                    <span className="text-[9px] uppercase tracking-wider text-slate-500 font-extrabold">Secondary Hotline</span>
-                    <a href="tel:+919486875680" className="block text-sm font-black text-slate-950 hover:text-[#8B1E1E] transition-colors">
+                    <span className="text-[9.5px] uppercase tracking-wider text-stone-300/80 font-bold block">Secondary Hotline</span>
+                    <a href="tel:+919486875680" className="block text-sm font-numeric font-bold text-white hover:text-[#F5B800] transition-colors">
                       +91 94868 75680
                     </a>
                   </div>
                 </div>
 
                 {/* Address */}
-                <div className="flex items-start space-x-3 p-2.5 rounded-xl bg-white border border-slate-200/80 shadow-sm">
-                  <div className="w-8 h-8 rounded-lg bg-red-50 text-[#8B1E1E] flex items-center justify-center shrink-0 border border-red-200">
+                <div className="flex items-start space-x-3.5 py-3">
+                  <div className="w-8 h-8 rounded-full bg-white/10 text-[#F5B800] flex items-center justify-center shrink-0 mt-0.5">
                     <MapPin className="w-3.5 h-3.5" />
                   </div>
                   <div>
-                    <span className="text-[9px] uppercase tracking-wider text-slate-500 font-extrabold">Registered Head Office</span>
-                    <address className="not-italic text-xs text-slate-900 font-bold leading-snug">
+                    <span className="text-[9.5px] uppercase tracking-wider text-stone-300/80 font-bold block">Registered Head Office</span>
+                    <address className="not-italic text-xs text-stone-100 font-medium leading-relaxed mt-0.5">
                       45, Madha Kovil 3rd Street, <br />
                       K. Pudur, Madurai - 625007.
                     </address>
@@ -362,35 +364,35 @@ export default function BookingForm({ initialVehicle, initialEstimate }) {
                 </div>
 
                 {/* Email */}
-                <div className="flex items-start space-x-3 p-2.5 rounded-xl bg-white border border-slate-200/80 shadow-sm">
-                  <div className="w-8 h-8 rounded-lg bg-emerald-50 text-[#729227] flex items-center justify-center shrink-0 border border-emerald-200">
+                <div className="flex items-center space-x-3.5 py-3">
+                  <div className="w-8 h-8 rounded-full bg-white/10 text-emerald-400 flex items-center justify-center shrink-0">
                     <MessageSquare className="w-3.5 h-3.5" />
                   </div>
                   <div>
-                    <span className="text-[9px] uppercase tracking-wider text-slate-500 font-extrabold">Official Email</span>
-                    <a href="mailto:maduraimariya@gmail.com" className="block text-xs font-black text-slate-950 hover:text-[#8B1E1E] transition-colors">
+                    <span className="text-[9.5px] uppercase tracking-wider text-stone-300/80 font-bold block">Official Email</span>
+                    <a href="mailto:maduraimariya@gmail.com" className="block text-xs font-bold text-white hover:text-[#F5B800] transition-colors">
                       maduraimariya@gmail.com
                     </a>
                   </div>
                 </div>
               </div>
 
-              {/* Instagram Follow Card */}
-              <div className="p-3 rounded-xl bg-white border border-pink-200 shadow-sm flex items-center justify-between">
+              {/* Instagram Follow Strip */}
+              <div className="p-3 rounded-xl bg-white/[0.08] border border-white/15 backdrop-blur-sm flex items-center justify-between">
                 <div className="flex items-center space-x-2.5">
                   <div className="w-8 h-8 rounded-lg bg-gradient-to-tr from-purple-600 via-pink-600 to-amber-500 flex items-center justify-center text-white shadow-sm">
                     <Instagram className="w-4 h-4" />
                   </div>
                   <div>
-                    <p className="text-xs font-black text-slate-950">@maduraimariyatravels</p>
-                    <p className="text-[10px] text-slate-500 font-semibold">Tour reels & photos</p>
+                    <p className="text-xs font-bold text-white">@maduraimariyatravels</p>
+                    <p className="text-[10px] text-stone-300 font-medium">Tour reels & photos</p>
                   </div>
                 </div>
                 <a
                   href={INSTAGRAM_URL}
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="px-3 py-1 rounded-full bg-slate-950 hover:bg-[#8B1E1E] text-white font-black text-[10px] tracking-wider uppercase transition-colors"
+                  className="px-3.5 py-1.5 rounded-full bg-white hover:bg-[#F5B800] text-slate-950 font-black text-[10px] tracking-wider uppercase transition-colors"
                 >
                   Follow
                 </a>
@@ -398,8 +400,8 @@ export default function BookingForm({ initialVehicle, initialEstimate }) {
             </div>
 
             {/* Bottom Service Assurance */}
-            <div className="pt-4 border-t border-slate-200/80 mt-4 flex items-center space-x-2 text-[11px] text-slate-700 font-bold">
-              <ShieldCheck className="w-4 h-4 text-[#729227] shrink-0" />
+            <div className="relative pt-4 border-t border-white/15 mt-5 flex items-center space-x-2 text-[11px] text-stone-200 font-semibold">
+              <ShieldCheck className="w-4 h-4 text-[#F5B800] shrink-0" />
               <span>Certified Mountain Drivers & GPS Equipped Fleet</span>
             </div>
 

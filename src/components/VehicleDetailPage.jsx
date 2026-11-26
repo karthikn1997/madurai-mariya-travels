@@ -113,218 +113,58 @@ export default function VehicleDetailPage({ vehicle, onBack, onBookNow }) {
     <div className="min-h-screen bg-[#FAF8F5] text-slate-900 font-sans selection:bg-[#F5B800] selection:text-black overflow-x-hidden">
 
       {/* ══════════════════════════════════════════════════════════
-          1. STICKY HEADER
+          1. UNIFIED SHOWROOM HERO & INTERACTIVE GALLERY (NO ZOOMED BANNER)
       ══════════════════════════════════════════════════════════ */}
-      <header className="sticky top-0 z-40 bg-white/95 backdrop-blur-md border-b border-slate-200 py-3 px-4 sm:px-8 shadow-xs">
-        <div className="max-w-7xl mx-auto flex items-center justify-between gap-4">
+      <section className="py-5 sm:py-10 lg:py-12 bg-[#FAF8F5] border-b border-stone-200">
+        <div className="max-w-7xl mx-auto px-3 sm:px-8 space-y-4 sm:space-y-6">
 
-          <button
-            onClick={onBack}
-            className="inline-flex items-center space-x-1.5 sm:space-x-2 px-3 sm:px-3.5 py-1.5 sm:py-2 rounded-full bg-slate-100 hover:bg-[#8B1E1E] text-slate-800 hover:text-white font-extrabold text-[11px] sm:text-xs tracking-wider uppercase transition-all duration-300 shadow-xs group shrink-0 cursor-pointer"
-          >
-            <ArrowLeft className="w-3.5 h-3.5 sm:w-4 sm:h-4 group-hover:-translate-x-1 transition-transform" />
-            <span className="hidden sm:inline">Back to Fleet</span>
-            <span className="sm:hidden">Back</span>
-          </button>
+          {/* Minimal Top Action Bar (Crisp Single-Line Pills on Mobile) */}
+          <div className="flex items-center justify-between gap-2">
+            <button
+              onClick={onBack}
+              className="inline-flex items-center space-x-1.5 px-3 sm:px-3.5 py-1.5 sm:py-2 rounded-full bg-white hover:bg-[#8B1E1E] border border-stone-200 text-slate-900 hover:text-white font-extrabold text-[11px] sm:text-xs tracking-wider uppercase transition-all duration-300 shadow-2xs group cursor-pointer whitespace-nowrap shrink-0"
+            >
+              <ArrowLeft className="w-3.5 h-3.5 group-hover:-translate-x-0.5 transition-transform shrink-0" />
+              <span className="sm:hidden">Back</span>
+              <span className="hidden sm:inline">Back to Fleet</span>
+            </button>
 
-          <div className="hidden md:flex items-center space-x-2.5">
-            <img src="/logo.png" alt="Mariya Travels" className="h-8 w-auto object-contain" />
-            <span className="text-xs font-black uppercase tracking-[0.2em] text-[#8B1E1E]">
-              Madurai Mariya Travels
+            <span className="inline-flex items-center space-x-1.5 px-2.5 sm:px-3 py-1.5 rounded-full bg-amber-100/80 border border-amber-300/70 text-amber-950 text-[9.5px] sm:text-[10px] font-black uppercase tracking-wider whitespace-nowrap shrink-0">
+              <ShieldCheck className="w-3.5 h-3.5 text-[#8B1E1E] shrink-0" />
+              <span className="sm:hidden">100% Owned</span>
+              <span className="hidden sm:inline">100% Company-Owned</span>
             </span>
           </div>
 
-          <div className="flex items-center space-x-2 shrink-0">
-            <a
-              href="tel:+919943655680"
-              className="hidden sm:inline-flex items-center space-x-1.5 px-3 py-1.5 rounded-full border border-slate-300 text-slate-900 font-black text-[11px] uppercase tracking-wider hover:bg-slate-100 transition-colors"
-            >
-              <Phone className="w-3 h-3 text-[#8B1E1E]" />
-              <span>99436 55680</span>
-            </a>
-            <button
-              onClick={handleWhatsApp}
-              className="inline-flex items-center space-x-2 px-4 py-2 rounded-full bg-[#25D366] hover:bg-[#20bd5a] text-white font-black text-xs uppercase tracking-wider shadow-md hover:scale-105 transition-all cursor-pointer"
-            >
-              <MessageSquare className="w-3.5 h-3.5 fill-current" />
-              <span>Book Now</span>
-            </button>
-          </div>
+          {/* 2-Column Showroom Layout: Left = Full Photo Carousel | Right = Vehicle Details & Tariff */}
+          <div className="grid grid-cols-1 lg:grid-cols-12 gap-6 lg:gap-10 items-start">
 
-        </div>
-      </header>
-
-      {/* ══════════════════════════════════════════════════════════
-          2. SCENIC TOURIST DESTINATION HERO BANNER (MOUNTAIN PASS / HILL STATION)
-      ══════════════════════════════════════════════════════════ */}
-      <section className="relative h-[38vh] sm:h-[46vh] min-h-[300px] w-full overflow-hidden bg-slate-950 flex items-end">
-        {/* Scenic Tourist Place Background Image */}
-        <img
-          src="https://images.unsplash.com/photo-1596176530529-78163a4f7af2?auto=format&fit=crop&w=2000&q=85"
-          alt="Scenic Western Ghats Misty Tea Hills & Travel Highway"
-          className="absolute inset-0 w-full h-full object-cover object-center"
-        />
-
-        {/* Cinematic Gradient Overlays */}
-        <div className="absolute inset-0 bg-gradient-to-t from-black/90 via-black/45 to-black/25 pointer-events-none" />
-        <div className="absolute inset-0 bg-[radial-gradient(circle_at_top_right,rgba(139,30,30,0.25)_0%,transparent_60%)] pointer-events-none" />
-
-        {/* Content on Hero Banner */}
-        <div className="relative w-full max-w-7xl mx-auto px-5 sm:px-8 pb-7 sm:pb-9 z-10 flex flex-col md:flex-row md:items-end justify-between gap-5">
-          <motion.div
-            initial={{ opacity: 0, y: 20 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.5 }}
-            className="max-w-3xl space-y-2"
-          >
-            <div className="flex flex-wrap items-center gap-2">
-              <span className="px-3 py-1 rounded-full bg-[#8B1E1E] text-white text-[10px] font-black uppercase tracking-widest shadow">
-                {vehicle.badge || 'Mariya Certified'}
-              </span>
-              <span className="px-3 py-1 rounded-full bg-white/95 text-slate-950 text-xs font-black flex items-center space-x-1.5 shadow">
-                <Users className="w-3.5 h-3.5 text-[#8B1E1E]" />
-                <span>{vehicle.seats} Seats</span>
-              </span>
-
-              <span className="px-2.5 py-1 rounded-full bg-amber-400 text-slate-950 text-[10px] font-bold uppercase tracking-wider">
-                100% Owned Fleet
-              </span>
-            </div>
-
-            <h1 className="font-serif text-3xl sm:text-5xl font-bold text-white leading-tight drop-shadow-md">
-              {vehicle.name}
-            </h1>
-            <p className="text-xs sm:text-sm text-stone-200 font-medium max-w-2xl leading-relaxed drop-shadow">
-              {vehicle.tagline}
-            </p>
-          </motion.div>
-
-          <div className="flex items-center space-x-2 shrink-0">
-            <button
-              onClick={handleWhatsApp}
-              className="px-5 py-2.5 rounded-full bg-[#25D366] hover:bg-[#20bd5a] text-white font-black text-xs uppercase tracking-wider flex items-center space-x-1.5 shadow-lg hover:scale-105 transition-all cursor-pointer"
-            >
-              <MessageSquare className="w-4 h-4 fill-current" />
-              <span>Instant Quote</span>
-            </button>
-            <a
-              href="tel:+919486875680"
-              className="px-4 py-2.5 rounded-full bg-white text-slate-950 hover:bg-slate-100 font-black text-xs uppercase tracking-wider flex items-center space-x-1.5 shadow-md transition-colors"
-            >
-              <Phone className="w-3.5 h-3.5 text-[#8B1E1E]" />
-              <span>Call Founder</span>
-            </a>
-          </div>
-        </div>
-      </section>
-
-      {/* ══════════════════════════════════════════════════════════
-          3. PRICING STRIP
-      ══════════════════════════════════════════════════════════ */}
-      <div className="bg-[#1E293B] text-white border-y border-slate-700/60 shadow-inner">
-        <div className="max-w-7xl mx-auto grid grid-cols-2 sm:grid-cols-4 divide-x divide-white/10">
-          {[
-            { label: '1-Day Rent',                       value: `₹${vehicle.pricing.dayRent.toLocaleString()}`, gold: true },
-            { label: 'Per KM',                           value: `₹${vehicle.pricing.perKm}/km`,               gold: false },
-            { label: 'Hills Charge',                     value: `₹${vehicle.pricing.hills.toLocaleString()}`,  gold: true },
-            { label: `Above ${vehicle.pricing.limitKm} KM`, value: `₹${vehicle.pricing.aboveLimitRate}/km`,  gold: false },
-          ].map((item, i) => (
-            <div key={i} className="flex flex-col items-center justify-center py-4 px-3 text-center">
-              <span className="text-[9.5px] font-black uppercase tracking-widest text-slate-400 mb-0.5">{item.label}</span>
-              <span className={`text-lg sm:text-2xl font-numeric font-black tracking-tight ${item.gold ? 'text-amber-400' : 'text-white'}`}>
-                {item.value}
-              </span>
-            </div>
-          ))}
-        </div>
-      </div>
-
-      {/* ══════════════════════════════════════════════════════════
-          4. DEDICATED VEHICLE SHOWCASE & AUTO-SWIPING GALLERY
-             (LEFT: FULL VEHICLE CUTOUT STAGE | RIGHT: AUTO-SLIDING MULTI-ANGLE CAROUSEL)
-      ══════════════════════════════════════════════════════════ */}
-      <section className="py-10 sm:py-16 bg-[#FBF9F5] border-b border-slate-200">
-        <div className="max-w-7xl mx-auto px-4 sm:px-8">
-          
-          <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 items-stretch">
-
-            {/* LEFT COLUMN: Clean Showroom Stage (Full Uncut Vehicle Cutout) */}
-            <div className="lg:col-span-6 flex flex-col justify-between bg-white rounded-3xl border border-slate-200/90 p-6 sm:p-8 shadow-sm">
-              <div>
-                <div className="flex items-center justify-between mb-4">
-                  <div className="flex items-center space-x-2">
-                    <span className="w-2.5 h-2.5 rounded-full bg-[#8B1E1E]" />
-                    <span className="text-xs font-black uppercase tracking-widest text-[#8B1E1E]">
-                      Official Showroom Cutout
-                    </span>
-                  </div>
-                  <span className="px-2.5 py-0.5 rounded-full bg-slate-100 text-slate-700 text-[10px] font-bold border border-slate-200">
-                    Verified Commercial Fleet
-                  </span>
-                </div>
-
-                {/* Vehicle Real Photo Showcase */}
-                <div className="relative h-60 sm:h-72 w-full rounded-2xl flex items-center justify-center border border-slate-200 overflow-hidden bg-slate-900 group">
-                  {/* Real Vehicle Photo with Background */}
-                  <img
-                    src={vehicle.image || vehicle.gallery?.[0]?.src || `/vehicles/${vehicle.id}.jpg`}
-                    alt={vehicle.name}
-                    className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105"
-                  />
-                  <div className="absolute inset-0 bg-gradient-to-t from-black/40 via-transparent to-transparent pointer-events-none" />
-                </div>
-
-                <div className="mt-5 space-y-2">
-                  <h3 className="font-serif text-2xl font-bold text-slate-900">{vehicle.name}</h3>
-                  <p className="text-xs sm:text-sm text-slate-600 leading-relaxed font-medium">
-                    {vehicle.description}
-                  </p>
-                </div>
-              </div>
-
-              {/* Fast Feature Badges */}
-              <div className="mt-6 pt-5 border-t border-slate-100 grid grid-cols-2 sm:grid-cols-3 gap-2.5">
-                <div className="p-2.5 rounded-xl bg-slate-50 border border-slate-200/80 text-center">
-                  <span className="text-[9px] uppercase font-bold text-slate-500 block">Captains</span>
-                  <span className="text-xs font-black font-numeric text-slate-900">{vehicle.seats} Pushback Seats</span>
-                </div>
-                <div className="p-2.5 rounded-xl bg-slate-50 border border-slate-200/80 text-center">
-                  <span className="text-[9px] uppercase font-bold text-slate-500 block">Luggage</span>
-                  <span className="text-xs font-black text-slate-900">{vehicle.specs.luggage}</span>
-                </div>
-                <div className="p-2.5 rounded-xl bg-slate-50 border border-slate-200/80 text-center col-span-2 sm:col-span-1">
-                  <span className="text-[9px] uppercase font-bold text-slate-500 block">Climate</span>
-                  <span className="text-xs font-black text-[#8B1E1E]">High-Capacity AC</span>
-                </div>
-              </div>
-            </div>
-
-            {/* RIGHT COLUMN: Auto-Swiping Multi-Angle & Cabin Interior Carousel */}
-            <div 
-              className="lg:col-span-6 flex flex-col justify-between bg-white rounded-3xl border border-slate-200/90 p-4 sm:p-8 shadow-sm"
+            {/* LEFT COLUMN (7 Cols): Multi-Angle & Cabin Showcase Carousel */}
+            <div
+              className="lg:col-span-7 flex flex-col justify-between bg-white rounded-3xl border border-stone-200/90 p-3.5 sm:p-6 shadow-md"
               onMouseEnter={() => setIsCarouselHovered(true)}
               onMouseLeave={() => setIsCarouselHovered(false)}
             >
               <div>
-                <div className="flex items-center justify-between gap-2 mb-3.5">
+                <div className="flex items-center justify-between gap-2 mb-3">
                   <div className="flex items-center space-x-2 min-w-0">
                     <span className="w-2.5 h-2.5 rounded-full bg-emerald-500 animate-pulse shrink-0" />
                     <span className="text-xs font-black uppercase tracking-wider text-slate-900 truncate">
                       <span className="hidden sm:inline">Multi-Angle & Cabin Showcase</span>
-                      <span className="sm:hidden">Cabin Showcase</span>
+                      <span className="sm:hidden">Vehicle & Cabin Views</span>
                     </span>
-                    <span className="shrink-0 text-[10px] text-emerald-600 font-bold bg-emerald-50 px-2 py-0.5 rounded-full border border-emerald-200 whitespace-nowrap">
+                    <span className="shrink-0 text-[10px] text-emerald-700 font-bold bg-emerald-50 px-2 py-0.5 rounded-full border border-emerald-200 whitespace-nowrap">
                       Auto-Swipe
                     </span>
                   </div>
 
                   <span className="shrink-0 text-xs font-bold text-slate-500 whitespace-nowrap tabular-nums">
-                    {activePhotoIdx + 1} of {photos.length}
+                    {activePhotoIdx + 1} / {photos.length}
                   </span>
                 </div>
 
                 {/* Main Carousel Stage */}
-                <div className="relative aspect-[16/10] sm:aspect-[16/10] w-full rounded-2xl overflow-hidden bg-slate-950 border border-slate-200 shadow-md group">
+                <div className="relative aspect-[16/10] w-full rounded-2xl overflow-hidden bg-slate-950 border border-stone-200 shadow-sm group">
                   <AnimatePresence mode="wait">
                     <motion.img
                       key={currentPhoto.src}
@@ -333,18 +173,18 @@ export default function VehicleDetailPage({ vehicle, onBack, onBookNow }) {
                       initial={{ opacity: 0, x: 20 }}
                       animate={{ opacity: 1, x: 0 }}
                       exit={{ opacity: 0, x: -20 }}
-                      transition={{ duration: 0.4 }}
+                      transition={{ duration: 0.35 }}
                       className="w-full h-full object-cover cursor-pointer"
                       onClick={() => openLightbox(activePhotoIdx)}
                     />
                   </AnimatePresence>
 
                   {/* Gradient Scrim over photo */}
-                  <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-transparent to-black/30 pointer-events-none" />
+                  <div className="absolute inset-0 bg-gradient-to-t from-black/75 via-transparent to-black/20 pointer-events-none" />
 
                   {/* Angle Label Top Left */}
-                  <div className="absolute top-3.5 left-3.5 z-10">
-                    <span className="px-3 py-1 rounded-full bg-white/95 backdrop-blur-md text-slate-950 text-xs font-black uppercase tracking-wider shadow">
+                  <div className="absolute top-3 left-3 z-10">
+                    <span className="px-3 py-1 rounded-full bg-white/95 backdrop-blur-md text-slate-950 text-[10px] sm:text-xs font-black uppercase tracking-wider shadow">
                       {currentPhoto.angle || currentPhoto.label}
                     </span>
                   </div>
@@ -352,7 +192,7 @@ export default function VehicleDetailPage({ vehicle, onBack, onBookNow }) {
                   {/* Zoom Lightbox Button Top Right */}
                   <button
                     onClick={() => openLightbox(activePhotoIdx)}
-                    className="absolute top-3.5 right-3.5 p-2 rounded-full bg-black/60 text-white hover:bg-[#8B1E1E] transition-all backdrop-blur-md z-10 cursor-pointer shadow-md"
+                    className="absolute top-3 right-3 p-2 rounded-full bg-black/60 text-white hover:bg-[#8B1E1E] transition-all backdrop-blur-md z-10 cursor-pointer shadow-md"
                     title="Zoom Fullscreen"
                   >
                     <Maximize2 className="w-4 h-4" />
@@ -375,7 +215,7 @@ export default function VehicleDetailPage({ vehicle, onBack, onBookNow }) {
                   </button>
 
                   {/* Photo Title bottom left */}
-                  <div className="absolute bottom-3.5 left-4 right-4 z-10">
+                  <div className="absolute bottom-3 left-4 right-4 z-10">
                     <p className="text-white text-xs sm:text-sm font-bold truncate drop-shadow">
                       {currentPhoto.label}
                     </p>
@@ -383,15 +223,15 @@ export default function VehicleDetailPage({ vehicle, onBack, onBookNow }) {
                 </div>
 
                 {/* Clickable Multi-Angle Thumbnail Strip */}
-                <div className="mt-3.5 grid grid-cols-4 gap-2">
+                <div className="mt-3 grid grid-cols-4 gap-2">
                   {photos.map((p, i) => (
                     <button
                       key={p.key}
                       onClick={() => setActivePhotoIdx(i)}
                       className={`relative aspect-[16/10] rounded-xl overflow-hidden border-2 transition-all cursor-pointer ${
                         activePhotoIdx === i
-                          ? 'border-[#8B1E1E] ring-2 ring-[#8B1E1E]/30 scale-102 shadow-sm'
-                          : 'border-slate-200 opacity-65 hover:opacity-100 hover:border-slate-400'
+                          ? 'border-[#8B1E1E] ring-2 ring-[#8B1E1E]/30 shadow-sm'
+                          : 'border-stone-200 opacity-65 hover:opacity-100 hover:border-stone-400'
                       }`}
                     >
                       <img src={p.src} alt={p.label} className="w-full h-full object-cover" />
@@ -401,14 +241,14 @@ export default function VehicleDetailPage({ vehicle, onBack, onBookNow }) {
               </div>
 
               {/* Progress Indicator Dots */}
-              <div className="mt-4 pt-3 border-t border-slate-100 flex items-center justify-between">
+              <div className="mt-3.5 pt-3 border-t border-stone-100 flex items-center justify-between">
                 <div className="flex items-center space-x-1.5">
                   {photos.map((_, i) => (
                     <button
                       key={i}
                       onClick={() => setActivePhotoIdx(i)}
                       className={`h-1.5 rounded-full transition-all cursor-pointer ${
-                        activePhotoIdx === i ? 'w-6 bg-[#8B1E1E]' : 'w-1.5 bg-slate-200 hover:bg-slate-400'
+                        activePhotoIdx === i ? 'w-6 bg-[#8B1E1E]' : 'w-1.5 bg-stone-200 hover:bg-stone-400'
                       }`}
                     />
                   ))}
@@ -420,92 +260,131 @@ export default function VehicleDetailPage({ vehicle, onBack, onBookNow }) {
               </div>
             </div>
 
+            {/* RIGHT COLUMN (5 Cols): Complete Vehicle Details, Tariff & Booking */}
+            <div className="lg:col-span-5 flex flex-col space-y-5">
+              {/* Title, Badges & Description */}
+              <div className="space-y-2.5">
+                <div className="flex flex-wrap items-center gap-2">
+                  <span className="px-2.5 py-1 rounded-full bg-[#8B1E1E] text-white text-[10px] font-black uppercase tracking-wider shadow-2xs">
+                    {vehicle.badge || 'Mariya Certified'}
+                  </span>
+                  <span className="px-2.5 py-1 rounded-full bg-white border border-stone-200 text-slate-950 text-[11px] font-black flex items-center space-x-1">
+                    <Users className="w-3.5 h-3.5 text-[#8B1E1E]" />
+                    <span>{vehicle.seats} Seats</span>
+                  </span>
+                </div>
+
+                <h1 className="font-sans text-2xl sm:text-3xl lg:text-4xl font-extrabold text-slate-950 tracking-tight leading-tight">
+                  {vehicle.name}
+                </h1>
+                <p className="text-xs sm:text-sm font-bold text-[#8B1E1E]">
+                  {vehicle.tagline}
+                </p>
+                <p className="text-xs sm:text-sm text-slate-600 leading-relaxed font-medium">
+                  {vehicle.description}
+                </p>
+              </div>
+
+              {/* Clean 2x2 Royal Maroon Tariff Card */}
+              <div className="rounded-2xl bg-gradient-to-br from-[#450A0A] via-[#5C0D0D] to-[#2B0505] text-white p-4 sm:p-5 shadow-lg border border-red-950/60">
+                <div className="flex items-center justify-between border-b border-white/15 pb-2.5 mb-3">
+                  <span className="text-[10px] font-black uppercase tracking-[0.2em] text-[#F5B800]">
+                    Official Tariff Schedule
+                  </span>
+                  <span className="text-[10px] font-bold text-stone-300">Transparent Rates</span>
+                </div>
+
+                <div className="grid grid-cols-2 gap-3">
+                  {[
+                    { label: '1-Day Rent',                       value: `₹${vehicle.pricing.dayRent.toLocaleString()}`, gold: true },
+                    { label: 'Per KM',                           value: `₹${vehicle.pricing.perKm}/km`,               gold: false },
+                    { label: 'Hills Charge',                     value: `₹${vehicle.pricing.hills.toLocaleString()}`,  gold: true },
+                    { label: `Above ${vehicle.pricing.limitKm} KM`, value: `₹${vehicle.pricing.aboveLimitRate}/km`,  gold: false },
+                  ].map((item, i) => (
+                    <div key={i} className="bg-white/[0.06] rounded-xl p-2.5 sm:p-3 border border-white/10">
+                      <span className="text-[9.5px] font-bold uppercase tracking-wider text-stone-300 block">{item.label}</span>
+                      <span className={`text-base sm:text-xl font-numeric font-black tracking-tight mt-0.5 block ${item.gold ? 'text-[#F5B800]' : 'text-white'}`}>
+                        {item.value}
+                      </span>
+                    </div>
+                  ))}
+                </div>
+              </div>
+
+              {/* Key Highlights Checklist */}
+              {vehicle.highlights && vehicle.highlights.length > 0 && (
+                <div className="grid grid-cols-2 gap-x-3 gap-y-2 pt-1">
+                  {vehicle.highlights.map((h, i) => (
+                    <div key={i} className="flex items-start space-x-2">
+                      <CheckCircle2 className="w-4 h-4 text-[#729227] shrink-0 mt-0.5" />
+                      <span className="text-xs font-bold text-slate-800 leading-snug">{h}</span>
+                    </div>
+                  ))}
+                </div>
+              )}
+
+              {/* Direct Booking Action Buttons */}
+              <div className="grid grid-cols-2 gap-2.5 pt-1">
+                <button
+                  onClick={handleWhatsApp}
+                  className="justify-center px-4 py-3.5 rounded-xl bg-[#25D366] hover:bg-[#20bd5a] text-white font-black text-xs uppercase tracking-wider flex items-center space-x-2 shadow-md hover:scale-[1.02] transition-all cursor-pointer whitespace-nowrap"
+                >
+                  <MessageSquare className="w-4 h-4 fill-current shrink-0" />
+                  <span>Instant Quote</span>
+                </button>
+                <a
+                  href="tel:+919486875680"
+                  className="justify-center px-4 py-3.5 rounded-xl bg-slate-950 hover:bg-[#8B1E1E] text-white font-black text-xs uppercase tracking-wider flex items-center space-x-2 shadow-md transition-colors whitespace-nowrap"
+                >
+                  <Phone className="w-4 h-4 text-[#F5B800] shrink-0" />
+                  <span>Call Founder</span>
+                </a>
+              </div>
+            </div>
+
           </div>
 
         </div>
       </section>
 
       {/* ══════════════════════════════════════════════════════════
-          5. TECHNICAL SPECS & INCLUDED AMENITIES
+          5. TECHNICAL SPECIFICATIONS (FULL WIDTH - NO DUPLICATION)
       ══════════════════════════════════════════════════════════ */}
-      <section className="py-14 sm:py-20 bg-white border-b border-slate-200">
-        <div className="max-w-7xl mx-auto px-4 sm:px-8">
-          <div className="grid grid-cols-1 lg:grid-cols-12 gap-10 lg:gap-16 items-start">
-
-            {/* LEFT: Specifications */}
-            <div className="lg:col-span-7 space-y-6">
-              <div>
-                <div className="flex items-center space-x-2.5 mb-2.5">
-                  <span className="w-6 h-[2.5px] bg-[#8B1E1E]" />
-                  <span className="text-[11px] font-black uppercase tracking-[0.25em] text-[#8B1E1E]">
-                    Engineering & Transit Standards
-                  </span>
-                </div>
-                <h2 className="font-serif text-2xl sm:text-3xl font-bold text-slate-950 mb-2">
-                  Technical Specifications
-                </h2>
-                <p className="text-xs sm:text-sm text-slate-600 font-medium leading-relaxed">
-                  Every vehicle in the Mariya fleet is company-owned, speed-governed, and maintained with genuine parts for hill stations and interstate highways.
-                </p>
+      <section className="py-12 sm:py-16 bg-white border-b border-slate-200">
+        <div className="max-w-7xl mx-auto px-4 sm:px-8 space-y-8">
+          <div className="flex flex-col md:flex-row md:items-end justify-between gap-4 border-b border-slate-100 pb-5">
+            <div className="max-w-2xl">
+              <div className="flex items-center space-x-2.5 mb-2">
+                <span className="w-6 h-[2.5px] bg-[#8B1E1E]" />
+                <span className="text-[11px] font-black uppercase tracking-[0.25em] text-[#8B1E1E]">
+                  Engineering & Transit Standards
+                </span>
               </div>
-
-              <div className="grid grid-cols-1 sm:grid-cols-2 gap-3.5">
-                {specs.map(({ icon: Icon, label, value }) => (
-                  <div key={label} className="flex items-center space-x-4 p-4 rounded-2xl bg-[#FAF8F5] border border-slate-200/90 hover:border-[#8B1E1E]/50 transition-colors group shadow-2xs">
-                    <div className="w-10 h-10 rounded-xl bg-[#8B1E1E]/10 flex items-center justify-center shrink-0 group-hover:bg-[#8B1E1E]/20 transition-colors">
-                      <Icon className="w-4.5 h-4.5 text-[#8B1E1E] stroke-[2.5]" style={{ width: 18, height: 18 }} />
-                    </div>
-                    <div>
-                      <span className="text-[9.5px] font-black uppercase tracking-widest text-slate-500 block">{label}</span>
-                      <span className="text-sm font-black text-slate-950 block mt-0.5">{value}</span>
-                    </div>
-                  </div>
-                ))}
-              </div>
-            </div>
-
-            {/* RIGHT: Amenities + WhatsApp booking card */}
-            <div className="lg:col-span-5 space-y-5">
-              <div className="bg-[#FAF8F5] p-4 sm:p-7 rounded-3xl border border-slate-200 shadow-sm">
-
-                <div className="flex items-center justify-between gap-2 border-b border-slate-200 pb-3 mb-4">
-                  <div className="flex items-center space-x-1.5 min-w-0">
-                    <Sparkles className="w-4 h-4 text-[#8B1E1E] shrink-0" />
-                    <span className="text-[11px] font-black uppercase tracking-wider sm:tracking-widest text-[#8B1E1E] truncate">
-                      <span className="hidden sm:inline">Included Passenger Amenities</span>
-                      <span className="sm:hidden">Passenger Amenities</span>
-                    </span>
-                  </div>
-                  <span className="px-2.5 py-0.5 rounded-full bg-[#8B1E1E] text-white text-[10px] font-black uppercase tracking-wider whitespace-nowrap shrink-0">
-                    {vehicle.highlights.length} Features
-                  </span>
-                </div>
-
-                <div className="space-y-2.5 mb-5">
-                  {vehicle.highlights.map((h, i) => (
-                    <div key={i} className="flex items-center space-x-3 p-3 rounded-xl bg-white border border-slate-200/80 shadow-2xs">
-                      <CheckCircle2 className="w-4 h-4 text-[#8B1E1E] shrink-0 fill-current" />
-                      <span className="text-xs font-bold text-slate-900">{h}</span>
-                    </div>
-                  ))}
-                </div>
-
-                {/* Quick book CTA */}
-                <button
-                  onClick={handleWhatsApp}
-                  className="w-full py-3.5 rounded-xl bg-[#8B1E1E] hover:bg-[#721818] text-white font-black text-xs uppercase tracking-wider flex items-center justify-center space-x-2 transition-all shadow-md hover:scale-[1.01] cursor-pointer"
-                >
-                  <MessageSquare className="w-4 h-4 fill-current" />
-                  <span>Book {vehicle.name} on WhatsApp</span>
-                </button>
-              </div>
-
-              {/* Tariff note */}
-              <p className="text-xs text-slate-500 font-semibold text-center px-2">
-                * Official tariff schedule. Tolls, state permits & parking at actuals.
+              <h2 className="font-sans text-2xl sm:text-3xl font-extrabold text-slate-950 tracking-tight">
+                Technical Specifications
+              </h2>
+              <p className="text-xs sm:text-sm text-slate-600 font-medium leading-relaxed mt-1.5">
+                Every vehicle in the Mariya fleet is company-owned, speed-governed, and maintained with genuine parts for hill stations and interstate highways.
               </p>
             </div>
 
+            <p className="text-xs text-slate-500 font-semibold shrink-0">
+              * Official tariff schedule. Tolls, state permits & parking at actuals.
+            </p>
+          </div>
+
+          <div className="grid grid-cols-2 lg:grid-cols-3 gap-3 sm:gap-4">
+            {specs.map(({ icon: Icon, label, value }) => (
+              <div key={label} className="flex flex-col sm:flex-row items-start sm:items-center gap-2.5 sm:gap-0 sm:space-x-4 p-3.5 sm:p-5 rounded-2xl bg-[#FAF8F5] border border-slate-200/90 hover:border-[#8B1E1E]/50 transition-colors group shadow-2xs">
+                <div className="w-9 h-9 sm:w-11 sm:h-11 rounded-xl bg-[#8B1E1E]/10 flex items-center justify-center shrink-0 group-hover:bg-[#8B1E1E]/20 transition-colors">
+                  <Icon className="w-4 h-4 sm:w-5 sm:h-5 text-[#8B1E1E] stroke-[2.5]" />
+                </div>
+                <div className="min-w-0 w-full">
+                  <span className="text-[8.5px] sm:text-[9.5px] font-black uppercase tracking-wider sm:tracking-widest text-slate-500 block">{label}</span>
+                  <span className="text-xs sm:text-sm font-black text-slate-950 block mt-0.5 leading-snug">{value}</span>
+                </div>
+              </div>
+            ))}
           </div>
         </div>
       </section>

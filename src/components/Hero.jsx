@@ -34,28 +34,39 @@ const PICKUP_POINTS = [
 const HERO_BG_IMAGES = [
   {
     src: '/hero/hero-1-rameshwaram.jpg',
+    mobileSrc: '/hero/mobile/hero-1-rameshwaram-mobile.jpg',
     alt: 'Rameshwaram Pamban Sea Bridge',
-    mobilePosition: 'object-[58%_center]'
+    mobilePosition: 'object-[50%_center]'
   },
   {
     src: '/hero/hero-2-kanyakumari.jpg',
+    mobileSrc: '/hero/mobile/hero-2-kanyakumari-mobile.jpg',
     alt: 'Kanyakumari Vivekananda Rock & Thiruvalluvar Statue',
-    mobilePosition: 'object-[75%_center]'
+    mobilePosition: 'object-[65%_center]'
   },
   {
     src: '/hero/hero-3-thanjavur.jpg',
+    mobileSrc: '/hero/mobile/hero-3-thanjavur-mobile.jpg',
     alt: 'Thanjavur Brihadeeswarar Temple Vimana',
-    mobilePosition: 'object-[78%_center]'
+    mobilePosition: 'object-[42%_center]'
   },
   {
     src: '/hero/hero-4-dhanushkodi.jpg',
+    mobileSrc: '/hero/mobile/hero-4-dhanushkodi-mobile.jpg',
     alt: 'Dhanushkodi Ocean Road',
-    mobilePosition: 'object-[50%_center]'
+    mobilePosition: 'object-center'
   },
   {
-    src: '/hero/hero-5-hills.jpg',
-    alt: 'Misty Western Ghats Hills',
-    mobilePosition: 'object-[50%_center]'
+    src: '/hero/hero-5-kodai-hills.jpg',
+    mobileSrc: '/hero/mobile/hero-5-kodai-hills-mobile.jpg',
+    alt: 'Misty Western Ghats Hills & Valleys',
+    mobilePosition: 'object-center'
+  },
+  {
+    src: '/hero/hero-6-ooty-valley.jpg',
+    mobileSrc: '/hero/mobile/hero-6-ooty-valley-mobile.jpg',
+    alt: 'Scenic Hill Station Sunrise & Tea Slopes',
+    mobilePosition: 'object-center'
   },
 ];
 
@@ -80,17 +91,18 @@ export default function Hero({
 
   // Preload hero background images for instant smooth transitions
   useEffect(() => {
-    HERO_BG_IMAGES.forEach(src => {
+    const isMobile = window.innerWidth <= 767;
+    HERO_BG_IMAGES.forEach(item => {
       const img = new Image();
-      img.src = src;
+      img.src = isMobile ? item.mobileSrc : item.src;
     });
   }, []);
 
-  // Cycle hero background every 2 seconds
+  // Cycle hero background every 4.5 seconds for a smooth, cinematic transition
   useEffect(() => {
     const timer = setInterval(() => {
       setBgIndex(prev => (prev + 1) % HERO_BG_IMAGES.length);
-    }, 2000);
+    }, 4500);
     return () => clearInterval(timer);
   }, []);
 
@@ -114,28 +126,33 @@ export default function Hero({
   };
 
   return (
-    <section id="home" className="relative w-full flex flex-col items-center justify-between overflow-hidden bg-slate-950 py-10 sm:py-14 text-slate-950 min-h-[500px] sm:min-h-[560px]">
+    <section id="home" className="relative w-full flex flex-col items-center justify-center overflow-hidden bg-[#FAF8F5] md:bg-slate-950 pt-5 pb-6 sm:pt-8 sm:pb-8 md:pt-8 md:pb-5 text-slate-950 md:aspect-[3/1]">
       
-      {/* 1. Cinematic 2-Second Rotating Scenic Background Slideshow (100% Crisp & Clear - Zero Fog) */}
-      <div className="absolute inset-0 z-0 overflow-hidden bg-slate-950">
-        <AnimatePresence initial={false}>
-          <motion.img
-            key={HERO_BG_IMAGES[bgIndex].src}
-            src={HERO_BG_IMAGES[bgIndex].src}
-            alt={HERO_BG_IMAGES[bgIndex].alt}
-            initial={{ opacity: 0 }}
-            animate={{ opacity: 1 }}
-            exit={{ opacity: 0 }}
-            transition={{ duration: 0.7, ease: "easeInOut" }}
-            className={`absolute inset-0 w-full h-full object-cover ${HERO_BG_IMAGES[bgIndex].mobilePosition} sm:object-center`}
-          />
-        </AnimatePresence>
-
-        {/* Minimal High-Clarity Film: Crisp, Rich Colors Without Fog */}
-        <div className="absolute inset-0 bg-gradient-to-b from-black/55 via-black/15 to-black/45 pointer-events-none" />
+      {/* 1. Cinematic Rotating Scenic Background Slideshow (GPU Hardware Accelerated - Zero Glitch) */}
+      <div className="absolute top-0 left-0 right-0 aspect-[4/5] md:aspect-auto md:inset-0 md:h-full z-0 overflow-hidden bg-slate-950">
+        {HERO_BG_IMAGES.map((img, index) => (
+          <div
+            key={img.src}
+            className={`absolute inset-0 transition-opacity duration-1000 ease-in-out will-change-[opacity] ${
+              bgIndex === index ? 'opacity-100 z-10' : 'opacity-0 z-0 pointer-events-none'
+            }`}
+          >
+            <picture className="w-full h-full block">
+              <source media="(max-width: 767px)" srcSet={img.mobileSrc} />
+              <img
+                src={img.src}
+                alt={img.alt}
+                loading={index === 0 ? "eager" : "lazy"}
+                decoding={index === 0 ? "sync" : "async"}
+                fetchpriority={index === 0 ? "high" : "low"}
+                className="hero-bg-img w-full h-full object-cover object-center"
+              />
+            </picture>
+          </div>
+        ))}
 
         {/* Slide Indicator Dots at bottom right */}
-        <div className="absolute bottom-4 right-4 z-10 hidden sm:flex items-center space-x-1.5 pointer-events-none">
+        <div className="absolute bottom-4 right-4 z-20 hidden sm:flex items-center space-x-1.5 pointer-events-none">
           {HERO_BG_IMAGES.map((_, i) => (
             <span
               key={i}
@@ -148,25 +165,25 @@ export default function Hero({
       </div>
 
       {/* Hero Content Container - Top Title + Bottom Compact Search */}
-      <div className="relative z-10 max-w-6xl mx-auto px-4 sm:px-6 w-full flex flex-col items-center text-center">
+      <div className="relative z-10 max-w-6xl mx-auto px-4 sm:px-6 w-full flex flex-col items-center text-center h-full flex-1">
         
         {/* Main Headline (Upper Section) */}
         <motion.div
           initial={{ opacity: 0, y: 15 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.6 }}
-          className="max-w-4xl mx-auto space-y-3 flex flex-col items-center"
+          className="max-w-4xl mx-auto space-y-2 sm:space-y-2.5 flex flex-col items-center"
         >
           {/* Mariya Travels Official Brand Logo (Transparent - No Background Box) */}
-          <div className="flex justify-center mb-1">
+          <div className="flex justify-center mb-0.5">
             <img
               src="/logo.png"
               alt="Madurai Mariya Travels Logo"
-              className="h-12 sm:h-16 md:h-20 w-auto object-contain [filter:drop-shadow(0_0_8px_rgba(255,255,255,0.5))_drop-shadow(0_4px_12px_rgba(0,0,0,0.7))] hover:scale-105 transition-transform duration-300"
+              className="h-11 sm:h-14 md:h-16 w-auto object-contain [filter:drop-shadow(0_0_8px_rgba(255,255,255,0.5))_drop-shadow(0_4px_12px_rgba(0,0,0,0.7))] hover:scale-105 transition-transform duration-300"
             />
           </div>
 
-          <h1 className="font-serif text-2xl sm:text-4xl md:text-[2.75rem] text-white font-bold leading-tight tracking-tight drop-shadow-[0_3px_14px_rgba(0,0,0,0.95)]">
+          <h1 className="font-serif text-xl sm:text-3xl md:text-4xl text-white font-bold leading-tight tracking-tight drop-shadow-[0_3px_14px_rgba(0,0,0,0.95)]">
             Every Journey Deserves a Better Ride with{' '}
             <span className="text-[#F5B800] not-italic font-black drop-shadow-[0_2px_12px_rgba(245,184,0,0.5)]">
               Mariya Travels.
@@ -185,7 +202,7 @@ export default function Hero({
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.6, delay: 0.15 }}
-          className="w-full max-w-4xl mt-12 sm:mt-18"
+          className="w-full max-w-4xl mt-40 sm:mt-48 md:mt-16 lg:mt-20"
         >
           <div className="bg-white/95 backdrop-blur-xl rounded-2xl p-3 sm:p-4 shadow-2xl shadow-black/60 border border-amber-400/50 text-left transition-all">
             
@@ -313,18 +330,18 @@ export default function Hero({
         </motion.div>
 
         {/* Quick Discovery Links (Compact) */}
-        <div className="mt-3 sm:mt-4 flex flex-wrap items-center justify-center gap-4 text-xs font-bold text-white/90">
+        <div className="mt-3 sm:mt-4 flex flex-wrap items-center justify-center gap-4 text-xs font-bold text-slate-700 md:text-white/90">
           <button
             onClick={onExploreFleet}
-            className="hover:text-[#F5B800] underline underline-offset-4 flex items-center space-x-1 transition-colors cursor-pointer"
+            className="hover:text-[#8B1E1E] md:hover:text-[#F5B800] underline underline-offset-4 flex items-center space-x-1 transition-colors cursor-pointer"
           >
             <span>Explore Fleet Tariff</span>
             <ArrowDownRight className="w-3.5 h-3.5" />
           </button>
-          <span className="text-white/40">•</span>
+          <span className="text-slate-400 md:text-white/40">•</span>
           <button
             onClick={onPlanJourney}
-            className="hover:text-[#F5B800] underline underline-offset-4 flex items-center space-x-1 transition-colors cursor-pointer"
+            className="hover:text-[#8B1E1E] md:hover:text-[#F5B800] underline underline-offset-4 flex items-center space-x-1 transition-colors cursor-pointer"
           >
             <span>Custom Route Booking</span>
             <Sparkles className="w-3.5 h-3.5 text-[#F5B800] fill-current" />
