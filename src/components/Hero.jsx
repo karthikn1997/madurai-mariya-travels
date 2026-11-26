@@ -31,42 +31,44 @@ const PICKUP_POINTS = [
   'Arapalayam Bus Stand'
 ];
 
+// Real photographs from Wikimedia Commons (CC licensed) - credits in public/hero/CREDITS.txt
+// Desktop: 3:1 crops at 1920w + 2880w (for high-DPI screens). Mobile: 4:5 crops at 1080x1350.
 const HERO_BG_IMAGES = [
   {
-    src: '/hero/hero-1-rameshwaram.jpg',
-    mobileSrc: '/hero/mobile/hero-1-rameshwaram-mobile.jpg',
-    alt: 'Rameshwaram Pamban Sea Bridge',
-    mobilePosition: 'object-[50%_center]'
+    src: '/hero/hero-1-rameshwaram-hd.jpg',
+    src2x: '/hero/hero-1-rameshwaram-2x.jpg',
+    mobileSrc: '/hero/mobile/hero-1-rameshwaram-mobile-hd.jpg',
+    alt: 'Pamban Bridge lift span over the sea, Rameshwaram'
   },
   {
-    src: '/hero/hero-2-kanyakumari.jpg',
-    mobileSrc: '/hero/mobile/hero-2-kanyakumari-mobile.jpg',
-    alt: 'Kanyakumari Vivekananda Rock & Thiruvalluvar Statue',
-    mobilePosition: 'object-[65%_center]'
+    src: '/hero/hero-2-kanyakumari-hd.jpg',
+    src2x: '/hero/hero-2-kanyakumari-2x.jpg',
+    mobileSrc: '/hero/mobile/hero-2-kanyakumari-mobile-hd.jpg',
+    alt: 'Vivekananda Rock Memorial at dusk, Kanyakumari'
   },
   {
-    src: '/hero/hero-3-thanjavur.jpg',
-    mobileSrc: '/hero/mobile/hero-3-thanjavur-mobile.jpg',
-    alt: 'Thanjavur Brihadeeswarar Temple Vimana',
-    mobilePosition: 'object-[42%_center]'
+    src: '/hero/hero-3-thanjavur-hd.jpg',
+    src2x: '/hero/hero-3-thanjavur-2x.jpg',
+    mobileSrc: '/hero/mobile/hero-3-thanjavur-mobile-hd.jpg',
+    alt: 'Thanjavur Brihadeeswarar Temple'
   },
   {
-    src: '/hero/hero-4-dhanushkodi.jpg',
-    mobileSrc: '/hero/mobile/hero-4-dhanushkodi-mobile.jpg',
-    alt: 'Dhanushkodi Ocean Road',
-    mobilePosition: 'object-center'
+    src: '/hero/hero-4-dhanushkodi-hd.jpg',
+    src2x: '/hero/hero-4-dhanushkodi-2x.jpg',
+    mobileSrc: '/hero/mobile/hero-4-dhanushkodi-mobile-hd.jpg',
+    alt: 'Dhanushkodi ocean road'
   },
   {
-    src: '/hero/hero-5-kodai-hills.jpg',
-    mobileSrc: '/hero/mobile/hero-5-kodai-hills-mobile.jpg',
-    alt: 'Misty Western Ghats Hills & Valleys',
-    mobilePosition: 'object-center'
+    src: '/hero/hero-5-kodai-hills-hd.jpg',
+    src2x: '/hero/hero-5-kodai-hills-2x.jpg',
+    mobileSrc: '/hero/mobile/hero-5-kodai-hills-mobile-hd.jpg',
+    alt: 'Kodaikanal lake and hills'
   },
   {
-    src: '/hero/hero-6-ooty-valley.jpg',
-    mobileSrc: '/hero/mobile/hero-6-ooty-valley-mobile.jpg',
-    alt: 'Scenic Hill Station Sunrise & Tea Slopes',
-    mobilePosition: 'object-center'
+    src: '/hero/hero-6-ooty-valley-hd.jpg',
+    src2x: '/hero/hero-6-ooty-valley-2x.jpg',
+    mobileSrc: '/hero/mobile/hero-6-ooty-valley-mobile-hd.jpg',
+    alt: 'Tea plantations near Doddabetta, Ooty'
   },
 ];
 
@@ -126,7 +128,7 @@ export default function Hero({
   };
 
   return (
-    <section id="home" className="relative w-full flex flex-col items-center justify-center overflow-hidden bg-[#FAF8F5] md:bg-slate-950 pt-5 pb-6 sm:pt-8 sm:pb-8 md:py-6 text-slate-950 md:h-[430px] lg:h-[460px]">
+    <section id="home" className="relative w-full flex flex-col items-center justify-center overflow-hidden bg-[#FAF8F5] md:bg-slate-950 pt-5 pb-6 sm:pt-8 sm:pb-8 md:py-6 text-slate-950 md:h-[540px] lg:h-[600px]">
       
       {/* 1. Cinematic Rotating Scenic Background Slideshow (GPU Hardware Accelerated - Zero Glitch) */}
       <div className="absolute top-0 left-0 right-0 aspect-[4/5] md:aspect-auto md:inset-0 md:h-full z-0 overflow-hidden bg-slate-950">
@@ -139,6 +141,7 @@ export default function Hero({
           >
             <picture className="w-full h-full block">
               <source media="(max-width: 767px)" srcSet={img.mobileSrc} />
+              <source media="(min-width: 768px)" srcSet={`${img.src} 1920w, ${img.src2x} 2880w`} sizes="100vw" />
               <img
                 src={img.src}
                 alt={img.alt}
@@ -179,20 +182,23 @@ export default function Hero({
             <img
               src="/logo.png"
               alt="Madurai Mariya Travels Logo"
-              className="h-11 sm:h-14 md:h-16 w-auto object-contain [filter:drop-shadow(0_0_8px_rgba(255,255,255,0.5))_drop-shadow(0_4px_12px_rgba(0,0,0,0.7))] hover:scale-105 transition-transform duration-300"
+              className="h-11 sm:h-14 md:h-16 lg:h-[72px] w-auto object-contain [filter:drop-shadow(0_0_8px_rgba(255,255,255,0.5))_drop-shadow(0_4px_12px_rgba(0,0,0,0.7))] hover:scale-105 transition-transform duration-300"
             />
           </div>
 
-          <h1 className="font-serif text-xl sm:text-3xl md:text-4xl text-white font-bold leading-tight tracking-tight drop-shadow-[0_3px_14px_rgba(0,0,0,0.95)]">
-            Every Journey Deserves a Better Ride with{' '}
-            <span className="text-[#F5B800] not-italic font-black drop-shadow-[0_2px_12px_rgba(245,184,0,0.5)]">
-              Mariya Travels.
-            </span>
-          </h1>
+          {/* Frosted glass panel behind the headline only - keeps the photo bright everywhere else */}
+          <div className="hero-glass-panel rounded-2xl px-4 py-2.5 sm:px-7 sm:py-3.5 space-y-1.5 sm:space-y-2">
+            <h1 className="hero-text-strong font-serif text-xl sm:text-3xl md:text-[2.1rem] lg:text-[2.4rem] text-white font-bold leading-tight tracking-tight">
+              Every Journey Deserves a Better Ride with{' '}
+              <span className="text-[#F5B800] not-italic font-black">
+                Mariya Travels.
+              </span>
+            </h1>
 
-          <p className="text-xs sm:text-sm text-white/95 font-medium max-w-lg mx-auto drop-shadow-[0_2px_6px_rgba(0,0,0,0.9)] leading-relaxed">
-            Search instant fleet availability & curated tours across South India
-          </p>
+            <p className="hero-text-strong text-xs sm:text-sm md:text-base text-white font-semibold max-w-2xl mx-auto leading-relaxed">
+              Search instant fleet availability & curated tours across South India
+            </p>
+          </div>
         </motion.div>
 
         {/* ============================================================== */}
@@ -202,7 +208,7 @@ export default function Hero({
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.6, delay: 0.15 }}
-          className="w-full max-w-4xl mt-40 sm:mt-48 md:mt-8 lg:mt-10"
+          className="w-full max-w-4xl lg:max-w-5xl mt-40 sm:mt-48 md:mt-10 lg:mt-14"
         >
           <div className="bg-white/95 backdrop-blur-xl rounded-2xl p-3 sm:p-4 shadow-2xl shadow-black/60 border border-amber-400/50 text-left transition-all">
             
@@ -212,14 +218,14 @@ export default function Hero({
                 
                 {/* 1. PICKUP POINT */}
                 <div className="relative bg-stone-50 hover:bg-stone-100 rounded-xl p-2 sm:p-2.5 border border-stone-200 focus-within:border-amber-400 focus-within:ring-1 focus-within:ring-amber-400/30 transition-all">
-                  <label className="block text-[9.5px] font-black uppercase tracking-wider text-slate-500 mb-0.5 flex items-center space-x-1">
+                  <label className="block text-[9.5px] md:text-[11px] font-black uppercase tracking-wider text-slate-500 mb-0.5 flex items-center space-x-1">
                     <MapPin className="w-3 h-3 text-[#8B1E1E]" />
                     <span>From</span>
                   </label>
                   <select
                     value={pickup}
                     onChange={(e) => setPickup(e.target.value)}
-                    className="w-full bg-transparent font-bold text-[11px] sm:text-xs text-slate-950 focus:outline-none cursor-pointer truncate"
+                    className="w-full bg-transparent font-bold text-[11px] sm:text-xs md:text-sm text-slate-950 focus:outline-none cursor-pointer truncate"
                   >
                     {PICKUP_POINTS.map(pt => (
                       <option key={pt} value={pt}>{pt}</option>
@@ -229,7 +235,7 @@ export default function Hero({
 
                 {/* 2. DESTINATION / TO */}
                 <div className="relative bg-stone-50 hover:bg-stone-100 rounded-xl p-2 sm:p-2.5 border border-stone-200 focus-within:border-amber-400 focus-within:ring-1 focus-within:ring-amber-400/30 transition-all">
-                  <label className="block text-[9.5px] font-black uppercase tracking-wider text-slate-500 mb-0.5 flex items-center space-x-1">
+                  <label className="block text-[9.5px] md:text-[11px] font-black uppercase tracking-wider text-slate-500 mb-0.5 flex items-center space-x-1">
                     <Compass className="w-3 h-3 text-[#F5B800]" />
                     <span>To Destination</span>
                   </label>
@@ -238,7 +244,7 @@ export default function Hero({
                     value={destination}
                     onChange={(e) => setDestination(e.target.value)}
                     placeholder="e.g. Kodaikanal, Munnar..."
-                    className="w-full bg-transparent font-bold text-[11px] sm:text-xs text-slate-950 placeholder-slate-400 focus:outline-none truncate"
+                    className="w-full bg-transparent font-bold text-[11px] sm:text-xs md:text-sm text-slate-950 placeholder-slate-400 focus:outline-none truncate"
                     list="destinations-list"
                   />
                   <datalist id="destinations-list">
@@ -250,7 +256,7 @@ export default function Hero({
 
                 {/* 3. TRAVEL DATE */}
                 <div className="relative bg-stone-50 hover:bg-stone-100 rounded-xl p-2 sm:p-2.5 border border-stone-200 focus-within:border-amber-400 focus-within:ring-1 focus-within:ring-amber-400/30 transition-all">
-                  <label className="block text-[9.5px] font-black uppercase tracking-wider text-slate-500 mb-0.5 flex items-center space-x-1">
+                  <label className="block text-[9.5px] md:text-[11px] font-black uppercase tracking-wider text-slate-500 mb-0.5 flex items-center space-x-1">
                     <Calendar className="w-3 h-3 text-slate-600" />
                     <span>Travel Date</span>
                   </label>
@@ -259,20 +265,20 @@ export default function Hero({
                     min={getToday()}
                     value={travelDate}
                     onChange={(e) => setTravelDate(e.target.value)}
-                    className="w-full bg-transparent font-bold text-[11px] sm:text-xs text-slate-950 focus:outline-none cursor-pointer truncate"
+                    className="w-full bg-transparent font-bold text-[11px] sm:text-xs md:text-sm text-slate-950 focus:outline-none cursor-pointer truncate"
                   />
                 </div>
 
                 {/* 4. PASSENGERS / VEHICLE TYPE */}
                 <div className="relative bg-stone-50 hover:bg-stone-100 rounded-xl p-2 sm:p-2.5 border border-stone-200 focus-within:border-amber-400 focus-within:ring-1 focus-within:ring-amber-400/30 transition-all">
-                  <label className="block text-[9.5px] font-black uppercase tracking-wider text-slate-500 mb-0.5 flex items-center space-x-1">
+                  <label className="block text-[9.5px] md:text-[11px] font-black uppercase tracking-wider text-slate-500 mb-0.5 flex items-center space-x-1">
                     <Users className="w-3 h-3 text-slate-600" />
                     <span>Passengers</span>
                   </label>
                   <select
                     value={paxRange}
                     onChange={(e) => setPaxRange(e.target.value)}
-                    className="w-full bg-transparent font-bold text-[11px] sm:text-xs text-slate-950 focus:outline-none cursor-pointer truncate"
+                    className="w-full bg-transparent font-bold text-[11px] sm:text-xs md:text-sm text-slate-950 focus:outline-none cursor-pointer truncate"
                   >
                     <option value="all">Any (All 8 Fleet)</option>
                     <option value="1-4">1 - 4 Pax (Sedan)</option>
@@ -290,7 +296,7 @@ export default function Hero({
                 
                 {/* Popular pills with smooth horizontal swipe and zero ugly scrollbars */}
                 <div className="flex items-center space-x-1.5 overflow-x-auto w-full sm:w-auto py-1 no-scrollbar text-left scroll-smooth">
-                  <span className="text-[9.5px] font-black uppercase tracking-wider text-slate-500 shrink-0 mr-1 flex items-center space-x-1">
+                  <span className="text-[9.5px] md:text-[11px] font-black uppercase tracking-wider text-slate-500 shrink-0 mr-1 flex items-center space-x-1">
                     <span className="w-1.5 h-1.5 rounded-full bg-[#8B1E1E]" />
                     <span>Popular:</span>
                   </span>
@@ -302,7 +308,7 @@ export default function Hero({
                         setDestination(city);
                         handleSearch();
                       }}
-                      className={`px-2.5 py-1 rounded-full text-[10px] font-black transition-all shrink-0 cursor-pointer border ${
+                      className={`px-2.5 md:px-3 py-1 rounded-full text-[10px] md:text-xs font-black transition-all shrink-0 cursor-pointer border ${
                         destination === city
                           ? 'bg-[#8B1E1E] text-white border-[#8B1E1E] shadow-sm'
                           : 'bg-stone-50 hover:bg-amber-50 hover:border-amber-300 text-slate-800 border-stone-200'
@@ -316,7 +322,7 @@ export default function Hero({
                 {/* Submit Search Button (Compact) */}
                 <button
                   type="submit"
-                  className="w-full sm:w-auto px-6 py-2.5 rounded-xl bg-[#8B1E1E] hover:bg-[#721818] active:scale-98 text-white font-black tracking-wider text-[11px] uppercase flex items-center justify-center space-x-2 shadow-md shadow-red-950/20 transition-all cursor-pointer group shrink-0"
+                  className="w-full sm:w-auto px-6 md:px-7 py-2.5 md:py-3 rounded-xl bg-[#8B1E1E] hover:bg-[#721818] active:scale-98 text-white font-black tracking-wider text-[11px] md:text-xs uppercase flex items-center justify-center space-x-2 shadow-md shadow-red-950/20 transition-all cursor-pointer group shrink-0"
                 >
                   <Search className="w-3.5 h-3.5 text-[#F5B800] group-hover:scale-110 transition-transform" />
                   <span>Search Available Rides</span>
@@ -330,7 +336,7 @@ export default function Hero({
         </motion.div>
 
         {/* Quick Discovery Links (Compact) */}
-        <div className="mt-3 sm:mt-4 flex flex-wrap items-center justify-center gap-4 text-xs font-bold text-slate-700 md:text-white/90">
+        <div className="mt-3 sm:mt-4 flex flex-wrap items-center justify-center gap-4 text-xs md:text-sm font-bold text-slate-700 md:text-white/90">
           <button
             onClick={onExploreFleet}
             className="hover:text-[#8B1E1E] md:hover:text-[#F5B800] underline underline-offset-4 flex items-center space-x-1 transition-colors cursor-pointer"

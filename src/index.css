@@ -68,14 +68,129 @@
   -webkit-text-fill-color: transparent;
 }
 
-/* Hero background image - maximum sharpness, no browser softening */
+/* Hero background image - use the browser's default smooth (bicubic) scaling.
+   Do NOT use crisp-edges / optimize-contrast here: in Chrome they switch to
+   nearest-neighbour scaling, which makes photos look jagged and pixelated. */
 .hero-bg-img {
-  image-rendering: -webkit-optimize-contrast;
-  image-rendering: crisp-edges;
-  image-rendering: high-quality;
+  image-rendering: auto;
+  /* Slight vibrance boost so photos look lively, not dull */
+  filter: saturate(1.12) contrast(1.05);
   -webkit-transform: translateZ(0);
   transform: translateZ(0);
   -webkit-backface-visibility: hidden;
   backface-visibility: hidden;
   will-change: opacity;
+}
+
+/* Hero headline: frosted glass panel (only behind the text, photo stays bright) */
+.hero-glass-panel {
+  background: rgba(15, 23, 42, 0.28);
+  -webkit-backdrop-filter: blur(6px) saturate(1.2);
+  backdrop-filter: blur(6px) saturate(1.2);
+  border: 1px solid rgba(255, 255, 255, 0.22);
+  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.25), inset 0 1px 0 rgba(255, 255, 255, 0.15);
+}
+
+/* Hero text: layered shadow = thin dark edge + soft glow, readable on bright sky/sea */
+.hero-text-strong {
+  text-shadow:
+    0 1px 1px rgba(0, 0, 0, 0.85),
+    0 0 2px rgba(0, 0, 0, 0.7),
+    0 2px 6px rgba(0, 0, 0, 0.55),
+    0 4px 18px rgba(0, 0, 0, 0.35);
+}
+
+/* ==========================================================================
+   DESKTOP READABILITY SCALE (>= 768px)
+   Body / small UI text across the whole site was 8-14px. On desktop we bump
+   every small text size up one step. Headings (text-lg and larger) are left
+   unchanged. Rules are ordered base -> sm -> md -> lg to mirror Tailwind's own
+   ordering, so responsive variants still win the same way they did before.
+   To tune: edit the font-size values below.
+   ========================================================================== */
+@media (min-width: 768px) {
+  .text-xs { font-size: 0.875rem; line-height: 1.45; }
+  .text-sm { font-size: 0.96875rem; line-height: 1.5; }
+  .text-base { font-size: 1.0625rem; line-height: 1.6; }
+  .text-\[6px\] { font-size: 0.5rem; }
+  .text-\[8px\] { font-size: 0.6875rem; }
+  .text-\[8\.5px\] { font-size: 0.6875rem; }
+  .text-\[9px\] { font-size: 0.71875rem; }
+  .text-\[9\.5px\] { font-size: 0.75rem; }
+  .text-\[10px\] { font-size: 0.78125rem; }
+  .text-\[10\.5px\] { font-size: 0.8125rem; }
+  .text-\[11px\] { font-size: 0.84375rem; }
+  .text-\[11\.5px\] { font-size: 0.875rem; }
+  .text-\[13px\] { font-size: 0.9375rem; }
+  .text-\[15px\] { font-size: 1.03125rem; }
+  .sm\:text-xs { font-size: 0.875rem; line-height: 1.45; }
+  .sm\:text-sm { font-size: 0.96875rem; line-height: 1.5; }
+  .sm\:text-base { font-size: 1.0625rem; line-height: 1.6; }
+  .sm\:text-\[6px\] { font-size: 0.5rem; }
+  .sm\:text-\[8px\] { font-size: 0.6875rem; }
+  .sm\:text-\[8\.5px\] { font-size: 0.6875rem; }
+  .sm\:text-\[9px\] { font-size: 0.71875rem; }
+  .sm\:text-\[9\.5px\] { font-size: 0.75rem; }
+  .sm\:text-\[10px\] { font-size: 0.78125rem; }
+  .sm\:text-\[10\.5px\] { font-size: 0.8125rem; }
+  .sm\:text-\[11px\] { font-size: 0.84375rem; }
+  .sm\:text-\[11\.5px\] { font-size: 0.875rem; }
+  .sm\:text-\[13px\] { font-size: 0.9375rem; }
+  .sm\:text-\[15px\] { font-size: 1.03125rem; }
+  .md\:text-xs { font-size: 0.875rem; line-height: 1.45; }
+  .md\:text-sm { font-size: 0.96875rem; line-height: 1.5; }
+  .md\:text-base { font-size: 1.0625rem; line-height: 1.6; }
+  .md\:text-\[6px\] { font-size: 0.5rem; }
+  .md\:text-\[8px\] { font-size: 0.6875rem; }
+  .md\:text-\[8\.5px\] { font-size: 0.6875rem; }
+  .md\:text-\[9px\] { font-size: 0.71875rem; }
+  .md\:text-\[9\.5px\] { font-size: 0.75rem; }
+  .md\:text-\[10px\] { font-size: 0.78125rem; }
+  .md\:text-\[10\.5px\] { font-size: 0.8125rem; }
+  .md\:text-\[11px\] { font-size: 0.84375rem; }
+  .md\:text-\[11\.5px\] { font-size: 0.875rem; }
+  .md\:text-\[13px\] { font-size: 0.9375rem; }
+  .md\:text-\[15px\] { font-size: 1.03125rem; }
+  .lg\:text-xs { font-size: 0.875rem; line-height: 1.45; }
+  .lg\:text-sm { font-size: 0.96875rem; line-height: 1.5; }
+  .lg\:text-base { font-size: 1.0625rem; line-height: 1.6; }
+  .lg\:text-\[6px\] { font-size: 0.5rem; }
+  .lg\:text-\[8px\] { font-size: 0.6875rem; }
+  .lg\:text-\[8\.5px\] { font-size: 0.6875rem; }
+  .lg\:text-\[9px\] { font-size: 0.71875rem; }
+  .lg\:text-\[9\.5px\] { font-size: 0.75rem; }
+  .lg\:text-\[10px\] { font-size: 0.78125rem; }
+  .lg\:text-\[10\.5px\] { font-size: 0.8125rem; }
+  .lg\:text-\[11px\] { font-size: 0.84375rem; }
+  .lg\:text-\[11\.5px\] { font-size: 0.875rem; }
+  .lg\:text-\[13px\] { font-size: 0.9375rem; }
+  .lg\:text-\[15px\] { font-size: 1.03125rem; }
+
+  /* Re-assert explicit line-height utilities so they still win over the defaults above */
+  .leading-none { line-height: 1; }
+  .leading-tight { line-height: 1.25; }
+  .leading-snug { line-height: 1.375; }
+  .leading-relaxed { line-height: 1.625; }
+  .leading-\[1\.12\] { line-height: 1.12; }
+}
+
+/* Floating WhatsApp / Call buttons */
+@keyframes phone-ring {
+  0%, 60%, 100% { transform: rotate(0deg); }
+  64% { transform: rotate(-18deg); }
+  68% { transform: rotate(16deg); }
+  72% { transform: rotate(-14deg); }
+  76% { transform: rotate(12deg); }
+  80% { transform: rotate(-8deg); }
+  84% { transform: rotate(0deg); }
+}
+@keyframes wa-bounce {
+  0%, 70%, 100% { transform: translateY(0) scale(1); }
+  76% { transform: translateY(-4px) scale(1.08); }
+  82% { transform: translateY(0) scale(0.96); }
+  88% { transform: translateY(-2px) scale(1.03); }
+}
+@keyframes float-glow {
+  0%, 100% { transform: scale(1); opacity: 0.15; }
+  50% { transform: scale(1.12); opacity: 0.3; }
 }

@@ -199,6 +199,17 @@ export default function Navbar({ onBookClick }) {
           <p className="text-center text-[11px] tracking-wider text-brand-charcoal-500 font-medium">
             MARIYA TRAVELS • TAMIL NADU TOURISM & CHAUFFEUR
           </p>
+          <p className="text-center text-[11px] text-brand-charcoal-500 font-medium">
+            Powered by{' '}
+            <a
+              href="https://www.infovo.in/"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="font-black text-[#8B1E1E] hover:underline underline-offset-4"
+            >
+              Infovo Technologies
+            </a>
+          </p>
         </div>
       </div>
     </>

@@ -1,0 +1,17 @@
+Hero background photo credits (Wikimedia Commons)
+Images were cropped and resized for the website hero banner.
+
+hero-1-rameshwaram-*  : "Pamban bridge of Tamilnadu" by Thamizhpparithi Maari - CC BY-SA 4.0
+                        https://commons.wikimedia.org/wiki/File:Pamban_bridge_of_Tamilnadu.jpg
+hero-2-kanyakumari-*  : "Rock memorial of Vivekananda" by Shivani - CC BY-SA 4.0
+                        https://commons.wikimedia.org/wiki/File:Rock_memorial_of_Vivekananda.jpg
+hero-3-thanjavur (desktop): "Brihadeeswarar Temple Thanjavur TN" by Shajinss - CC BY-SA 3.0
+                        https://commons.wikimedia.org/wiki/File:Brihadeeswarar_Temple_Thanjavur_TN.jpg
+hero-3-thanjavur (mobile) : "Brihadisvara Temple during Maha Shivaratri" by Rainer Halama (edit) - CC BY-SA 4.0
+                        https://commons.wikimedia.org/wiki/File:Brihadisvara_Temple_during_Maha_Shivaratri-WUS03611_(edit).jpg
+hero-4-dhanushkodi-*  : "Dhanushkodi Road" by Kondephy - CC BY-SA 4.0
+                        https://commons.wikimedia.org/wiki/File:Dhanushkodi_Road.jpg
+hero-5-kodai-hills-*  : "'Kodaikanal' Upper Lake View" by Thangaraj Kumaravel - CC BY 2.0
+                        https://commons.wikimedia.org/wiki/File:%27Kodaikanal%27_Upper_Lake_View_Rural_Tamil_Nadu_India_November_2013.jpg
+hero-6-ooty-valley-*  : "Ooty - Tea plantation, Doddabetta" by Umaroof - CC BY-SA 4.0
+                        https://commons.wikimedia.org/wiki/File:Ooty_-_Tea_plantation,_Doddabetta_Tamil_Nadu,_India.jpg

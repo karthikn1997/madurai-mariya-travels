@@ -12,6 +12,7 @@ import Footer from './components/Footer';
 import VehicleDetailPage from './components/VehicleDetailPage';
 import PackageDetailPage from './components/PackageDetailPage';
 import TourContactModal from './components/TourContactModal';
+import FloatingContact from './components/FloatingContact';
 import { VEHICLES } from './data/vehicles';
 import { TOUR_PACKAGES } from './data/packages';
 
@@ -78,7 +79,8 @@ export default function App() {
     return () => window.removeEventListener('popstate', handlePopState);
   }, [selectedVehicleForDetail, selectedPackageForDetail]);
 
-  // Show enquiry popup ONLY ONCE when website is first opened (runs for 30s)
+  // Show enquiry popup ONLY ONCE per session, 30 seconds after the website is opened
+  const POPUP_DELAY_MS = 30000;
   useEffect(() => {
     const hasShown = sessionStorage.getItem('mariya_initial_popup_shown');
     if (hasShown) {
@@ -89,7 +91,7 @@ export default function App() {
     const timer = setTimeout(() => {
       setShowTourPopup(true);
       sessionStorage.setItem('mariya_initial_popup_shown', 'true');
-    }, 1500);
+    }, POPUP_DELAY_MS);
 
     return () => clearTimeout(timer);
   }, []);
@@ -206,22 +208,28 @@ export default function App() {
   /* ── Vehicle Detail Full Page ── */
   if (selectedVehicleForDetail) {
     return (
-      <VehicleDetailPage
-        vehicle={selectedVehicleForDetail}
-        onBack={handleBackToFleet}
-        onBookNow={(vehicleName) => handleScrollToBooking(vehicleName)}
-      />
+      <>
+        <VehicleDetailPage
+          vehicle={selectedVehicleForDetail}
+          onBack={handleBackToFleet}
+          onBookNow={(vehicleName) => handleScrollToBooking(vehicleName)}
+        />
+        <FloatingContact />
+      </>
     );
   }
 
   /* ── Package Detail Full Page ── */
   if (selectedPackageForDetail) {
     return (
-      <PackageDetailPage
-        packageData={selectedPackageForDetail}
-        onBack={handleBackToPackages}
-        onBookVehicle={(vehicleName) => handleScrollToBooking(vehicleName, null, selectedPackageForDetail.name)}
-      />
+      <>
+        <PackageDetailPage
+          packageData={selectedPackageForDetail}
+          onBack={handleBackToPackages}
+          onBookVehicle={(vehicleName) => handleScrollToBooking(vehicleName, null, selectedPackageForDetail.name)}
+        />
+        <FloatingContact />
+      </>
     );
   }
 
@@ -287,6 +295,9 @@ export default function App() {
         packageName="Quick Reservation & Instant Itinerary Quote"
         durationSeconds={30}
       />
+
+      {/* Floating WhatsApp & Call buttons */}
+      <FloatingContact />
     </div>
   );
 }
