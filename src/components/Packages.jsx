@@ -1,5 +1,5 @@
 import React, { useState, useMemo } from 'react';
-import { motion, AnimatePresence } from 'framer-motion';
+import { motion } from 'framer-motion';
 import { 
   ArrowRight, Mountain, 
   Compass, Sparkles, MapPin, 
@@ -100,35 +100,32 @@ export default function Packages({ onSelectPackage, onEnquirePackage }) {
         {/* ============================================================== */}
         {/* COMPACT UNIFORM ROUNDED BOX CARDS (REDUCED HEIGHT)             */}
         {/* ============================================================== */}
-        <motion.div 
-          layout
+        <div
+          key={activeTab}
           className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4 sm:gap-5"
         >
-          <AnimatePresence mode="popLayout">
-            {filteredPackages.map((pkg, idx) => {
-              const isFirstGold = idx === 0;
+          {filteredPackages.map((pkg, idx) => {
+            const isFirstGold = idx === 0;
 
-              return (
-                <motion.div
-                  layout
-                  key={pkg.id}
-                  id={`pkg-${pkg.id}`}
-                  initial={{ opacity: 0, y: 20, scale: 0.97 }}
-                  animate={{ opacity: 1, y: 0, scale: 1 }}
-                  exit={{ opacity: 0, scale: 0.93, transition: { duration: 0.22 } }}
-                  transition={{ 
-                    duration: 0.35, 
-                    delay: idx * 0.04, 
-                    ease: [0.22, 1, 0.36, 1] 
-                  }}
-                  whileHover={{ 
-                    y: -4, 
-                    scale: 1.02,
-                    transition: { duration: 0.2, ease: 'easeOut' } 
-                  }}
-                  onClick={() => onSelectPackage?.(pkg)}
-                  className="group relative h-[195px] sm:h-[210px] md:h-[225px] w-full rounded-2xl overflow-hidden cursor-pointer border-[2.5px] border-white shadow-[0_8px_20px_-4px_rgba(0,0,0,0.18)] hover:shadow-[0_14px_30px_-5px_rgba(0,0,0,0.26)] transition-all duration-300 bg-slate-900"
-                >
+            return (
+              <motion.div
+                key={pkg.id}
+                id={`pkg-${pkg.id}`}
+                initial={{ opacity: 0, y: 16 }}
+                animate={{ opacity: 1, y: 0 }}
+                transition={{
+                  duration: 0.28,
+                  delay: idx * 0.04,
+                  ease: [0.22, 1, 0.36, 1]
+                }}
+                whileHover={{
+                  y: -4,
+                  scale: 1.02,
+                  transition: { duration: 0.2, ease: 'easeOut' }
+                }}
+                onClick={() => onSelectPackage?.(pkg)}
+                className="group relative h-[195px] sm:h-[210px] md:h-[225px] w-full rounded-2xl overflow-hidden cursor-pointer border-[2.5px] border-white shadow-[0_8px_20px_-4px_rgba(0,0,0,0.18)] hover:shadow-[0_14px_30px_-5px_rgba(0,0,0,0.26)] transition-all duration-300 bg-slate-900"
+              >
                   {/* 1. Full-Bleed Destination Cover Photo */}
                   <img
                     src={pkg.coverImage || pkg.heroBanner || pkg.image}
@@ -188,8 +185,7 @@ export default function Packages({ onSelectPackage, onEnquirePackage }) {
                 </motion.div>
               );
             })}
-          </AnimatePresence>
-        </motion.div>
+        </div>
 
         {/* ============================================================== */}
         {/* COMPACT BOTTOM CUSTOM ITINERARY INLINE BANNER                  */}
